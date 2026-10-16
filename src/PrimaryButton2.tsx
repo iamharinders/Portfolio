@@ -3,14 +3,11 @@ import { SvgGraphic } from "./RichText"
 
 export default function PrimaryButton2({ slots = [] }: { slots?: string[] }) {
   return (
-      <a className={styles["primary-2"]} href="./contact">
+      <a className={styles["primary-2"]} href="/contact">
         <div className={styles["content-3"]}>
           <div className={styles["text-5"]}>
             <div className={styles["1-promo-button-label-2"]}>
               <p className={styles["p-45"]}>{slots[0] ?? "Start Growing Today"}</p>
-            </div>
-            <div className={styles["promo-button-label-6"]}>
-              <p className={styles["p-46"]}>{slots[1] ?? "Start Growing Today"}</p>
             </div>
           </div>
           <div className={styles["arrow-4"]}>

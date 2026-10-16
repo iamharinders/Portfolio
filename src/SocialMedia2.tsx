@@ -1,14 +1,17 @@
 import styles from "./styles.module.css"
 import { SvgGraphic } from "./RichText"
 
-export default function SocialMedia2({ slots = [] }: { slots?: string[] }) {
+export default function SocialMedia2({ slots = [], videoSrc, onSelect }: { slots?: string[]; videoSrc?: string; onSelect?: () => void }) {
+  const videoUrl = videoSrc || "/assets/videos/reel_02.mp4"
   return (
-      <div className={styles["variant-1-16"]}>
-        <div className={styles["div-133"]} />
+      <div 
+        className={styles["variant-1-16"]} 
+        onClick={onSelect}
+        style={{ cursor: onSelect ? "pointer" : "default" }}
+      >
         <div className={styles["video-7"]}>
-          <div className={styles["div-134"]} />
           <div className={styles["div-135"]}>
-            <video className={styles["video-8"]} src="https://framerusercontent.com/assets/FLMP26czSPqDNGSRZ1PfTOfD3E.mp4" autoPlay muted loop playsInline />
+            <video className={styles["video-8"]} src={videoUrl} autoPlay muted loop playsInline />
           </div>
         </div>
         <div className={styles["logo-title-2"]}>

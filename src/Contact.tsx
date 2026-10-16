@@ -153,7 +153,7 @@ export default function Contact({ slots = [] }: { slots?: string[] }) {
                         <div className={styles["div-145"]}>
                           <div className={styles["reviews-text-63"]}>
                             <div className={styles["p-128"]}>
-                              <a className={styles["a-5"]} href="mailto:hello@clipcut.info">{slots[4] ?? "hello@clipcut.info"}</a>
+                              <a className={styles["a-5"]} href="mailto:iamharinders@gmail.com">{slots[4] ?? "iamharinders@gmail.com"}</a>
                             </div>
                           </div>
                         </div>
@@ -167,7 +167,7 @@ export default function Contact({ slots = [] }: { slots?: string[] }) {
                         <div className={styles["div-145"]}>
                           <div className={styles["reviews-text-63"]}>
                             <div className={styles["p-128"]}>
-                              <a className={styles["a-5"]} href="tel:+ (212) 555-0198">{slots[5] ?? "+ (212) 555-0198"}</a>
+                              <a className={styles["a-5"]} href="https://www.instagram.com/harinder.mp4/" target="_blank" rel="noopener noreferrer">{slots[5] ?? "@harinder.mp4"}</a>
                             </div>
                           </div>
                         </div>
@@ -176,14 +176,20 @@ export default function Contact({ slots = [] }: { slots?: string[] }) {
                   </div>
                 </div>
                 <div className={styles["form"]}>
-                  <form className={styles["form-2"]}>
+                  <form 
+                    className={styles["form-2"]}
+                    onSubmit={(e) => {
+                      e.preventDefault()
+                      alert("Thank you! Your message has been sent to Harinder Singh.")
+                    }}
+                  >
                     <div className={styles["label-3"]}>
                       <label className={styles["label-4"]}>
                         <div className={styles["div-235"]}>
                           <p className={styles["p-129"]}>{slots[6] ?? "Your Name"}</p>
                         </div>
                         <div className={styles["div-236"]}>
-                          <div className={styles["input"]} />
+                          <input required className={styles["input"]} type="text" placeholder="John Doe" />
                         </div>
                       </label>
                       <label className={styles["label-4"]}>
@@ -191,25 +197,25 @@ export default function Contact({ slots = [] }: { slots?: string[] }) {
                           <p className={styles["p-129"]}>{slots[7] ?? "Your Work Email"}</p>
                         </div>
                         <div className={styles["div-236"]}>
-                          <div className={styles["input"]} />
+                          <input required className={styles["input"]} type="email" placeholder="john@brand.com" />
                         </div>
                       </label>
                     </div>
                     <div className={styles["label-3"]}>
                       <label className={styles["label-4"]}>
                         <div className={styles["div-235"]}>
-                          <p className={styles["p-129"]}>{slots[8] ?? "Company Name"}</p>
+                          <p className={styles["p-129"]}>{slots[8] ?? "Company / Channel"}</p>
                         </div>
                         <div className={styles["div-236"]}>
-                          <div className={styles["input"]} />
+                          <input className={styles["input"]} type="text" placeholder="Channel / Brand" />
                         </div>
                       </label>
                       <label className={styles["label-4"]}>
                         <div className={styles["div-235"]}>
-                          <p className={styles["p-129"]}>{slots[9] ?? "Subject of Message"}</p>
+                          <p className={styles["p-129"]}>{slots[9] ?? "Subject"}</p>
                         </div>
                         <div className={styles["div-236"]}>
-                          <div className={styles["input"]} />
+                          <input className={styles["input"]} type="text" placeholder="Short-form editing project" />
                         </div>
                       </label>
                     </div>
@@ -218,23 +224,12 @@ export default function Contact({ slots = [] }: { slots?: string[] }) {
                         <p className={styles["p-130"]}>{slots[10] ?? "Message"}</p>
                       </div>
                       <div className={styles["div-238"]}>
-                        <div className={styles["textarea"]} />
+                        <textarea required className={styles["textarea"]} placeholder="Tell me about your videos, raw clips, and goals..." rows={4} />
                       </div>
                     </label>
                     <div className={styles["div-239"]}>
                       <FormButton slots={["Submit Message"]} />
                     </div>
-                    <div className={styles["input-2"]} />
-                    <div className={styles["input-2"]} />
-                    <div className={styles["input-2"]} />
-                    <div className={styles["input-2"]} />
-                    <div className={styles["input-2"]} />
-                    <div className={styles["input-2"]} />
-                    <div className={styles["input-2"]} />
-                    <div className={styles["input-2"]} />
-                    <div className={styles["input-2"]} />
-                    <div className={styles["input-2"]} />
-                    <div className={styles["input-2"]} />
                   </form>
                 </div>
               </div>
@@ -250,20 +245,6 @@ export default function Contact({ slots = [] }: { slots?: string[] }) {
         </div>
         <NavbarFooterCTA2 slots={[]} />
       </div>
-      <div className={styles["div-227"]}>
-        <a className={styles["light-2"]} href="https://www.framer.com">
-          <div className={styles["backdrop-2"]} />
-          <div className={styles["content-18"]}>
-            <div className={styles["div-228"]}>
-              <Framer slots={[]} />
-            </div>
-            <p className={styles["p-124"]}>{slots[0] ?? "Create a free website with Framer, the website builder loved by startups, designers and agencies."}</p>
-            <Text slots={[]} />
-          </div>
-          <div className={styles["bottom-2"]} />
-          <div className={styles["border-2"]} />
-        </a>
-      </div>
       <div className={styles["div-220"]}>
         <SvgGraphic className={styles["svg-32"]} html={"<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" id=\"svg-1084292861_3485\" data-f2c-idx=\"372\">\n<g clip-path=\"url(#svg-1084292861_3485_clip0_768_15244)\" data-f2c-idx=\"373\">\n<path d=\"M12.0012 0C18.6288 0 24.0012 5.3724 24.0012 12V20.4C24.0012 21.3548 23.6219 22.2704 22.9468 22.9456C22.2717 23.6207 21.356 24 20.4012 24H12.6012V18.7356C12.6012 17.5344 12.6744 16.29 13.3044 15.2676C13.7555 14.5349 14.3588 13.9078 15.0736 13.4288C15.7883 12.9497 16.5977 12.6301 17.4468 12.4914L17.6766 12.4542C17.7713 12.4218 17.8536 12.3606 17.9119 12.2792C17.9701 12.1978 18.0014 12.1001 18.0014 12C18.0014 11.8999 17.9701 11.8022 17.9119 11.7208C17.8536 11.6394 17.7713 11.5782 17.6766 11.5458L17.4468 11.5086C16.2061 11.3059 15.0604 10.7186 14.1715 9.82974C13.2826 8.94078 12.6953 7.79508 12.4926 6.5544L12.4554 6.3246C12.4231 6.22986 12.3619 6.1476 12.2804 6.0894C12.199 6.03114 12.1013 5.99985 12.0012 5.99985C11.9011 5.99985 11.8035 6.03114 11.7221 6.0894C11.6406 6.1476 11.5794 6.22986 11.547 6.3246L11.5098 6.5544C11.3712 7.40358 11.0515 8.21298 10.5725 8.9277C10.0935 9.64242 9.46638 10.2458 8.7336 10.6968C7.7112 11.3268 6.4668 11.4 5.26563 11.4H0.015625C0.329425 5.0514 5.57523 0 12.0012 0Z\" fill=\"white\" data-f2c-idx=\"374\"></path>\n<path d=\"M12.0012 0C18.6288 0 24.0012 5.3724 24.0012 12V20.4C24.0012 21.3548 23.6219 22.2704 22.9468 22.9456C22.2717 23.6207 21.356 24 20.4012 24H12.6012V18.7356C12.6012 17.5344 12.6744 16.29 13.3044 15.2676C13.7555 14.5349 14.3588 13.9078 15.0736 13.4288C15.7883 12.9497 16.5977 12.6301 17.4468 12.4914L17.6766 12.4542C17.7713 12.4218 17.8536 12.3606 17.9119 12.2792C17.9701 12.1978 18.0014 12.1001 18.0014 12C18.0014 11.8999 17.9701 11.8022 17.9119 11.7208C17.8536 11.6394 17.7713 11.5782 17.6766 11.5458L17.4468 11.5086C16.2061 11.3059 15.0604 10.7186 14.1715 9.82974C13.2826 8.94078 12.6953 7.79508 12.4926 6.5544L12.4554 6.3246C12.4231 6.22986 12.3619 6.1476 12.2804 6.0894C12.199 6.03114 12.1013 5.99985 12.0012 5.99985C11.9011 5.99985 11.8035 6.03114 11.7221 6.0894C11.6406 6.1476 11.5794 6.22986 11.547 6.3246L11.5098 6.5544C11.3712 7.40358 11.0515 8.21298 10.5725 8.9277C10.0935 9.64242 9.46638 10.2458 8.7336 10.6968C7.7112 11.3268 6.4668 11.4 5.26563 11.4H0.015625C0.329425 5.0514 5.57523 0 12.0012 0Z\" fill=\"white\" data-f2c-idx=\"375\"></path>\n<path d=\"M0 12.6H5.2644C6.4656 12.6 7.71 12.6732 8.7324 13.3032C9.5316 13.7957 10.2043 14.4684 10.6968 15.2676C11.3268 16.29 11.4 17.5344 11.4 18.7356V24H3.6C2.64522 24 1.72955 23.6207 1.05442 22.9456C0.379285 22.2704 0 21.3548 0 20.4V12.6ZM24 1.2C24 1.51826 23.8736 1.82348 23.6485 2.04853C23.4235 2.27357 23.1182 2.4 22.8 2.4C22.4818 2.4 22.1765 2.27357 21.9515 2.04853C21.7264 1.82348 21.6 1.51826 21.6 1.2C21.6 0.881742 21.7264 0.576515 21.9515 0.351472C22.1765 0.126428 22.4818 0 22.8 0C23.1182 0 23.4235 0.126428 23.6485 0.351472C23.8736 0.576515 24 0.881742 24 1.2Z\" fill=\"white\" data-f2c-idx=\"376\"></path>\n<path d=\"M0 12.6H5.2644C6.4656 12.6 7.71 12.6732 8.7324 13.3032C9.5316 13.7957 10.2043 14.4684 10.6968 15.2676C11.3268 16.29 11.4 17.5344 11.4 18.7356V24H3.6C2.64522 24 1.72955 23.6207 1.05442 22.9456C0.379285 22.2704 0 21.3548 0 20.4V12.6ZM24 1.2C24 1.51826 23.8736 1.82348 23.6485 2.04853C23.4235 2.27357 23.1182 2.4 22.8 2.4C22.4818 2.4 22.1765 2.27357 21.9515 2.04853C21.7264 1.82348 21.6 1.51826 21.6 1.2C21.6 0.881742 21.7264 0.576515 21.9515 0.351472C22.1765 0.126428 22.4818 0 22.8 0C23.1182 0 23.4235 0.126428 23.6485 0.351472C23.8736 0.576515 24 0.881742 24 1.2Z\" fill=\"white\" data-f2c-idx=\"377\"></path>\n</g>\n<defs data-f2c-idx=\"378\">\n<clipPath id=\"svg-1084292861_3485_clip0_768_15244\" data-f2c-idx=\"379\">\n<rect width=\"24\" height=\"24\" fill=\"white\" data-f2c-idx=\"380\"></rect>\n</clipPath>\n</defs>\n</svg>"} />
         <SvgGraphic className={styles["svg-32"]} html={"<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" id=\"svg1883890042_373\" data-f2c-idx=\"381\">\n<path d=\"M16.5 7.5L6 18\" stroke=\"#191919\" stroke-width=\"1.5\" stroke-linecap=\"round\" data-f2c-idx=\"382\"></path>\n<path d=\"M8 6.18791C8 6.18791 16.0479 5.50949 17.2692 6.73079C18.4906 7.95209 17.812 16 17.812 16\" stroke=\"#191919\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" data-f2c-idx=\"383\"></path>\n</svg>"} />
@@ -275,13 +256,6 @@ export default function Contact({ slots = [] }: { slots?: string[] }) {
         <SvgGraphic className={styles["svg-39"]} html={"<svg width=\"1314\" height=\"3\" viewBox=\"-1 -1 1314 3\" fill=\"none\" id=\"svg1609844329_503\" data-f2c-idx=\"397\">\n<line y1=\"0.5\" x2=\"1312\" y2=\"0.5\" stroke=\"url(#svg1609844329_503_paint0_linear_943_18799)\" stroke-opacity=\"0.3\" data-f2c-idx=\"398\"></line>\n<defs data-f2c-idx=\"399\">\n<linearGradient id=\"svg1609844329_503_paint0_linear_943_18799\" x1=\"0\" y1=\"1.5\" x2=\"1312\" y2=\"1.5\" gradientUnits=\"userSpaceOnUse\" data-f2c-idx=\"400\">\n<stop stop-color=\"#999999\" stop-opacity=\"0.2\" data-f2c-idx=\"401\"></stop>\n<stop offset=\"0.0626737\" stop-color=\"#FFA15E\" data-f2c-idx=\"402\"></stop>\n<stop offset=\"1\" stop-color=\"#999999\" stop-opacity=\"0.1\" data-f2c-idx=\"403\"></stop>\n</linearGradient>\n</defs>\n</svg>"} />
         <SvgGraphic className={styles["svg-45"]} html={"<svg id=\"1171430842\" display=\"block\" role=\"presentation\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\" data-f2c-idx=\"404\"><path d=\"M 0 0 L 14.5 0\" fill=\"transparent\" height=\"1px\" id=\"jMF44oNeb\" stroke-dasharray=\"\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"var(--1335ju, 1.5)\" stroke=\"var(--18mrqx2, rgb(0, 0, 0))\" transform=\"translate(4.75 5.75)\" width=\"14.5px\" data-f2c-idx=\"405\"></path><path d=\"M 0 0 L 14.5 0\" fill=\"transparent\" height=\"1px\" id=\"lwuMFFtBI\" stroke-dasharray=\"\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"var(--1335ju, 1.5)\" stroke=\"var(--18mrqx2, rgb(0, 0, 0))\" transform=\"translate(4.75 18.25)\" width=\"14.5px\" data-f2c-idx=\"406\"></path><path d=\"M 0 0 L 14.5 0\" fill=\"transparent\" height=\"1px\" id=\"KKxXbtl64\" stroke-dasharray=\"\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"var(--1335ju, 1.5)\" stroke=\"var(--18mrqx2, rgb(0, 0, 0))\" transform=\"translate(4.75 12)\" width=\"14.5px\" data-f2c-idx=\"407\"></path></svg>"} />
       </div>
-      <div className={styles["div-229"]}>
-        <span className={styles["span-399"]}>{slots[0] ?? "Edit Content"}</span>
-        <button className={styles["button-2"]}>
-          <SvgGraphic className={styles["svg-46"]} html={"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"14\" height=\"14\" fill=\"none\" data-f2c-idx=\"411\"><path d=\"M1 9.414a1 1 0 0 1 .293-.707l7.469-7.469a1.75 1.75 0 0 1 2.476 0l1.524 1.524a1.75 1.75 0 0 1 0 2.476l-7.469 7.469a1 1 0 0 1-.707.293H2a1 1 0 0 1-1-1zM11.5 6.5l-4-4\" fill=\"transparent\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" data-f2c-idx=\"412\"></path></svg>"} />
-        </button>
-      </div>
-      <div className={styles["iframe"]} />
     </>
   )
 }

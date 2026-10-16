@@ -1,8 +1,11 @@
+import { useState } from "react"
 import styles from "./styles.module.css"
 import States from "./States"
 import RevealWatcher from "./RevealWatcher"
 import { SvgGraphic } from "./RichText"
 import Navbar from "./Navbar"
+import VideoCarousel3D from "./VideoCarousel3D"
+import CinemaModal, { CinemaVideoData } from "./CinemaModal"
 import ContactButton from "./ContactButton"
 import SubText from "./SubTextBanner"
 import PrimaryButton from "./PrimaryButton"
@@ -66,9 +69,11 @@ import OvalsAnimation from "./OvalsAnimation"
 import FormButton from "./FormButton"
 
 export default function Home({ slots = [] }: { slots?: string[] }) {
+  const [activeVideo, setActiveVideo] = useState<CinemaVideoData | null>(null)
   return (
     <>
       <RevealWatcher />
+      <CinemaModal video={activeVideo} onClose={() => setActiveVideo(null)} />
       <div className={styles["div-143"]}>
         <div className={styles["div-144"]}>
           <div className={styles["div-145"]}>
@@ -83,7 +88,7 @@ export default function Home({ slots = [] }: { slots?: string[] }) {
                   <div className={styles["title-5"]}>
                     <div className={styles["div-145"]}>
                       <div className={styles["div-148"]}>
-                        <SubText slots={["Trusted by 100+ creators & brands"]} />
+                        <SubText slots={["Harinder Singh • Filmmaker & Short-Form Video Editor"]} />
                       </div>
                     </div>
                     <div className={styles["title-text-20"]}>
@@ -171,142 +176,7 @@ export default function Home({ slots = [] }: { slots?: string[] }) {
                   </div>
                 </div>
                 <div className={styles["video-9"]}>
-                  <div className={styles["images-container"]}>
-                    <div className={styles["div-151"]}>
-                      <div className={styles["div-152"]}>
-                        <div className={styles["carousel"]}>
-                          <div className={styles["arms"]}>
-                            <div className={styles["arm-1"]}>
-                              <div className={styles["video-box"]}>
-                                <div className={styles["div-153"]}>
-                                  <img className={styles["img-32"]} src={slots[30] ?? "https://framerusercontent.com/images/0bfCdaXNgRiPMVDiDNq98HhwVEA.jpg?width=640&height=960"} alt="" />
-                                </div>
-                                <div className={styles["div-154"]}>
-                                  <Video slots={[]} />
-                                </div>
-                              </div>
-                              <div className={styles["video-box-2"]}>
-                                <div className={styles["div-153"]}>
-                                  <img className={styles["img-32"]} src={slots[31] ?? "https://framerusercontent.com/images/0bfCdaXNgRiPMVDiDNq98HhwVEA.jpg?width=640&height=960"} alt="" />
-                                </div>
-                                <div className={styles["div-155"]}>
-                                  <Video2 slots={[]} />
-                                </div>
-                              </div>
-                            </div>
-                            <div className={styles["arm-2"]}>
-                              <div className={styles["video-box"]}>
-                                <div className={styles["div-153"]}>
-                                  <img className={styles["img-33"]} src={slots[32] ?? "https://framerusercontent.com/images/3WuYMSDz8paruXEAF3eI3c8zA.jpg?width=640&height=853"} alt="" />
-                                </div>
-                                <div className={styles["div-156"]}>
-                                  <Video3 slots={[]} />
-                                </div>
-                              </div>
-                              <div className={styles["video-box-2"]}>
-                                <div className={styles["div-153"]}>
-                                  <img className={styles["img-33"]} src={slots[33] ?? "https://framerusercontent.com/images/3WuYMSDz8paruXEAF3eI3c8zA.jpg?width=640&height=853"} alt="" />
-                                </div>
-                                <div className={styles["div-156"]}>
-                                  <Video4 slots={[]} />
-                                </div>
-                              </div>
-                            </div>
-                            <div className={styles["arm-3"]}>
-                              <div className={styles["video-box"]}>
-                                <div className={styles["div-153"]}>
-                                  <img className={styles["img-33"]} src={slots[34] ?? "https://framerusercontent.com/images/aUPQmCFZWoQ5mVKmdue4SZ2DPqU.jpg?width=640&height=853"} alt="" />
-                                </div>
-                                <div className={styles["div-156"]}>
-                                  <Video5 slots={[]} />
-                                </div>
-                              </div>
-                              <div className={styles["video-box-2"]}>
-                                <div className={styles["div-153"]}>
-                                  <img className={styles["img-33"]} src={slots[35] ?? "https://framerusercontent.com/images/aUPQmCFZWoQ5mVKmdue4SZ2DPqU.jpg?width=640&height=853"} alt="" />
-                                </div>
-                                <div className={styles["div-156"]}>
-                                  <Video6 slots={[]} />
-                                </div>
-                              </div>
-                            </div>
-                            <div className={styles["arm-4"]}>
-                              <div className={styles["video-box"]}>
-                                <div className={styles["div-153"]}>
-                                  <img className={styles["img-32"]} src={slots[36] ?? "https://framerusercontent.com/images/FGQnYCtFzxbBTPTtTyINCJgEJk.jpg?width=640&height=960"} alt="" />
-                                </div>
-                                <div className={styles["div-156"]}>
-                                  <Video7 slots={[]} />
-                                </div>
-                              </div>
-                              <div className={styles["video-box-2"]}>
-                                <div className={styles["div-153"]}>
-                                  <img className={styles["img-32"]} src={slots[37] ?? "https://framerusercontent.com/images/FGQnYCtFzxbBTPTtTyINCJgEJk.jpg?width=640&height=960"} alt="" />
-                                </div>
-                                <div className={styles["div-156"]}>
-                                  <Video7 slots={[]} />
-                                </div>
-                              </div>
-                            </div>
-                            <div className={styles["arm-5"]}>
-                              <div className={styles["video-box"]}>
-                                <div className={styles["div-153"]}>
-                                  <img className={styles["img-32"]} src={slots[38] ?? "https://framerusercontent.com/images/rWkJ6c7ZNzWRqKAXFEXc6H06vC0.jpg?width=640&height=960"} alt="" />
-                                </div>
-                                <div className={styles["div-156"]}>
-                                  <Video7 slots={[]} />
-                                </div>
-                              </div>
-                              <div className={styles["video-box-2"]}>
-                                <div className={styles["div-153"]}>
-                                  <img className={styles["img-32"]} src={slots[39] ?? "https://framerusercontent.com/images/rWkJ6c7ZNzWRqKAXFEXc6H06vC0.jpg?width=640&height=960"} alt="" />
-                                </div>
-                                <div className={styles["div-156"]}>
-                                  <Video7 slots={[]} />
-                                </div>
-                              </div>
-                            </div>
-                            <div className={styles["arm-6"]}>
-                              <div className={styles["video-box"]}>
-                                <div className={styles["div-153"]}>
-                                  <img className={styles["img-34"]} src={slots[40] ?? "https://framerusercontent.com/images/QfnQEJsmYc2qfsvuDtGW6j0hQ.jpg?scale-down-to=1024&width=640&height=1137"} alt="" />
-                                </div>
-                                <div className={styles["div-156"]}>
-                                  <Video5 slots={[]} />
-                                </div>
-                              </div>
-                              <div className={styles["video-box-2"]}>
-                                <div className={styles["div-153"]}>
-                                  <img className={styles["img-34"]} src={slots[41] ?? "https://framerusercontent.com/images/QfnQEJsmYc2qfsvuDtGW6j0hQ.jpg?scale-down-to=1024&width=640&height=1137"} alt="" />
-                                </div>
-                                <div className={styles["div-156"]}>
-                                  <Video6 slots={[]} />
-                                </div>
-                              </div>
-                            </div>
-                            <div className={styles["arm-7"]}>
-                              <div className={styles["video-box"]}>
-                                <div className={styles["div-153"]}>
-                                  <img className={styles["img-35"]} src={slots[42] ?? "https://framerusercontent.com/images/OXqtUf6sQWS0n0krBIE6oRYZMOc.jpg?width=640&height=988"} alt="" />
-                                </div>
-                                <div className={styles["div-156"]}>
-                                  <Video8 slots={[]} />
-                                </div>
-                              </div>
-                              <div className={styles["video-box-2"]}>
-                                <div className={styles["div-153"]}>
-                                  <img className={styles["img-35"]} src={slots[43] ?? "https://framerusercontent.com/images/OXqtUf6sQWS0n0krBIE6oRYZMOc.jpg?width=640&height=988"} alt="" />
-                                </div>
-                                <div className={styles["div-156"]}>
-                                  <Video4 slots={[]} />
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <VideoCarousel3D onSelectVideo={setActiveVideo} />
                   <div className={styles["tags-container"] + " " + styles["rv-23"]} data-reveal>
                     <div className={styles["tag"]}>
                       <div className={styles["play-square"]}>
@@ -369,7 +239,7 @@ export default function Home({ slots = [] }: { slots?: string[] }) {
                 </div>
               </div>
             </header>
-            <section className={styles["the-problem-section"]}>
+            <section className={styles["the-problem-section"]} id="problem">
               <div className={styles["containar-2"]}>
                 <div className={styles["heading-2"]}>
                   <div className={styles["title-6"]}>
@@ -525,7 +395,7 @@ export default function Home({ slots = [] }: { slots?: string[] }) {
                 </div>
               </div>
             </section>
-            <section className={styles["how-we-fix-section"]}>
+            <section className={styles["how-we-fix-section"]} id="about">
               <div className={styles["containar-3"]}>
                 <div className={styles["heading-button"]}>
                   <div className={styles["heading-3"]}>
@@ -641,7 +511,7 @@ export default function Home({ slots = [] }: { slots?: string[] }) {
                 </div>
               </div>
             </section>
-            <section className={styles["sarvices-section"]}>
+            <section className={styles["sarvices-section"]} id="services">
               <div className={styles["div-145"]}>
                 <div className={styles["bg-2"] + " " + styles["rv-30"]} data-reveal>
                   <div className={styles["div-172"]}>
@@ -661,7 +531,9 @@ export default function Home({ slots = [] }: { slots?: string[] }) {
                       <h2 className={styles["h2-6"]}>
                         <span className={styles["span-261"] + " " + styles["rv-24"]} data-reveal>{slots[120] ?? "Short-form"}</span>
                         {" "}
-                        <span className={styles["span-262"] + " " + styles["rv-24"]} data-reveal>{slots[121] ?? "editing-from"}</span>
+                        <span className={styles["span-262"] + " " + styles["rv-24"]} data-reveal>editing —</span>
+                        {" "}
+                        <span className={styles["span-262"] + " " + styles["rv-24"]} data-reveal>from</span>
                         {" "}
                         <span className={styles["span-263"] + " " + styles["rv-24"]} data-reveal>{slots[122] ?? "raw"}</span>
                         {" "}
@@ -910,7 +782,7 @@ export default function Home({ slots = [] }: { slots?: string[] }) {
                 </div>
               </div>
             </section>
-            <section className={styles["client-results-section"]}>
+            <section className={styles["client-results-section"]} id="work">
               <div className={styles["div-184"]}>
                 <div className={styles["div-145"]}>
                   <div className={styles["div-168"]} />
@@ -1174,7 +1046,7 @@ export default function Home({ slots = [] }: { slots?: string[] }) {
                 </div>
               </div>
             </section>
-            <section className={styles["process-section"]}>
+            <section className={styles["process-section"]} id="process">
               <div className={styles["containar-7"]}>
                 <div className={styles["content-13"]}>
                   <div className={styles["div-145"]}>
@@ -1324,7 +1196,7 @@ export default function Home({ slots = [] }: { slots?: string[] }) {
                 </div>
               </div>
             </section>
-            <section className={styles["pricing-section"]}>
+            <section className={styles["pricing-section"]} id="pricing">
               <div className={styles["containar-8"]}>
                 <div className={styles["content-13"]}>
                   <div className={styles["div-145"]}>
@@ -1419,7 +1291,7 @@ export default function Home({ slots = [] }: { slots?: string[] }) {
                 </div>
               </div>
             </section>
-            <section className={styles["faq-section"]}>
+            <section className={styles["faq-section"]} id="faq">
               <div className={styles["containar-9"]}>
                 <div className={styles["content-14"]}>
                   <div className={styles["content-15"]}>

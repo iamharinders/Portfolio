@@ -139,22 +139,22 @@ export default function CTAFooter({ slots = [] }: { slots?: string[] }) {
                     <div className={styles["quick-links"]}>
                       <div className={styles["reviews-text-39"]}>
                         <div className={styles["p-87"]}>
-                          <a className={styles["a-3"]} href="./#sarvices-section">{slots[36] ?? "Services"}</a>
+                          <a className={styles["a-3"]} href="/#services">{slots[36] ?? "Services"}</a>
                         </div>
                       </div>
                       <div className={styles["reviews-text-40"]}>
                         <div className={styles["p-88"]}>
-                          <a className={styles["a-3"]} href="./all-works">{slots[37] ?? "Works"}</a>
+                          <a className={styles["a-3"]} href="/all-works">{slots[37] ?? "Works"}</a>
                         </div>
                       </div>
                       <div className={styles["reviews-text-41"]}>
                         <div className={styles["p-89"]}>
-                          <a className={styles["a-3"]} href="./#Pricing">{slots[38] ?? "Pricing"}</a>
+                          <a className={styles["a-3"]} href="/#pricing">{slots[38] ?? "Pricing"}</a>
                         </div>
                       </div>
                       <div className={styles["reviews-text-42"]}>
                         <div className={styles["p-90"]}>
-                          <a className={styles["a-3"]} href="./contact">{slots[39] ?? "Contact"}</a>
+                          <a className={styles["a-3"]} href="/contact">{slots[39] ?? "Contact"}</a>
                         </div>
                       </div>
                     </div>
@@ -168,22 +168,22 @@ export default function CTAFooter({ slots = [] }: { slots?: string[] }) {
                     <div className={styles["socials"]}>
                       <div className={styles["reviews-text-44"]}>
                         <div className={styles["p-92"]}>
-                          <a className={styles["a-4"]} href="https://www.facebook.com">{slots[41] ?? "Facebook"}</a>
+                          <a className={styles["a-4"]} href="https://www.instagram.com/harinder.mp4/" target="_blank" rel="noopener noreferrer">{slots[42] ?? "Instagram"}</a>
                         </div>
                       </div>
                       <div className={styles["reviews-text-44"]}>
                         <div className={styles["p-92"]}>
-                          <a className={styles["a-4"]} href="https://www.instagram.com">{slots[42] ?? "Instagram"}</a>
+                          <a className={styles["a-4"]} href="mailto:iamharinders@gmail.com">{slots[41] ?? "Email Me"}</a>
                         </div>
                       </div>
                       <div className={styles["reviews-text-44"]}>
                         <div className={styles["p-92"]}>
-                          <a className={styles["a-4"]} href="https://www.youtube.com/">{slots[43] ?? "Youtube"}</a>
+                          <a className={styles["a-4"]} href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">{slots[43] ?? "Youtube"}</a>
                         </div>
                       </div>
                       <div className={styles["reviews-text-44"]}>
                         <div className={styles["p-92"]}>
-                          <a className={styles["a-4"]} href="https://twitter.com/">{slots[44] ?? "X"}</a>
+                          <a className={styles["a-4"]} href="https://x.com/" target="_blank" rel="noopener noreferrer">{slots[44] ?? "X"}</a>
                         </div>
                       </div>
                     </div>
@@ -199,7 +199,7 @@ export default function CTAFooter({ slots = [] }: { slots?: string[] }) {
               </div>
               <div className={styles["links"]}>
                 <div className={styles["reviews-text-45"]}>
-                  <p className={styles["p-93"]}>{slots[45] ?? "© 2026 ClipCut. All rights reserved"}</p>
+                  <p className={styles["p-93"]}>{slots[45] ?? "© 2026 Harinder.mp4 · Harinder Singh. All rights reserved"}</p>
                 </div>
                 <div className={styles["created"]}>
                   <div className={styles["reviews-text-46"]}>

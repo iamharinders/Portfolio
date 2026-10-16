@@ -1,0 +1,8 @@
+import styles from "./styles.module.css"
+import { SvgGraphic } from "./RichText"
+
+export default function PlayButton({ slots = [] }: { slots?: string[] }) {
+  return (
+      <SvgGraphic className={styles["svg-8"]} html={"<svg class=\"framer-QJOAl framer-kfim7a\" role=\"presentation\" viewBox=\"0 0 430 434\" style=\"transform: translate(-50%, -50%); opacity: 1;\" data-f2c-idx=\"466\"><path d=\"M 180.434 59.356 C 195.863 32.862 234.137 32.862 249.566 59.356 L 322.5 184.596 L 322.5 184.596 L 394.983 309.062 C 410.513 335.729 391.276 369.192 360.417 369.192 L 215 369.192 L 215 369.192 L 69.583 369.192 C 38.724 369.192 19.487 335.729 35.017 309.062 L 107.5 184.596 L 107.5 184.596 Z\" fill=\"transparent\" height=\"369.19191919191917px\" id=\"xUwXgljM1\" stroke=\"rgba(255, 255, 255, 0.53)\" stroke-dasharray=\"0\" stroke-linecap=\"butt\" stroke-linejoin=\"miter\" stroke-miterlimit=\"4\" stroke-width=\"13.03\" transform=\"translate(0 32.405) rotate(90 215 184.596)\" width=\"430px\" data-f2c-idx=\"467\"></path><path d=\"M 180.434 59.356 C 195.863 32.862 234.137 32.862 249.566 59.356 L 322.5 184.596 L 322.5 184.596 L 394.983 309.062 C 410.513 335.729 391.276 369.192 360.417 369.192 L 215 369.192 L 215 369.192 L 69.583 369.192 C 38.724 369.192 19.487 335.729 35.017 309.062 L 107.5 184.596 L 107.5 184.596 Z\" fill=\"rgba(255, 255, 255, 0.37)\" height=\"369.19191919191917px\" id=\"ODd5pzlhF\" stroke=\"rgb(255, 255, 255)\" stroke-dasharray=\"1120.2884521484375 784.2019165039062\" stroke-linecap=\"butt\" stroke-linejoin=\"miter\" stroke-miterlimit=\"4\" stroke-width=\"17.03\" transform=\"translate(0 32.405) rotate(90 215 184.596)\" width=\"430px\" stroke-dashoffset=\"-118984.57469189179\" data-f2c-idx=\"468\"></path></svg>"} />
+  )
+}

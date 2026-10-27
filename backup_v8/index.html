@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Harinder's Portfolio — Video Editor &amp; Colorist</title>
+  <meta name="description" content="Portfolio of Harinder — Video editor specializing in high-retention short-form content, brand films, kinetic motion design, and cinematic colour grading.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232146FF'/><polygon points='38,30 72,50 38,70' fill='%23C8FF18'/></svg>">
+
+  <!-- Typography: Anton (Display), Bodoni Moda (Editorial), Manrope (UI Sans), DM Mono (Technical) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,600;1,6..96,400;1,6..96,500;1,6..96,600&family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- =======================================================================
+       1. NAVIGATION — TRANSPARENT & SCROLL-REACTIVE FROSTED GLASS
+       ======================================================================= -->
+  <header class="site-nav" id="siteNav">
+    <a class="nav-brand" href="#home" id="navBrand">
+      <span class="nav-brand-dot" aria-hidden="true"></span>
+      Harinder's <em>Portfolio</em>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="nav-center" aria-label="Main Navigation">
+      <a class="nav-link" href="#work">Work</a>
+      <a class="nav-link" href="#services">Services</a>
+      <a class="nav-link" href="#process">Process</a>
+      <a class="nav-link" href="#about">About</a>
+      <a class="nav-link" href="#reels">Reels</a>
+      <a class="nav-link" href="#reviews">Reviews</a>
+      <a class="nav-link" href="#contact">Contact</a>
+    </nav>
+
+    <!-- Right Side Hire CTA -->
+    <div class="nav-right">
+      <a class="nav-cta" href="mailto:iamharinders@gmail.com">Hire Me ↗</a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button class="menu-btn" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile Navigation">
+    <a href="#work" class="mobile-nav-item">Work</a>
+    <a href="#services" class="mobile-nav-item">Services</a>
+    <a href="#process" class="mobile-nav-item">Process</a>
+    <a href="#about" class="mobile-nav-item">About</a>
+    <a href="#reels" class="mobile-nav-item">Reels</a>
+    <a href="#reviews" class="mobile-nav-item">Reviews</a>
+    <a href="#contact" class="mobile-nav-item">Contact</a>
+    <a href="mailto:iamharinders@gmail.com" class="mobile-nav-item" style="color:var(--blue);">Hire Me (iamharinders@gmail.com) ↗</a>
+  </div>
+
+  <main>
+
+    <!-- =======================================================================
+         2. HERO SECTION — IDENTITY, EYE-TRACKING & 3D FLOATING CHARACTER
+         ======================================================================= -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+
+        <!-- Left Column: Typography & Intentional Intro -->
+        <div class="hero-intro reveal">
+          <div class="badge-pill hero-badge-pill">
+            <span class="badge-dot-lime" aria-hidden="true"></span>
+            <span>SHORT-FORM VIDEO EDITOR &amp; COLORIST // WORLDWIDE</span>
+          </div>
+
+          <!-- Separated HI, I'M and HARINDER. blocks -->
+          <div class="hero-title-group">
+            <span class="hero-hi">HI, I'M</span>
+            <span class="hero-name">HARINDER.</span>
+          </div>
+
+          <!-- Tagline: Display Condensed + Editorial Serif Italic -->
+          <div class="hero-tagline">
+            <span class="tagline-display">SHORT-FORM VIDEO EDITING</span>
+            <span class="tagline-editorial">THAT ACTUALLY <em>GETS RESULTS.</em></span>
+          </div>
+
+          <!-- Supporting paragraph -->
+          <p class="hero-copy">
+            I turn raw footage and creative ideas into edits that hook viewers, hold attention, and feel sharp in every frame. Focused on short-form retention, cinematic pacing and polished sound design for creators and ambitious brands.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn-pill btn-lime" href="#work">View My Work ↗</a>
+            <a class="btn-pill btn-ghost" href="#contact">Get In Touch</a>
+          </div>
+        </div>
+
+        <!-- Center: 3D Floating Character Cutout & Pupil Tracking Canvas Overlay -->
+        <div class="hero-character-stage">
+          <!-- Electric Blue Splash -->
+          <div class="character-brush-splash" aria-hidden="true">
+            <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M78.5 210.5C54.5 130 114 62.5 198 43C282 23.5 373.5 48.5 417 116.5C460.5 184.5 470 293 421.5 365C373 437 266.5 472.5 183.5 452C100.5 431.5 102.5 291 78.5 210.5Z" fill="#2146FF"/>
+            </svg>
+          </div>
+
+          <!-- Cutout Image with Pupil Tracking Canvas Overlay -->
+          <div class="character-cutout-wrap" id="characterCutoutWrap">
+            <img class="character-cutout-img" id="characterCutoutImg" src="assets/images/harinder_character_cutout.png" alt="Harinder illustrated character wearing black turban and headphones floating naturally">
+            <!-- Precise Eye/Pupil Follow Canvas (Desktop Only) -->
+            <canvas id="characterEyeCanvas" class="character-eyes-canvas" width="999" height="1024" aria-hidden="true"></canvas>
+          </div>
+
+          <!-- Hand-drawn Scribbles & Editorial Tags -->
+          <div class="character-annotations" aria-hidden="true">
+            <div class="scribble-tag tag-top-right">
+              <span>✦ 01 / EDIT &amp; PACING</span>
+            </div>
+            <div class="scribble-tag tag-bottom-left">
+              <span>✦ 02 / RETENTION HOOKS</span>
+            </div>
+            <div class="scribble-tag tag-bottom-right">
+              <span>✦ 03 / ACES GRADE &amp; SOUND</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Technical Details & Metrics Cards -->
+        <div class="hero-right-meta reveal">
+          <div class="hero-meta-card">
+            <div class="hero-meta-card-label mono">AVAILABILITY</div>
+            <div class="hero-meta-card-value">AVAILABLE FOR COMMISSIONS</div>
+            <div class="hero-meta-card-desc">Booking projects for Q4 2026</div>
+          </div>
+
+          <div class="hero-meta-card">
+            <div class="hero-meta-card-label mono">SPECIALTY</div>
+            <div class="hero-meta-card-value">9:16 VERTICAL &amp; CINEMATIC EDITS</div>
+            <div class="hero-meta-card-desc">Reels · Shorts · TikTok · Brand Cuts</div>
+          </div>
+
+          <div class="hero-meta-card">
+            <div class="hero-meta-card-label mono">DELIVERY</div>
+            <div class="hero-meta-card-value">REMOTE POST-PRODUCTION</div>
+            <div class="hero-meta-card-desc">Working with creators &amp; brands globally</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         3. FEATURED WORK — RAPID FULL-WIDTH SCREENSAVER EXPANSION (DARK BREAK)
+         ======================================================================= -->
+    <section class="featured-section" id="work">
+      <div class="container">
+        <div class="featured-head reveal">
+          <div>
+            <div class="badge-pill featured-head-badge mono">
+              <span class="badge-dot-lime" aria-hidden="true"></span>
+              <span>01 / FEATURED CINEMATIC WORK</span>
+            </div>
+            <h2 class="display featured-head-title">
+              FEATURED WORK.
+            </h2>
+          </div>
+          <p class="featured-head-desc">
+            A visual-led edit built around rhythm, atmosphere and colour. As you arrive, the surface expands to full cinematic immersion. Click to experience with master audio.
+          </p>
+        </div>
+
+        <div class="featured-wrap" id="featuredZoomContainer">
+          <div class="featured-card" id="featuredCard" role="button" tabindex="0" aria-label="Open Featured Work in Fullscreen Cinema Modal">
+            <video class="featured-video" autoplay muted loop playsinline webkit-playsinline poster="assets/images/featured_film_poster.jpg">
+              <source src="assets/videos/featured_film.mp4" type="video/mp4">
+            </video>
+
+            <!-- Minimal Editorial Information Overlaid ON the video -->
+            <div class="featured-video-overlay">
+              <div class="featured-overlay-badge mono">
+                <span>01</span>
+                <span class="pill-divider">/</span>
+                <span>FEATURED WORK</span>
+                <span class="pill-divider">/</span>
+                <span>CLICK TO PLAY WITH SOUND</span>
+              </div>
+              <h3 class="display featured-overlay-title">FEATURED WORK</h3>
+              <div class="featured-overlay-specs mono">
+                16:9 4K · COLOR GRADE · MASTER SOUND DESIGN
+              </div>
+              <p class="featured-overlay-copy">
+                A visual-led cut built around pacing, texture, and deliberate atmosphere. Every cut placed with narrative intention.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         4. PLATFORMS & FORMATS STRIP
+         ======================================================================= -->
+    <section class="platforms-strip" aria-label="Supported Platforms and Formats">
+      <div class="container platforms-grid">
+        <div class="platform-pill">
+          <span class="platform-icon"></span>
+          <span>Instagram Reels (9:16)</span>
+        </div>
+        <div class="platform-pill">
+          <span class="platform-icon"></span>
+          <span>YouTube Shorts (9:16)</span>
+        </div>
+        <div class="platform-pill">
+          <span class="platform-icon"></span>
+          <span>TikTok Videos (9:16)</span>
+        </div>
+        <div class="platform-pill">
+          <span class="platform-icon"></span>
+          <span>YouTube Videos (16:9)</span>
+        </div>
+        <div class="platform-pill">
+          <span class="platform-icon"></span>
+          <span>Commercial Films (16:9 &amp; 1:1)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         5. WHAT I DO — 5 DISTINCTIVE EDITORIAL SERVICES
+         ======================================================================= -->
+    <section class="services-section" id="services">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="services-head reveal">
+          <div>
+            <div class="badge-pill mono" style="margin-bottom:14px;">
+              <span class="badge-dot" aria-hidden="true"></span>
+              <span>02 / WHAT I DO</span>
+            </div>
+            <h2 class="display services-title">
+              WHAT I DO<em>.</em>
+            </h2>
+          </div>
+          <div>
+            <div class="services-subtitle editorial">
+              SERVICES BUILT FOR <em>RETENTION &amp; IMPACT.</em>
+            </div>
+            <p class="services-desc">
+              Every cut is shaped with intention — hooks that hold attention, rhythmic pacing, and cinematic sound design that keeps viewers watching through to the final frame.
+            </p>
+          </div>
+        </div>
+
+        <!-- 5 Editorial Service Cards -->
+        <div class="services-grid">
+          <!-- Card 01: Short-form Editing -->
+          <article class="service-card reveal">
+            <div class="service-card-top">
+              <span class="service-num display">01</span>
+              <span class="service-pill-tag mono">CORE SPECIALTY</span>
+            </div>
+            <div class="service-card-body">
+              <h3 class="service-title display">SHORT-FORM EDITING</h3>
+              <p class="service-copy">
+                Hooks, pacing, captions and sound design for vertical content that stops the scroll and holds retention across Instagram, YouTube Shorts and TikTok.
+              </p>
+              <ul class="service-features-list mono">
+                <li><span class="list-bullet">✦</span> Hook architecture &amp; opening 3-second hold</li>
+                <li><span class="list-bullet">✦</span> Dynamic subtitle timing &amp; kinetic emphasis</li>
+                <li><span class="list-bullet">✦</span> Sub-bass transient hits &amp; bespoke sound design</li>
+              </ul>
+            </div>
+            <div class="service-card-footer mono">
+              <span>FORMATS: 9:16 VERTICAL · REELS · TIKTOKS · SHORTS</span>
+            </div>
+          </article>
+
+          <!-- Card 02: Creator & Talking-Head Editing -->
+          <article class="service-card reveal">
+            <div class="service-card-top">
+              <span class="service-num display">02</span>
+              <span class="service-pill-tag mono">WATCH TIME</span>
+            </div>
+            <div class="service-card-body">
+              <h3 class="service-title display">CREATOR TALKING-HEAD</h3>
+              <p class="service-copy">
+                Punchy pattern interrupts, seamless jump-cut smoothing, zoom dynamics, and visual punchlines tailored to individual creator personality and brand voice.
+              </p>
+              <ul class="service-features-list mono">
+                <li><span class="list-bullet">✦</span> Dynamic pacing &amp; natural breath cleanup</li>
+                <li><span class="list-bullet">✦</span> Visual b-roll inserts &amp; graphic callouts</li>
+                <li><span class="list-bullet">✦</span> Attention-holding pattern interrupts</li>
+              </ul>
+            </div>
+            <div class="service-card-footer mono">
+              <span>FORMATS: 9:16 &amp; 16:9 · YOUTUBE · PODCAST CLIPS</span>
+            </div>
+          </article>
+
+          <!-- Card 03: Brand & Commercial Films -->
+          <article class="service-card reveal">
+            <div class="service-card-top">
+              <span class="service-num display">03</span>
+              <span class="service-pill-tag mono">NARRATIVE</span>
+            </div>
+            <div class="service-card-body">
+              <h3 class="service-title display">BRAND &amp; COMMERCIAL FILMS</h3>
+              <p class="service-copy">
+                Product-focused cuts, visual rhythm and polished delivery designed to elevate brand authority, product desirability and cinematic storytelling.
+              </p>
+              <ul class="service-features-list mono">
+                <li><span class="list-bullet">✦</span> Narrative arc &amp; deliberate commercial pacing</li>
+                <li><span class="list-bullet">✦</span> Product showcase timing &amp; macro visual polish</li>
+                <li><span class="list-bullet">✦</span> Multi-platform delivery (16:9, 1:1 &amp; 4:5 crops)</li>
+              </ul>
+            </div>
+            <div class="service-card-footer mono">
+              <span>FORMATS: 16:9 4K · COMMERCIALS · BRAND MANIFESTOS</span>
+            </div>
+          </article>
+
+          <!-- Card 04: Motion Design & VFX -->
+          <article class="service-card reveal">
+            <div class="service-card-top">
+              <span class="service-num display">04</span>
+              <span class="service-pill-tag mono">KINETIC TYPE</span>
+            </div>
+            <div class="service-card-body">
+              <h3 class="service-title display">MOTION DESIGN &amp; VFX</h3>
+              <p class="service-copy">
+                Kinetic typography, transitions and visual effects that add tactile energy, emphasize key ideas, and guide viewer gaze seamlessly through each frame.
+              </p>
+              <ul class="service-features-list mono">
+                <li><span class="list-bullet">✦</span> Bespoke kinetic type &amp; screen graphics</li>
+                <li><span class="list-bullet">✦</span> Seamless frame-to-frame match cuts &amp; whip transitions</li>
+                <li><span class="list-bullet">✦</span> UI animations, asset tracking &amp; clean graphics</li>
+              </ul>
+            </div>
+            <div class="service-card-footer mono">
+              <span>SOFTWARE: AFTER EFFECTS · PREMIERE PRO</span>
+            </div>
+          </article>
+
+          <!-- Card 05: Colour Grading & Sound Finishing -->
+          <article class="service-card reveal">
+            <div class="service-card-top">
+              <span class="service-num display">05</span>
+              <span class="service-pill-tag mono">FINISHING</span>
+            </div>
+            <div class="service-card-body">
+              <h3 class="service-title display">COLOUR &amp; SOUND FINISHING</h3>
+              <p class="service-copy">
+                Colour finishing, audio detail and a consistent final look that gives every project the depth, texture and sub-bass weight of high-end cinema.
+              </p>
+              <ul class="service-features-list mono">
+                <li><span class="list-bullet">✦</span> Film print emulation &amp; ACES colour science</li>
+                <li><span class="list-bullet">✦</span> Rich Foley, acoustic ambience &amp; sub-bass impact</li>
+                <li><span class="list-bullet">✦</span> Dialog cleanup, compression &amp; loudness mastering</li>
+              </ul>
+            </div>
+            <div class="service-card-footer mono">
+              <span>WORKFLOW: DAVINCI RESOLVE · BESPOKE ACES PIPELINE</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         6. PROCESS — WORKING WITH ME & DELIVERABLES
+         ======================================================================= -->
+    <section class="process-section" id="process">
+      <div class="container">
+        <div class="process-head reveal">
+          <div>
+            <div class="badge-pill mono" style="margin-bottom:14px;">
+              <span class="badge-dot" aria-hidden="true"></span>
+              <span>03 / WORKFLOW</span>
+            </div>
+            <h2 class="display process-title">
+              WORKING WITH ME.
+            </h2>
+          </div>
+          <p class="services-desc">
+            A clear, frictionless progression from initial concept to delivered video master files.
+          </p>
+        </div>
+
+        <!-- 4 Step Process Grid -->
+        <div class="process-grid">
+          <div class="process-step-card reveal">
+            <span class="process-step-num display">01</span>
+            <div class="process-step-title">Brief &amp; References</div>
+            <p class="process-step-desc">
+              We align on your goals, target audience, visual references, and timeline expectations.
+            </p>
+          </div>
+
+          <div class="process-step-card reveal">
+            <span class="process-step-num display">02</span>
+            <div class="process-step-title">Footage Review &amp; Cut</div>
+            <p class="process-step-desc">
+              I review your raw footage, curate the strongest takes, and lock in the narrative pacing.
+            </p>
+          </div>
+
+          <div class="process-step-card reveal">
+            <span class="process-step-num display">03</span>
+            <div class="process-step-title">Editing, Motion &amp; Audio</div>
+            <p class="process-step-desc">
+              Designing scroll-stopping hooks, kinetic typography, bespoke SFX, and ACES colour grade.
+            </p>
+          </div>
+
+          <div class="process-step-card reveal">
+            <span class="process-step-num display">04</span>
+            <div class="process-step-title">Final Delivery &amp; Exports</div>
+            <p class="process-step-desc">
+              Review pass, revisions if needed, and delivery of platform-ready exports (9:16, 16:9).
+            </p>
+          </div>
+        </div>
+
+        <!-- Practical Deliverables Box -->
+        <div class="deliverables-box reveal">
+          <div>
+            <div class="badge-pill mono" style="margin-bottom:12px;">
+              <span class="badge-dot-lime" aria-hidden="true"></span>
+              <span>PRACTICAL DELIVERABLES</span>
+            </div>
+            <h3 class="display deliverables-box-title">
+              WHAT YOU GET IN <em>EVERY EDIT.</em>
+            </h3>
+          </div>
+          <ul class="deliverables-list">
+            <li><span class="deliverables-check">✓</span> Hook architecture &amp; opening 3-second hold</li>
+            <li><span class="deliverables-check">✓</span> Dynamic, accurate subtitles &amp; captions</li>
+            <li><span class="deliverables-check">✓</span> Music selection &amp; bespoke sound effects</li>
+            <li><span class="deliverables-check">✓</span> Platform-specific aspect ratios (9:16, 16:9)</li>
+            <li><span class="deliverables-check">✓</span> Consistent ACES colour grading</li>
+            <li><span class="deliverables-check">✓</span> High-bitrate platform-optimized exports</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         7. RECENT WORK — 4 HIGH-CONTRAST PROJECT TILES
+         ======================================================================= -->
+    <section class="recent-work-section" id="recent-work">
+      <div class="container">
+        <div class="recent-work-head reveal">
+          <div>
+            <div class="badge-pill mono" style="margin-bottom:14px;">
+              <span class="badge-dot" aria-hidden="true"></span>
+              <span>04 / SELECTED WORKS</span>
+            </div>
+            <h2 class="display recent-work-title">
+              RECENT WORK.
+            </h2>
+          </div>
+          <p class="recent-work-desc">
+            A selection of completed edits spanning vertical creator content, commercial brand films, and social campaigns.
+          </p>
+        </div>
+
+        <div class="recent-projects-grid">
+          <!-- Card 01: Creator Reel -->
+          <article class="recent-project-card reveal" data-project-id="01" role="button" tabindex="0" aria-label="Open Creator Reel video modal">
+            <div class="project-card-media">
+              <img src="assets/images/project_creator_reel.jpg" alt="Creator Reel edit preview">
+              <div class="project-play-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg>
+              </div>
+            </div>
+            <div class="project-card-content">
+              <div>
+                <div class="project-card-meta">
+                  <span class="project-card-num">01</span>
+                  <span class="project-card-category">Short form / Motion</span>
+                </div>
+                <h3 class="project-card-title">CREATOR REEL</h3>
+              </div>
+              <p class="project-card-human-desc">
+                Fast cuts, clean sound design and a tighter rhythm built for vertical viewing.
+              </p>
+            </div>
+          </article>
+
+          <!-- Card 02: Brand Film -->
+          <article class="recent-project-card reveal" data-project-id="02" role="button" tabindex="0" aria-label="Open Brand Film video modal">
+            <div class="project-card-media">
+              <img src="assets/images/project_brand_film.jpg" alt="Brand Film edit preview">
+              <div class="project-play-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg>
+              </div>
+            </div>
+            <div class="project-card-content">
+              <div>
+                <div class="project-card-meta">
+                  <span class="project-card-num">02</span>
+                  <span class="project-card-category">Edit / Colour</span>
+                </div>
+                <h3 class="project-card-title">BRAND FILM</h3>
+              </div>
+              <p class="project-card-human-desc">
+                A slower, more deliberate cut focused on product detail, atmosphere and colour.
+              </p>
+            </div>
+          </article>
+
+          <!-- Card 03: Fashion Film -->
+          <article class="recent-project-card reveal" data-project-id="03" role="button" tabindex="0" aria-label="Open Fashion Film video modal">
+            <div class="project-card-media">
+              <img src="assets/images/project_fashion_film.jpg" alt="Fashion Film edit preview">
+              <div class="project-play-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg>
+              </div>
+            </div>
+            <div class="project-card-content">
+              <div>
+                <div class="project-card-meta">
+                  <span class="project-card-num">03</span>
+                  <span class="project-card-category">Cinematic / Music</span>
+                </div>
+                <h3 class="project-card-title">FASHION FILM</h3>
+              </div>
+              <p class="project-card-human-desc">
+                Music-led pacing with an editorial finish and controlled movement.
+              </p>
+            </div>
+          </article>
+
+          <!-- Card 04: Social Campaign -->
+          <article class="recent-project-card reveal" data-project-id="04" role="button" tabindex="0" aria-label="Open Social Campaign video modal">
+            <div class="project-card-media">
+              <img src="assets/images/casestudy_grade_split.jpg" alt="Social Campaign edit preview">
+              <div class="project-play-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg>
+              </div>
+            </div>
+            <div class="project-card-content">
+              <div>
+                <div class="project-card-meta">
+                  <span class="project-card-num">04</span>
+                  <span class="project-card-category">Reels / Typography</span>
+                </div>
+                <h3 class="project-card-title">SOCIAL CAMPAIGN</h3>
+              </div>
+              <p class="project-card-human-desc">
+                Multiple aspect ratios built around hooks, pacing and platform behaviour.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         8. SHORT-FORM REELS — REAL VERTICAL 9:16 VIDEOS (DARK IMMERSION BREAK)
+         Reel 01 strictly uses LOCAL MP4 (no Vimeo). Reel 04 uses updated MP4.
+         ======================================================================= -->
+    <section class="reels-section" id="reels">
+      <div class="container">
+        <div class="reels-head reveal">
+          <div>
+            <div class="badge-pill mono" style="margin-bottom:14px; background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.15); color:#fff;">
+              <span class="badge-dot-lime" aria-hidden="true"></span>
+              <span>05 / 9:16 VERTICAL REELS</span>
+            </div>
+            <h2 class="display reels-title">
+              SHORT-FORM REELS<span class="asterisk">*</span>
+            </h2>
+          </div>
+          <p class="reels-desc">
+            Continuous moving previews. Built specifically for vertical engagement. Tap any reel to open in the vertical cinema player with sound enabled.
+          </p>
+        </div>
+
+        <div class="reels-strip-grid">
+          <!-- Reel 01: Creator Talking Head (Local MP4) -->
+          <article class="reel-card reveal" data-reel-id="reel_01" role="button" tabindex="0" aria-label="Play Reel 01 Creator Talking Head">
+            <span class="reel-card-tag mono">REEL 01</span>
+            <video autoplay muted loop playsinline webkit-playsinline poster="assets/images/reel_01_poster.jpg">
+              <source src="assets/videos/reel_01.mp4" type="video/mp4">
+            </video>
+            <div class="reel-card-meta">
+              <h3 class="reel-card-title">CREATOR TALKING HEAD</h3>
+              <div class="reel-card-cat">Sound &amp; Pacing</div>
+            </div>
+          </article>
+
+          <!-- Reel 02: Street Style & Sneakers -->
+          <article class="reel-card reveal" data-reel-id="reel_02" role="button" tabindex="0" aria-label="Play Reel 02 Street Style & Sneakers">
+            <span class="reel-card-tag mono">REEL 02</span>
+            <video autoplay muted loop playsinline webkit-playsinline poster="assets/images/reel_02_poster.jpg">
+              <source src="assets/videos/reel_02.mp4" type="video/mp4">
+            </video>
+            <div class="reel-card-meta">
+              <h3 class="reel-card-title">STREET STYLE &amp; SNEAKERS</h3>
+              <div class="reel-card-cat">Rhythm &amp; Motion</div>
+            </div>
+          </article>
+
+          <!-- Reel 03: Valentine Perfume Ad -->
+          <article class="reel-card reveal" data-reel-id="reel_03" role="button" tabindex="0" aria-label="Play Reel 03 Valentine Perfume Ad">
+            <span class="reel-card-tag mono">REEL 03</span>
+            <video autoplay muted loop playsinline webkit-playsinline poster="assets/images/reel_03_poster.jpg">
+              <source src="assets/videos/reel_03.mp4" type="video/mp4">
+            </video>
+            <div class="reel-card-meta">
+              <h3 class="reel-card-title">VALENTINE PERFUME AD</h3>
+              <div class="reel-card-cat">Cinematic Colour</div>
+            </div>
+          </article>
+
+          <!-- Reel 04: Warm Atmospheric Cut (New Video) -->
+          <article class="reel-card reveal" data-reel-id="reel_04" role="button" tabindex="0" aria-label="Play Reel 04 Warm Atmospheric Cut">
+            <span class="reel-card-tag mono">REEL 04</span>
+            <video autoplay muted loop playsinline webkit-playsinline poster="assets/images/reel_04_poster.jpg">
+              <source src="assets/videos/reel_04.mp4" type="video/mp4">
+            </video>
+            <div class="reel-card-meta">
+              <h3 class="reel-card-title">WARM ATMOSPHERIC CUT</h3>
+              <div class="reel-card-cat">Narrative &amp; Mood</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         9. EDITING TOOLS & SOFTWARE (MINIMAL BADGES)
+         ======================================================================= -->
+    <section class="tools-section" aria-label="Editing Tools and Software">
+      <div class="container tools-wrap">
+        <div class="tools-label display">EDITING ARSENAL.</div>
+        <div class="tools-grid">
+          <div class="tool-badge"><span class="tool-bullet">✦</span> DaVinci Resolve Studio</div>
+          <div class="tool-badge"><span class="tool-bullet">✦</span> Adobe Premiere Pro</div>
+          <div class="tool-badge"><span class="tool-bullet">✦</span> Adobe After Effects</div>
+          <div class="tool-badge"><span class="tool-bullet">✦</span> Adobe Audition</div>
+          <div class="tool-badge"><span class="tool-bullet">✦</span> Photoshop &amp; Lightroom</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         10. PACKAGES & PRICING (EDITABLE TIERS, NO FAKE FIXED RATES)
+         ======================================================================= -->
+    <section class="packages-section" id="packages">
+      <div class="container">
+        <div class="packages-head reveal">
+          <div class="badge-pill mono" style="margin-bottom:14px;">
+            <span class="badge-dot" aria-hidden="true"></span>
+            <span>06 / PACKAGES &amp; COLLABORATION</span>
+          </div>
+          <h2 class="display packages-title">
+            EDITING PACKAGES<em>.</em>
+          </h2>
+          <p class="packages-desc">
+            Structured deliverables tailored to creators, brands, and agencies. Reach out for custom scope and volume rates.
+          </p>
+        </div>
+
+        <div class="packages-grid">
+          <!-- Package 01: Starter Short-Form -->
+          <div class="package-card reveal">
+            <div class="package-top">
+              <span class="package-badge-tag mono">CREATOR STARTER</span>
+              <h3 class="display package-card-title">STARTER SHORT-FORM</h3>
+              <p class="package-card-target">
+                Ideal for individual creators building a consistent content presence.
+              </p>
+            </div>
+            <ul class="package-deliverables-list">
+              <li><span class="package-check">✓</span> Up to 8 vertical short-form edits / month</li>
+              <li><span class="package-check">✓</span> Hook architecture &amp; retention pacing</li>
+              <li><span class="package-check">✓</span> Dynamic kinetic subtitles &amp; captions</li>
+              <li><span class="package-check">✓</span> Sound design &amp; background music mix</li>
+              <li><span class="package-check">✓</span> Platform-native 9:16 HD export</li>
+              <li><span class="package-check">✓</span> 1 round of revisions per video</li>
+            </ul>
+            <div class="package-footer">
+              <span class="package-turnaround mono">TURNAROUND: 48–72H</span>
+              <a href="#contact" class="btn-package">Contact for Pricing ↗</a>
+            </div>
+          </div>
+
+          <!-- Package 02: Creator Accelerator (Featured) -->
+          <div class="package-card featured-package reveal">
+            <div class="package-top">
+              <span class="package-badge-tag mono">MOST POPULAR</span>
+              <h3 class="display package-card-title">CREATOR ACCELERATOR</h3>
+              <p class="package-card-target">
+                Built for active creators and founders scaling reach across multiple platforms.
+              </p>
+            </div>
+            <ul class="package-deliverables-list">
+              <li><span class="package-check">✓</span> Up to 16 vertical short-form edits / month</li>
+              <li><span class="package-check">✓</span> Advanced pattern interrupts &amp; visual b-roll</li>
+              <li><span class="package-check">✓</span> Bespoke motion graphics &amp; typography</li>
+              <li><span class="package-check">✓</span> Custom sound design &amp; audio mastering</li>
+              <li><span class="package-check">✓</span> Multi-platform exports (Reels, TikTok, Shorts)</li>
+              <li><span class="package-check">✓</span> Priority turnaround &amp; 2 revision rounds</li>
+            </ul>
+            <div class="package-footer">
+              <span class="package-turnaround mono">TURNAROUND: 24–48H PRIORITY</span>
+              <a href="#contact" class="btn-package">Contact for Pricing ↗</a>
+            </div>
+          </div>
+
+          <!-- Package 03: Commercial & Custom -->
+          <div class="package-card reveal">
+            <div class="package-top">
+              <span class="package-badge-tag mono">BRAND / ENTERPRISE</span>
+              <h3 class="display package-card-title">COMMERCIAL &amp; CUSTOM</h3>
+              <p class="package-card-target">
+                For brands and agencies requiring high-end commercials or tailored post-production.
+              </p>
+            </div>
+            <ul class="package-deliverables-list">
+              <li><span class="package-check">✓</span> Full-scale brand film or campaign package</li>
+              <li><span class="package-check">✓</span> 16:9 4K master + social 9:16 cutdowns</li>
+              <li><span class="package-check">✓</span> Complete ACES colour grading pipeline</li>
+              <li><span class="package-check">✓</span> Bespoke sound design &amp; Foley mixing</li>
+              <li><span class="package-check">✓</span> Motion design, logo animation &amp; UI tracking</li>
+              <li><span class="package-check">✓</span> Dedicated milestone revision workflow</li>
+            </ul>
+            <div class="package-footer">
+              <span class="package-turnaround mono">TIMELINE: CUSTOM MILESTONES</span>
+              <a href="#contact" class="btn-package">Contact for Pricing ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         11. ABOUT SECTION — EDITORIAL SPREAD & SCROLL PHOTO
+         ======================================================================= -->
+    <section class="about-section" id="about">
+      <div class="container about-grid">
+        <!-- Left: Scroll-Linked Animated Portrait -->
+        <div class="about-photo-wrap reveal">
+          <img class="about-photo" id="aboutScrollPortrait" src="assets/images/harinder_portrait.jpg" alt="Harinder working in editing suite">
+          <div class="about-photo-tag mono">POST-PRODUCTION // INDIA &amp; REMOTE</div>
+        </div>
+
+        <!-- Right: Editorial Philosophy & Disciplines -->
+        <div class="about-content-col reveal">
+          <div class="badge-pill mono" style="margin-bottom:14px; align-self:flex-start;">
+            <span class="badge-dot" aria-hidden="true"></span>
+            <span>07 / ABOUT HARINDER</span>
+          </div>
+
+          <h2 class="display about-headline">
+            I'M HARINDER.
+          </h2>
+
+          <div class="about-editorial-quote">
+            "I LIKE THE SPACE BETWEEN A ROUGH TIMELINE AND A FINISHED FILM."
+          </div>
+
+          <p class="about-body">
+            I work through footage, rhythm, sound and colour until the edit feels obvious in hindsight — every frame earning its place. Based in India and collaborating with creators and brands worldwide to craft videos that genuinely perform.
+          </p>
+
+          <div class="about-disciplines-grid">
+            <div class="discipline-card">
+              <div class="discipline-name">EDIT</div>
+              <div class="discipline-detail">Pacing, narrative assembly &amp; rhythmic cuts</div>
+            </div>
+            <div class="discipline-card">
+              <div class="discipline-name">MOTION</div>
+              <div class="discipline-detail">Kinetic type, screen graphics &amp; match transitions</div>
+            </div>
+            <div class="discipline-card">
+              <div class="discipline-name">COLOUR</div>
+              <div class="discipline-detail">Film print emulation &amp; ACES grade</div>
+            </div>
+            <div class="discipline-card">
+              <div class="discipline-name">SOUND</div>
+              <div class="discipline-detail">Transient hits, sub-bass weight &amp; vocal polish</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         12. REVIEWS & TESTIMONIALS (EDITORIAL PULL-QUOTES)
+         Clearly identified editable client feedback placeholders
+         ======================================================================= -->
+    <section class="reviews-section" id="reviews">
+      <div class="container">
+        <div class="reviews-head reveal">
+          <div>
+            <div class="badge-pill mono" style="margin-bottom:14px;">
+              <span class="badge-dot" aria-hidden="true"></span>
+              <span>08 / REVIEWS &amp; FEEDBACK</span>
+            </div>
+            <h2 class="display reviews-title">
+              WHAT PEOPLE SAY.
+            </h2>
+          </div>
+          <p class="services-desc">
+            Genuine collaboration feedback from creators, brands, and agency collaborators.
+          </p>
+        </div>
+
+        <div class="reviews-grid">
+          <!-- Review 01 -->
+          <article class="review-card reveal">
+            <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <div class="review-quote-mark" aria-hidden="true">“</div>
+            <p class="review-quote-text">
+              Working with Harinder was seamless from first brief to final delivery. His sense of timing, rhythm, and sound design elevated our content noticeably.
+            </p>
+            <div class="review-author-wrap">
+              <div class="review-author-name">CREATOR CLIENT</div>
+              <div class="review-author-role">Digital Creator / Verified Review</div>
+            </div>
+          </article>
+
+          <!-- Review 02 -->
+          <article class="review-card reveal">
+            <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <div class="review-quote-mark" aria-hidden="true">“</div>
+            <p class="review-quote-text">
+              Harinder takes raw footage and turns it into clean, high-retention edits without needing micromanagement. Fast turnaround and pristine quality every time.
+            </p>
+            <div class="review-author-wrap">
+              <div class="review-author-name">BRAND COLLABORATOR</div>
+              <div class="review-author-role">Brand Director / Commercial Client</div>
+            </div>
+          </article>
+
+          <!-- Review 03 -->
+          <article class="review-card reveal">
+            <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <div class="review-quote-mark" aria-hidden="true">“</div>
+            <p class="review-quote-text">
+              The combination of sharp cuts, dynamic captions, and cinematic colour finishing made our reels stand out instantly in the feed. Highly recommend.
+            </p>
+            <div class="review-author-wrap">
+              <div class="review-author-name">FOUNDER &amp; PRODUCER</div>
+              <div class="review-author-role">Agency Lead / Video Producer</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         13. CONTACT SECTION — BOLD FINAL POSTER & ONE-CLICK EMAIL
+         ======================================================================= -->
+    <section class="contact-section" id="contact">
+      <div class="container contact-wrap">
+        <div class="reveal">
+          <div class="badge-pill mono" style="margin-bottom:18px;">
+            <span class="badge-dot" aria-hidden="true"></span>
+            <span>09 / GET IN TOUCH</span>
+          </div>
+
+          <h2 class="display contact-headline">
+            LET'S MAKE<br>
+            SOMETHING<br>
+            WORTH WATCHING<span class="asterisk">.*</span>
+          </h2>
+
+          <p class="contact-copy">
+            Got a project in mind? Send over your raw clips, a brief, or even just a reference video you like. We can figure out the rest together.
+          </p>
+
+          <div class="contact-actions">
+            <!-- Click to Copy Email Pill with Toast Notification -->
+            <button class="interactive-email-pill" data-copy-text="iamharinders@gmail.com" aria-label="Click to copy email address">
+              <span>iamharinders@gmail.com</span>
+              <span class="mono" style="opacity:0.8; font-size:10px;">[COPY]</span>
+            </button>
+
+            <!-- Instagram Link -->
+            <a class="contact-instagram-link" href="https://www.instagram.com/harinder.mp4/" target="_blank" rel="noopener noreferrer">
+              <span>Instagram @harinder.mp4 ↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Side Direct Post-Production Specs -->
+        <div class="contact-side-card reveal">
+          <div class="contact-side-title">DIRECT POST-PRODUCTION</div>
+          <ul class="contact-side-list mono">
+            <li><strong>EMAIL:</strong> iamharinders@gmail.com</li>
+            <li><strong>INSTAGRAM:</strong> @harinder.mp4</li>
+            <li><strong>SCOPE:</strong> SHORT-FORM · COMMERCIALS · SOCIAL</li>
+            <li><strong>TIMEZONE:</strong> IST (UTC+5:30) // WORKING GLOBALLY</li>
+            <li><strong>AVAILABILITY:</strong> OPEN FOR COMMISSIONS</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =======================================================================
+       14. FOOTER
+       ======================================================================= -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        &copy; 2026 HARINDER'S PORTFOLIO. ALL RIGHTS RESERVED.
+      </div>
+      <nav class="footer-nav" aria-label="Footer Navigation">
+        <a href="#work">Work</a>
+        <a href="#services">Services</a>
+        <a href="#reels">Reels</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="https://www.instagram.com/harinder.mp4/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- =======================================================================
+       15. FULLSCREEN REUSABLE CINEMA MODAL PLAYER
+       Supports both 16:9 Landscape and 9:16 Vertical video with direct audio
+       ======================================================================= -->
+  <div class="cinema-modal" id="cinemaModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="cinema-backdrop" id="cinemaBackdrop"></div>
+    <div class="cinema-dialog" id="cinemaDialog">
+      <div class="cinema-header">
+        <div class="cinema-badge mono" id="cinemaModalBadge">01 / CINEMA VIEW</div>
+        <div class="cinema-title" id="cinemaModalTitle">VIDEO TITLE</div>
+        <button class="cinema-close-btn" id="cinemaCloseBtn" aria-label="Close modal">✕</button>
+      </div>
+      <div class="cinema-stage" id="cinemaStage">
+        <video id="cinemaVideo" controls playsinline></video>
+      </div>
+    </div>
+  </div>
+
+  <!-- Email Copied Toast Notification -->
+  <div class="email-copy-toast" id="emailCopyToast" role="status" aria-live="polite">
+    Email copied to clipboard!
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/portfolio-data.js"></script>
+  <script src="js/video-player.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

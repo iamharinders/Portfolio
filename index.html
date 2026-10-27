@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Harinder Singh — Short-Form Video Editing That Gets Results</title>
+  <meta name="description" content="Harinder Singh — Filmmaker and video editor specializing in high-retention short-form video editing, creator content, brand films, and cinematic post-production.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23090401'/><polygon points='38,30 72,50 38,70' fill='%23EAA51C'/></svg>">
+
+  <!-- Typography Imports -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Chivo+Mono:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- Subtle 35mm Film Grain Overlay -->
+  <div class="film-grain-overlay" aria-hidden="true"></div>
+
+  <!-- =======================================================================
+       1. NAVIGATION BAR
+       ======================================================================= -->
+  <header class="site-nav" id="siteNav">
+    <a class="nav-brand" href="#home" id="navBrand" aria-label="Harinder Singh">
+      <span class="nav-brand-dot" aria-hidden="true"></span>
+      <span>Harinder.mp4</span>
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <nav class="nav-center" aria-label="Main Navigation">
+      <a class="nav-link" href="#services">Services</a>
+      <a class="nav-link" href="#results">Work</a>
+      <a class="nav-link" href="#process">Process</a>
+      <a class="nav-link" href="#pricing">Pricing</a>
+      <a class="nav-link" href="#faq">FAQ</a>
+    </nav>
+
+    <!-- Right Side CTA -->
+    <div class="nav-right">
+      <a class="nav-cta" href="#contact">Start a Project ↗</a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button class="menu-btn" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile Navigation">
+    <button class="mobile-drawer-close" id="mobileDrawerClose" aria-label="Close menu">✕</button>
+    <a href="#services" class="mobile-nav-item">Services</a>
+    <a href="#results" class="mobile-nav-item">Work</a>
+    <a href="#process" class="mobile-nav-item">Process</a>
+    <a href="#pricing" class="mobile-nav-item">Pricing</a>
+    <a href="#faq" class="mobile-nav-item">FAQ</a>
+    <a href="#contact" class="mobile-nav-item" style="color:var(--amber-primary); font-size:18px; margin-top:20px;">Start a Project ↗</a>
+  </div>
+
+  <main>
+
+    <!-- =======================================================================
+         2. HERO SECTION & 3D CYLINDRICAL CAROUSEL
+         ======================================================================= -->
+    <section class="hero-section" id="home">
+      <div class="container hero-header-wrap reveal">
+        <!-- Top Announcement Badge -->
+        <div class="badge-pill">
+          <span class="badge-dot-amber" aria-hidden="true"></span>
+          <span>Trusted by creators &amp; ambitious brands // worldwide</span>
+        </div>
+
+        <div class="hero-identity-tag">HARINDER SINGH // FILMMAKER / VIDEO EDITOR</div>
+        <div class="hero-salutation">“Hi, I'm Harinder.”</div>
+
+        <!-- Main Headline -->
+        <h1 class="hero-main-title">
+          Short-form video editing that <span class="amber-text">actually gets results</span>
+        </h1>
+
+        <!-- Supporting Paragraph -->
+        <p class="hero-sub-copy">
+          We turn your raw clips into high-performing Reels, TikToks, and Shorts — designed to grab attention, boost engagement, and grow your audience faster.
+        </p>
+
+        <!-- Actions -->
+        <div class="hero-actions">
+          <a class="btn-primary" href="#contact">Start a Project ↗</a>
+          <a class="btn-secondary" href="#results">See My Work</a>
+        </div>
+      </div>
+
+      <!-- 3D Cylindrical Carousel (12 Cards with smooth rotation & drag physics) -->
+      <div class="carousel-3d-wrapper" id="carouselWrapper" aria-label="3D Video Carousel">
+        <div class="carousel-3d-stage" id="carouselStage">
+          <!-- Card 1 -->
+          <article class="carousel-3d-card" data-video-src="assets/videos/reel_01.mp4" data-title="CREATOR TALKING HEAD" data-category="9:16 Vertical · Sound &amp; Pacing" data-poster="assets/images/reel_01_poster.jpg">
+            <video class="carousel-card-video" autoplay muted loop playsinline poster="assets/images/reel_01_poster.jpg">
+              <source src="assets/videos/reel_01.mp4" type="video/mp4">
+            </video>
+            <div class="carousel-card-overlay">
+              <span class="carousel-card-badge">REEL 01</span>
+              <div class="carousel-card-play">▶</div>
+              <div class="carousel-card-title">Creator Talking Head</div>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="carousel-3d-card" data-video-src="assets/videos/reel_02.mp4" data-title="STREET STYLE &amp; SNEAKERS" data-category="9:16 Vertical · Rhythm &amp; Motion" data-poster="assets/images/reel_02_poster.jpg">
+            <video class="carousel-card-video" autoplay muted loop playsinline poster="assets/images/reel_02_poster.jpg">
+              <source src="assets/videos/reel_02.mp4" type="video/mp4">
+            </video>
+            <div class="carousel-card-overlay">
+              <span class="carousel-card-badge">REEL 02</span>
+              <div class="carousel-card-play">▶</div>
+              <div class="carousel-card-title">Street Style &amp; Motion</div>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="carousel-3d-card" data-video-src="assets/videos/reel_03.mp4" data-title="VALENTINE PERFUME AD" data-category="9:16 Vertical · Cinematic Colour" data-poster="assets/images/reel_03_poster.jpg">
+            <video class="carousel-card-video" autoplay muted loop playsinline poster="assets/images/reel_03_poster.jpg">
+              <source src="assets/videos/reel_03.mp4" type="video/mp4">
+            </video>
+            <div class="carousel-card-overlay">
+              <span class="carousel-card-badge">REEL 03</span>
+              <div class="carousel-card-play">▶</div>
+              <div class="carousel-card-title">Valentine Perfume Ad</div>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="carousel-3d-card" data-video-src="assets/videos/reel_04.mp4" data-title="WARM ATMOSPHERIC CUT" data-category="9:16 Vertical · Narrative &amp; Mood" data-poster="assets/images/reel_04_poster.jpg">
+            <video class="carousel-card-video" autoplay muted loop playsinline poster="assets/images/reel_04_poster.jpg">
+              <source src="assets/videos/reel_04.mp4" type="video/mp4">
+            </video>
+            <div class="carousel-card-overlay">
+              <span class="carousel-card-badge">REEL 04</span>
+              <div class="carousel-card-play">▶</div>
+              <div class="carousel-card-title">Warm Atmospheric Cut</div>
+            </div>
+          </article>
+
+          <!-- Card 5 -->
+          <article class="carousel-3d-card" data-video-src="assets/videos/reel_01.mp4" data-title="HOOK ARCHITECTURE" data-category="9:16 Vertical · Retention" data-poster="assets/images/reel_01_poster.jpg">
+            <video class="carousel-card-video" autoplay muted loop playsinline poster="assets/images/reel_01_poster.jpg">
+              <source src="assets/videos/reel_01.mp4" type="video/mp4">
+            </video>
+            <div class="carousel-card-overlay">
+              <span class="carousel-card-badge">HOOKS</span>
+              <div class="carousel-card-play">▶</div>
+              <div class="carousel-card-title">3-Sec Hook Retention</div>
+            </div>
+          </article>
+
+          <!-- Card 6 -->
+          <article class="carousel-3d-card" data-video-src="assets/videos/reel_02.mp4" data-title="KINETIC SUBTITLES" data-category="9:16 Vertical · Typography" data-poster="assets/images/reel_02_poster.jpg">
+            <video class="carousel-card-video" autoplay muted loop playsinline poster="assets/images/reel_02_poster.jpg">
+              <source src="assets/videos/reel_02.mp4" type="video/mp4">
+            </video>
+            <div class="carousel-card-overlay">
+              <span class="carousel-card-badge">KINETIC</span>
+              <div class="carousel-card-play">▶</div>
+              <div class="carousel-card-title">Dynamic Subtitle Timing</div>
+            </div>
+          </article>
+
+          <!-- Card 7 -->
+          <article class="carousel-3d-card" data-video-src="assets/videos/reel_03.mp4" data-title="ACES COLOUR GRADE" data-category="9:16 Vertical · Finishing" data-poster="assets/images/reel_03_poster.jpg">
+            <video class="carousel-card-video" autoplay muted loop playsinline poster="assets/images/reel_03_poster.jpg">
+              <source src="assets/videos/reel_03.mp4" type="video/mp4">
+            </video>
+            <div class="carousel-card-overlay">
+              <span class="carousel-card-badge">COLOUR</span>
+              <div class="carousel-card-play">▶</div>
+              <div class="carousel-card-title">Film Print Emulation</div>
+            </div>
+          </article>
+
+          <!-- Card 8 -->
+          <article class="carousel-3d-card" data-video-src="assets/videos/reel_04.mp4" data-title="SOUND DESIGN &amp; FOLEY" data-category="9:16 Vertical · Master Audio" data-poster="assets/images/reel_04_poster.jpg">
+            <video class="carousel-card-video" autoplay muted loop playsinline poster="assets/images/reel_04_poster.jpg">
+              <source src="assets/videos/reel_04.mp4" type="video/mp4">
+            </video>
+            <div class="carousel-card-overlay">
+              <span class="carousel-card-badge">AUDIO</span>
+              <div class="carousel-card-play">▶</div>
+              <div class="carousel-card-title">Sub-Bass &amp; Transient Hits</div>
+            </div>
+          </article>
+
+          <!-- Card 9 -->
+          <article class="carousel-3d-card" data-video-src="assets/videos/reel_01.mp4" data-title="PATTERN INTERRUPTS" data-category="9:16 Vertical · Dynamic Zooms" data-poster="assets/images/reel_01_poster.jpg">
+            <video class="carousel-card-video" autoplay muted loop playsinline poster="assets/images/reel_01_poster.jpg">
+              <source src="assets/videos/reel_01.mp4" type="video/mp4">
+            </video>
+            <div class="carousel-card-overlay">
+              <span class="carousel-card-badge">PACING</span>
+              <div class="carousel-card-play">▶</div>
+              <div class="carousel-card-title">Seamless Jump Cuts</div>
+            </div>
+          </article>
+
+          <!-- Card 10 -->
+          <article class="carousel-3d-card" data-video-src="assets/videos/reel_02.mp4" data-title="SOCIAL VELOCITY" data-category="9:16 Vertical · Viral Cuts" data-poster="assets/images/reel_02_poster.jpg">
+            <video class="carousel-card-video" autoplay muted loop playsinline poster="assets/images/reel_02_poster.jpg">
+              <source src="assets/videos/reel_02.mp4" type="video/mp4">
+            </video>
+            <div class="carousel-card-overlay">
+              <span class="carousel-card-badge">FEED</span>
+              <div class="carousel-card-play">▶</div>
+              <div class="carousel-card-title">TikTok &amp; Reels Rhythm</div>
+            </div>
+          </article>
+
+          <!-- Card 11 -->
+          <article class="carousel-3d-card" data-video-src="assets/videos/reel_03.mp4" data-title="COMMERCIAL SHORTS" data-category="9:16 Vertical · High Impact" data-poster="assets/images/reel_03_poster.jpg">
+            <video class="carousel-card-video" autoplay muted loop playsinline poster="assets/images/reel_03_poster.jpg">
+              <source src="assets/videos/reel_03.mp4" type="video/mp4">
+            </video>
+            <div class="carousel-card-overlay">
+              <span class="carousel-card-badge">AD CUTS</span>
+              <div class="carousel-card-play">▶</div>
+              <div class="carousel-card-title">Brand &amp; Product Cuts</div>
+            </div>
+          </article>
+
+          <!-- Card 12 -->
+          <article class="carousel-3d-card" data-video-src="assets/videos/reel_04.mp4" data-title="MASTER DELIVERY" data-category="9:16 Vertical · 4K 60FPS" data-poster="assets/images/reel_04_poster.jpg">
+            <video class="carousel-card-video" autoplay muted loop playsinline poster="assets/images/reel_04_poster.jpg">
+              <source src="assets/videos/reel_04.mp4" type="video/mp4">
+            </video>
+            <div class="carousel-card-overlay">
+              <span class="carousel-card-badge">EXPORT</span>
+              <div class="carousel-card-play">▶</div>
+              <div class="carousel-card-title">Platform-Ready Masters</div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Platform Tags Row -->
+      <div class="container hero-tags-row reveal">
+        <div class="hero-tag-pill"><span>✦</span> YouTube Shorts</div>
+        <div class="hero-tag-pill"><span>✦</span> Instagram Reels</div>
+        <div class="hero-tag-pill"><span>✦</span> TikTok Videos</div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         3. THE PROBLEM SECTION & RETENTION GRAPH
+         ======================================================================= -->
+    <section class="section-padding" id="problem">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="badge-pill">
+            <span class="badge-dot-amber" aria-hidden="true"></span>
+            <span>The Problem</span>
+          </div>
+          <h2 class="section-title">
+            Great content, but <em>no real growth?</em>
+          </h2>
+          <p class="section-desc">
+            You’re spending hours creating videos, but the results just don’t match the effort. The problem isn’t consistency — it’s what happens after people hit play.
+          </p>
+        </div>
+
+        <div class="problem-grid">
+          <!-- Left: Visual Retention Fall-off Graph Card -->
+          <div class="problem-graph-card reveal">
+            <div class="graph-card-header">
+              <div>
+                <div class="graph-card-title">Audience Retention Curve</div>
+                <div class="mono" style="font-size:11px; color:var(--text-dim);">DROP-OFF ANALYSIS // FIRST 3 SECONDS</div>
+              </div>
+              <div class="graph-stat-pill">-68% Retention Drop</div>
+            </div>
+
+            <!-- SVG Animated Graph Visual -->
+            <div class="graph-chart-wrap">
+              <svg class="graph-chart-svg" viewBox="0 0 500 200" fill="none" preserveAspectRatio="none">
+                <!-- Grid lines -->
+                <line x1="0" y1="40" x2="500" y2="40" stroke="rgba(255,255,255,0.05)" stroke-dasharray="4 4" />
+                <line x1="0" y1="90" x2="500" y2="90" stroke="rgba(255,255,255,0.05)" stroke-dasharray="4 4" />
+                <line x1="0" y1="140" x2="500" y2="140" stroke="rgba(255,255,255,0.05)" stroke-dasharray="4 4" />
+
+                <!-- Benchmark Flat Drop Curve (Problem) -->
+                <path d="M 0,30 Q 120,160 250,175 T 500,185" stroke="#FF4D4D" stroke-width="2.5" fill="none" stroke-linecap="round" />
+                <!-- Shaded Area -->
+                <path d="M 0,30 Q 120,160 250,175 T 500,185 L 500,200 L 0,200 Z" fill="url(#dropGrad)" opacity="0.2" />
+
+                <!-- Optimized Hook Curve (High Retention Goal) -->
+                <path d="M 0,30 Q 100,45 250,55 T 500,65" stroke="var(--amber-primary)" stroke-width="2" stroke-dasharray="6 6" fill="none" />
+
+                <defs>
+                  <linearGradient id="dropGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#FF4D4D" />
+                    <stop offset="100%" stop-color="transparent" />
+                  </linearGradient>
+                </defs>
+              </svg>
+
+              <!-- Interactive Tooltip Box -->
+              <div class="graph-tooltip-box">
+                <span>50% Viewers dropped</span> in first 3s
+              </div>
+            </div>
+
+            <!-- Months Row -->
+            <div class="graph-months-row">
+              <span>JAN</span>
+              <span>FEB</span>
+              <span>MAR</span>
+              <span>APR</span>
+              <span>MAY</span>
+              <span>JUN</span>
+            </div>
+          </div>
+
+          <!-- Right: Stack of Problem Insights -->
+          <div class="problem-cards-stack">
+            <div class="problem-sub-card reveal">
+              <span class="problem-card-tag">BURNOUT CYCLE</span>
+              <div>
+                <h3 class="problem-card-title">Hours spent editing with zero traction</h3>
+                <p class="problem-card-desc">
+                  Cutting for 6+ hours per video, manually timing captions, only to get stuck under 500 views. Pacing is flat, hooks are buried, and audience attention drifts before your core message lands.
+                </p>
+              </div>
+            </div>
+
+            <div class="problem-sub-card reveal">
+              <span class="problem-card-tag">RETENTION LEAKS</span>
+              <div>
+                <h3 class="problem-card-title">Lacking sound design &amp; pattern interrupts</h3>
+                <p class="problem-card-desc">
+                  Social algorithms optimize solely for watch time and completion rate. Without calculated sound effects, auditory transients, and deliberate visual resets, viewers swipe away in seconds.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         4. CONTENT OUTPUT SECTION (MORE CONTENT, LESS CHAOS)
+         ======================================================================= -->
+    <section class="section-padding" style="padding-top:0;">
+      <div class="container">
+        <div class="output-card-box reveal">
+          <div class="output-top-bar">
+            <div>
+              <div class="badge-pill" style="margin-bottom:8px;">
+                <span class="badge-dot-amber" aria-hidden="true"></span>
+                <span>Content Output</span>
+              </div>
+              <h3 style="font-family:var(--font-headline); font-size:24px; font-weight:700;">More content, Less chaos</h3>
+            </div>
+            <div style="text-align:right;">
+              <div class="output-metric-number">3 / 10</div>
+              <div class="output-metric-label">posts this week · 32% Consistency Increase</div>
+            </div>
+          </div>
+
+          <!-- Activity Days Pills -->
+          <div class="activity-days-grid">
+            <div class="activity-day-pill active">
+              <div class="activity-day-name">MON</div>
+              <div class="activity-day-dot"></div>
+            </div>
+            <div class="activity-day-pill active">
+              <div class="activity-day-name">TUE</div>
+              <div class="activity-day-dot"></div>
+            </div>
+            <div class="activity-day-pill active">
+              <div class="activity-day-name">WED</div>
+              <div class="activity-day-dot"></div>
+            </div>
+            <div class="activity-day-pill">
+              <div class="activity-day-name">THU</div>
+              <div class="activity-day-dot"></div>
+            </div>
+            <div class="activity-day-pill active">
+              <div class="activity-day-name">FRI</div>
+              <div class="activity-day-dot"></div>
+            </div>
+            <div class="activity-day-pill">
+              <div class="activity-day-name">SAT</div>
+              <div class="activity-day-dot"></div>
+            </div>
+          </div>
+
+          <!-- 3 Feature Pillars -->
+          <div class="pillars-grid">
+            <div class="pillar-item">
+              <div class="pillar-icon">⚡</div>
+              <h4 class="pillar-title">Fast Delivery</h4>
+              <p class="pillar-desc">Turnaround in 48–72 hours so you never miss a posting window or audience trend.</p>
+            </div>
+            <div class="pillar-item">
+              <div class="pillar-icon">📈</div>
+              <h4 class="pillar-title">Built for Growth</h4>
+              <p class="pillar-desc">Hook architecture and pacing calibrated specifically to trigger algorithmic distribution.</p>
+            </div>
+            <div class="pillar-item">
+              <div class="pillar-icon">🎬</div>
+              <h4 class="pillar-title">Expert Pipeline</h4>
+              <p class="pillar-desc">Master colour grading in DaVinci Resolve Studio with bespoke Foley and sub-bass audio.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         5. HOW WE FIX IT (SOLUTION SECTION)
+         ======================================================================= -->
+    <section class="section-padding" id="solution" style="padding-top:0;">
+      <div class="container">
+        <div class="solution-box reveal">
+          <div>
+            <div class="badge-pill">
+              <span class="badge-dot-amber" aria-hidden="true"></span>
+              <span>How We Fix It</span>
+            </div>
+            <h2 class="solution-title">
+              A done-for-you editing system that delivers results
+            </h2>
+            <p class="solution-copy">
+              We don't just cut footage — we engineer each video for retention, reach, and results. You send the clips, we handle everything else.
+            </p>
+            <a class="btn-primary" href="#results">See Our Works ↗</a>
+          </div>
+
+          <!-- Benchmark Visual Card -->
+          <div class="solution-visual-card">
+            <div class="solution-metric-val">84%</div>
+            <div class="solution-metric-label">Avg. 3-Second Retention Rate</div>
+            <p class="solution-metric-caption">
+              Hook-driven edits that keep viewers watching past the critical opening window and holding through the conclusion.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         6. SERVICES SECTION (WHAT WE DO)
+         ======================================================================= -->
+    <section class="section-padding" id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="badge-pill">
+            <span class="badge-dot-amber" aria-hidden="true"></span>
+            <span>What We Do</span>
+          </div>
+          <h2 class="section-title">
+            Short-form editing — <em>from raw clips to ready to post</em>
+          </h2>
+          <p class="section-desc">
+            Whether you're an ambitious creator or a brand building authority — we give you the editing muscle to deliver more, faster.
+          </p>
+        </div>
+
+        <div class="services-platform-grid">
+          <!-- Card 1: YouTube Shorts -->
+          <article class="platform-service-card reveal">
+            <div class="platform-card-media">
+              <span class="platform-card-tag">YOUTUBE SHORTS</span>
+              <video autoplay muted loop playsinline poster="assets/images/reel_01_poster.jpg">
+                <source src="assets/videos/reel_01.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="platform-card-content">
+              <h3 class="platform-card-title">YouTube Shorts</h3>
+              <p class="platform-card-desc">Hook-driven edits sized and optimized for Shorts' retention algorithm and audience watch time.</p>
+              <ul class="platform-features-list">
+                <li>High-velocity opening 3 seconds</li>
+                <li>Dynamic keyword emphasis</li>
+                <li>Seamless looped endings</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Card 2: Instagram Reels -->
+          <article class="platform-service-card reveal">
+            <div class="platform-card-media">
+              <span class="platform-card-tag">INSTAGRAM REELS</span>
+              <video autoplay muted loop playsinline poster="assets/images/reel_02_poster.jpg">
+                <source src="assets/videos/reel_02.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="platform-card-content">
+              <h3 class="platform-card-title">Instagram Reels</h3>
+              <p class="platform-card-desc">Trend-aware edits with aesthetic captions, rhythmic pacing, and hooks built for explore page reach.</p>
+              <ul class="platform-features-list">
+                <li>Aesthetic ACES colour grade</li>
+                <li>Viral sound synchronization</li>
+                <li>Frame-to-frame match cuts</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Card 3: TikTok Videos -->
+          <article class="platform-service-card reveal">
+            <div class="platform-card-media">
+              <span class="platform-card-tag">TIKTOK VIDEOS</span>
+              <video autoplay muted loop playsinline poster="assets/images/reel_03_poster.jpg">
+                <source src="assets/videos/reel_03.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="platform-card-content">
+              <h3 class="platform-card-title">TikTok Videos</h3>
+              <p class="platform-card-desc">High-energy pacing, sound effects, and pattern interrupts built for vertical feed velocity.</p>
+              <ul class="platform-features-list">
+                <li>Fast-cut pattern interrupts</li>
+                <li>Kinetic typography animation</li>
+                <li>Sub-bass auditory hits</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         7. CLIENT RESULTS SECTION (REAL VIDEOS, REAL NUMBERS)
+         ======================================================================= -->
+    <section class="section-padding" id="results">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="badge-pill">
+            <span class="badge-dot-amber" aria-hidden="true"></span>
+            <span>Client Results</span>
+          </div>
+          <h2 class="section-title">
+            Real videos, <em>Real numbers</em>
+          </h2>
+          <p class="section-desc">
+            Every video below was edited, optimized, and delivered with intention. Click to screen in full fidelity with audio.
+          </p>
+        </div>
+
+        <!-- 4 Vertical Reels Results Grid -->
+        <div class="results-grid">
+          <!-- Result 1 -->
+          <article class="result-video-card reveal" data-video-src="assets/videos/reel_01.mp4" data-title="CREATOR TALKING HEAD" data-category="9:16 Vertical · Sound &amp; Pacing" data-vertical="true" data-poster="assets/images/reel_01_poster.jpg" role="button" tabindex="0">
+            <span class="result-stat-badge">1.2M+ Views</span>
+            <div class="result-play-icon">▶</div>
+            <video class="result-video" autoplay muted loop playsinline poster="assets/images/reel_01_poster.jpg">
+              <source src="assets/videos/reel_01.mp4" type="video/mp4">
+            </video>
+            <div class="result-overlay-bottom">
+              <h3 class="result-card-title">Creator Talking Head</h3>
+              <span class="result-card-role">Sound &amp; Pacing</span>
+            </div>
+          </article>
+
+          <!-- Result 2 -->
+          <article class="result-video-card reveal" data-video-src="assets/videos/reel_02.mp4" data-title="STREET STYLE &amp; SNEAKERS" data-category="9:16 Vertical · Rhythm &amp; Motion" data-vertical="true" data-poster="assets/images/reel_02_poster.jpg" role="button" tabindex="0">
+            <span class="result-stat-badge">+8K Followers</span>
+            <div class="result-play-icon">▶</div>
+            <video class="result-video" autoplay muted loop playsinline poster="assets/images/reel_02_poster.jpg">
+              <source src="assets/videos/reel_02.mp4" type="video/mp4">
+            </video>
+            <div class="result-overlay-bottom">
+              <h3 class="result-card-title">Street Style &amp; Sneakers</h3>
+              <span class="result-card-role">Rhythm &amp; Motion</span>
+            </div>
+          </article>
+
+          <!-- Result 3 -->
+          <article class="result-video-card reveal" data-video-src="assets/videos/reel_03.mp4" data-title="VALENTINE PERFUME AD" data-category="9:16 Vertical · Commercial Cut" data-vertical="true" data-poster="assets/images/reel_03_poster.jpg" role="button" tabindex="0">
+            <span class="result-stat-badge">3x Engagement</span>
+            <div class="result-play-icon">▶</div>
+            <video class="result-video" autoplay muted loop playsinline poster="assets/images/reel_03_poster.jpg">
+              <source src="assets/videos/reel_03.mp4" type="video/mp4">
+            </video>
+            <div class="result-overlay-bottom">
+              <h3 class="result-card-title">Valentine Perfume Ad</h3>
+              <span class="result-card-role">Cinematic Colour</span>
+            </div>
+          </article>
+
+          <!-- Result 4 -->
+          <article class="result-video-card reveal" data-video-src="assets/videos/reel_04.mp4" data-title="WARM ATMOSPHERIC CUT" data-category="9:16 Vertical · Narrative" data-vertical="true" data-poster="assets/images/reel_04_poster.jpg" role="button" tabindex="0">
+            <span class="result-stat-badge">2.5x Leads</span>
+            <div class="result-play-icon">▶</div>
+            <video class="result-video" autoplay muted loop playsinline poster="assets/images/reel_04_poster.jpg">
+              <source src="assets/videos/reel_04.mp4" type="video/mp4">
+            </video>
+            <div class="result-overlay-bottom">
+              <h3 class="result-card-title">Warm Atmospheric Cut</h3>
+              <span class="result-card-role">Narrative &amp; Mood</span>
+            </div>
+          </article>
+        </div>
+
+        <!-- Featured Widescreen Showcase Cut (16:9 4K DCI) -->
+        <article class="widescreen-case-card reveal" data-video-src="assets/videos/featured_film.mp4" data-title="FEATURED CINEMATIC CUT" data-category="16:9 4K · ACES Pipeline" data-vertical="false" data-poster="assets/images/featured_film_poster.jpg" role="button" tabindex="0">
+          <video class="widescreen-video" autoplay muted loop playsinline poster="assets/images/featured_film_poster.jpg">
+            <source src="assets/videos/featured_film.mp4" type="video/mp4">
+          </video>
+          <div class="widescreen-overlay">
+            <div class="badge-pill" style="align-self:flex-start; margin-bottom:12px;">
+              <span class="badge-dot-amber" aria-hidden="true"></span>
+              <span>16:9 Master Cinema Screening</span>
+            </div>
+            <h3 class="widescreen-title">FEATURED FILM</h3>
+            <div class="widescreen-specs mono">
+              16:9 4K · ACES COLOUR SCIENCE · BESPOKE FOLEY &amp; MASTER AUDIO
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         8. PROCESS SECTION (FROM RAW CLIPS TO READY-TO-POST)
+         ======================================================================= -->
+    <section class="section-padding" id="process">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="badge-pill">
+            <span class="badge-dot-amber" aria-hidden="true"></span>
+            <span>Process We Follow</span>
+          </div>
+          <h2 class="section-title">
+            From raw clips to ready-to-post <em>Here's how we do it</em>
+          </h2>
+          <p class="section-desc">
+            From footage curation to sound design and color finishing, we handle everything you need to create high-performing reels.
+          </p>
+        </div>
+
+        <div class="process-steps-grid">
+          <div class="process-step-card reveal">
+            <div class="process-step-num">01</div>
+            <h3 class="process-step-title">Raw Footage Ingestion</h3>
+            <p class="process-step-desc">Upload your raw footage via Google Drive, Dropbox, or Frame.io along with your goals and references.</p>
+          </div>
+          <div class="process-step-card reveal">
+            <div class="process-step-num">02</div>
+            <h3 class="process-step-title">Rough Assembly &amp; Hook Lock</h3>
+            <p class="process-step-desc">I review every take, curate the strongest soundbites, and engineer an opening 3-second hook that halts scrolling.</p>
+          </div>
+          <div class="process-step-card reveal">
+            <div class="process-step-num">03</div>
+            <h3 class="process-step-title">Motion, Sound &amp; Colour</h3>
+            <p class="process-step-desc">Designing dynamic kinetic captions, auditory sub-bass hits, sound design, and an ACES film print emulation.</p>
+          </div>
+          <div class="process-step-card reveal">
+            <div class="process-step-num">04</div>
+            <h3 class="process-step-title">Master Delivery &amp; Exports</h3>
+            <p class="process-step-desc">Review pass, revisions if needed, and delivery of platform-ready exports (9:16 &amp; 16:9) ready to publish.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         9. TESTIMONIALS & PROOF SECTION
+         ======================================================================= -->
+    <section class="section-padding" id="testimonials">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="badge-pill">
+            <span class="badge-dot-amber" aria-hidden="true"></span>
+            <span>Testimonials</span>
+          </div>
+          <h2 class="section-title">
+            What creators say <em>after working with us</em>
+          </h2>
+          <p class="section-desc">
+            Real results from real clients. Here's what they said after working with us.
+          </p>
+        </div>
+
+        <!-- Proof Stats Bar -->
+        <div class="proof-stats-bar reveal">
+          <div class="proof-stat-item">
+            <div class="proof-stat-val">3x</div>
+            <div class="proof-stat-lbl">Engagement Growth</div>
+          </div>
+          <div class="proof-stat-item">
+            <div class="proof-stat-val">2M+</div>
+            <div class="proof-stat-lbl">Organic Views Generated</div>
+          </div>
+        </div>
+
+        <!-- Testimonial Cards -->
+        <div class="testimonials-grid">
+          <article class="testimonial-quote-card reveal">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">
+              “Before this, we were just posting randomly. Now every video has a purpose. Our reels started getting consistent explore reach within weeks.”
+            </p>
+            <div class="testimonial-author-row">
+              <div class="testimonial-author-avatar">EW</div>
+              <div>
+                <div class="testimonial-author-name">Emma Watson</div>
+                <div class="testimonial-author-role">Digital Creator / Verified</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial-quote-card reveal">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">
+              “Harinder takes raw footage and turns it into clean, high-retention edits without needing micromanagement. Fast turnaround and pristine quality every time.”
+            </p>
+            <div class="testimonial-author-row">
+              <div class="testimonial-author-avatar">BC</div>
+              <div>
+                <div class="testimonial-author-name">Brand Collaborator</div>
+                <div class="testimonial-author-role">Brand Director / Commercial Client</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial-quote-card reveal">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">
+              “The combination of sharp cuts, dynamic captions, and cinematic colour finishing made our reels stand out instantly in the feed. Highly recommend.”
+            </p>
+            <div class="testimonial-author-row">
+              <div class="testimonial-author-avatar">FP</div>
+              <div>
+                <div class="testimonial-author-name">Founder &amp; Producer</div>
+                <div class="testimonial-author-role">Agency Lead / Video Producer</div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         10. PRICING SECTION
+         ======================================================================= -->
+    <section class="section-padding" id="pricing">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="badge-pill">
+            <span class="badge-dot-amber" aria-hidden="true"></span>
+            <span>Pricing</span>
+          </div>
+          <h2 class="section-title">
+            Simple plans built <em>to grow your content</em>
+          </h2>
+          <p class="section-desc">
+            Choose a plan that fits your content goals. We handle the editing, strategy, and consistency — you focus on growth.
+          </p>
+        </div>
+
+        <div class="pricing-cards-grid">
+          <!-- Plan 1: Starter -->
+          <div class="pricing-card reveal">
+            <div>
+              <h3 class="pricing-plan-name">Starter</h3>
+              <p class="pricing-plan-target">Perfect for creators just getting started with consistent publishing.</p>
+              <div class="pricing-price-wrap">
+                <span class="pricing-price-val">$699</span>
+                <span class="pricing-price-period">/ month</span>
+              </div>
+              <ul class="pricing-features-list">
+                <li><span class="pricing-check">✓</span> Up to 8 short-form videos/month</li>
+                <li><span class="pricing-check">✓</span> Hook architecture &amp; pacing</li>
+                <li><span class="pricing-check">✓</span> Dynamic kinetic subtitles</li>
+                <li><span class="pricing-check">✓</span> Sound design &amp; audio mix</li>
+                <li><span class="pricing-check">✓</span> 48–72h turnaround</li>
+                <li><span class="pricing-check">✓</span> 1 round of revisions</li>
+              </ul>
+            </div>
+            <a class="btn-pricing" href="#contact">Get Started ↗</a>
+          </div>
+
+          <!-- Plan 2: Growth (Featured) -->
+          <div class="pricing-card featured reveal">
+            <span class="pricing-card-badge">MOST POPULAR</span>
+            <div>
+              <h3 class="pricing-plan-name">Creator Accelerator</h3>
+              <p class="pricing-plan-target">Built for active creators and founders scaling reach across multiple platforms.</p>
+              <div class="pricing-price-wrap">
+                <span class="pricing-price-val">$1,299</span>
+                <span class="pricing-price-period">/ month</span>
+              </div>
+              <ul class="pricing-features-list">
+                <li><span class="pricing-check">✓</span> Up to 16 short-form videos/month</li>
+                <li><span class="pricing-check">✓</span> Advanced pattern interrupts &amp; b-roll</li>
+                <li><span class="pricing-check">✓</span> Bespoke motion graphics &amp; typography</li>
+                <li><span class="pricing-check">✓</span> Custom Foley &amp; master sound design</li>
+                <li><span class="pricing-check">✓</span> Multi-platform exports (Reels, TikTok, Shorts)</li>
+                <li><span class="pricing-check">✓</span> Priority 24–48h turnaround &amp; 2 revisions</li>
+              </ul>
+            </div>
+            <a class="btn-pricing" href="#contact">Start Growing Today ↗</a>
+          </div>
+
+          <!-- Plan 3: Commercial & Custom -->
+          <div class="pricing-card reveal">
+            <div>
+              <h3 class="pricing-plan-name">Commercial &amp; Custom</h3>
+              <p class="pricing-plan-target">For brands and agencies requiring high-end commercials or tailored post-production.</p>
+              <div class="pricing-price-wrap">
+                <span class="pricing-price-val">Custom</span>
+                <span class="pricing-price-period">/ project</span>
+              </div>
+              <ul class="pricing-features-list">
+                <li><span class="pricing-check">✓</span> Full-scale brand film or campaign package</li>
+                <li><span class="pricing-check">✓</span> 16:9 4K master + social 9:16 cutdowns</li>
+                <li><span class="pricing-check">✓</span> Complete ACES colour grading pipeline</li>
+                <li><span class="pricing-check">✓</span> Bespoke sound design &amp; Foley mixing</li>
+                <li><span class="pricing-check">✓</span> Motion design, logo animation &amp; UI tracking</li>
+                <li><span class="pricing-check">✓</span> Dedicated milestone revision workflow</li>
+              </ul>
+            </div>
+            <a class="btn-pricing" href="#contact">Contact for Custom Scope ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         11. FAQ ACCORDION SECTION
+         ======================================================================= -->
+    <section class="section-padding" id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="badge-pill">
+            <span class="badge-dot-amber" aria-hidden="true"></span>
+            <span>FAQ</span>
+          </div>
+          <h2 class="section-title">
+            Everything <em>you need to know</em>
+          </h2>
+          <p class="section-desc">
+            Questions before you commit? We've answered the most common ones below.
+          </p>
+        </div>
+
+        <div class="faq-accordion-wrap">
+          <!-- FAQ Item 1 -->
+          <div class="faq-item reveal">
+            <button class="faq-question-btn" type="button">
+              <span>What do you actually do?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer-panel">
+              We specialize in creating high-quality, high-retention short-form video content for creators and brands. From raw footage review and hook architecture to dynamic captions, Foley sound design, and cinematic ACES colour grading.
+            </div>
+          </div>
+
+          <!-- FAQ Item 2 -->
+          <div class="faq-item reveal">
+            <button class="faq-question-btn" type="button">
+              <span>Do you only edit videos or help with strategy too?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer-panel">
+              We advise on hook structure, visual pacing, title timing, and audio selection to ensure each video is engineered to capture attention within the first 3 seconds and trigger algorithmic distribution.
+            </div>
+          </div>
+
+          <!-- FAQ Item 3 -->
+          <div class="faq-item reveal">
+            <button class="faq-question-btn" type="button">
+              <span>How fast is the delivery turnaround?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer-panel">
+              Standard turnaround is 48–72 hours per edit batch. For Creator Accelerator clients, priority turnaround of 24–48 hours is available.
+            </div>
+          </div>
+
+          <!-- FAQ Item 4 -->
+          <div class="faq-item reveal">
+            <button class="faq-question-btn" type="button">
+              <span>Can I request revisions?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer-panel">
+              Yes! All plans include structured revision rounds. We review cuts through Frame.io or timestamped notes so you get the exact rhythm and feel you want without delays.
+            </div>
+          </div>
+
+          <!-- FAQ Item 5 -->
+          <div class="faq-item reveal">
+            <button class="faq-question-btn" type="button">
+              <span>Which platforms do you optimize for?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer-panel">
+              We deliver natively formatted 9:16 vertical exports for Instagram Reels, YouTube Shorts, and TikTok, alongside 16:9 4K widescreen masters and 1:1 square crops where requested.
+            </div>
+          </div>
+
+          <!-- FAQ Item 6 -->
+          <div class="faq-item reveal">
+            <button class="faq-question-btn" type="button">
+              <span>How do I send my raw footage?</span>
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer-panel">
+              You can simply share a Google Drive, Dropbox, WeTransfer, or Frame.io link. We organize the assets, sync audio, and start assembling immediately.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         12. TOOLS USED TICKER (CONTINUOUS INFINITE MARQUEE)
+         ======================================================================= -->
+    <section class="section-padding" id="tools" style="padding-bottom:0;">
+      <div class="container">
+        <div class="section-head reveal" style="margin-bottom:32px;">
+          <div class="badge-pill">
+            <span class="badge-dot-amber" aria-hidden="true"></span>
+            <span>Platforms &amp; Tools</span>
+          </div>
+          <h2 class="section-title">
+            We're comfortable in <em>every major editing tool</em>
+          </h2>
+          <p class="section-desc">
+            Whatever tool you use, we already know it. No delays, no friction — just great edits.
+          </p>
+        </div>
+
+        <div class="ticker-outer-wrap">
+          <div class="ticker-track">
+            <!-- Set 1 -->
+            <div class="ticker-badge-pill"><span class="ticker-bullet">✦</span> DaVinci Resolve Studio</div>
+            <div class="ticker-badge-pill"><span class="ticker-bullet">✦</span> Adobe Premiere Pro</div>
+            <div class="ticker-badge-pill"><span class="ticker-bullet">✦</span> Adobe After Effects</div>
+            <div class="ticker-badge-pill"><span class="ticker-bullet">✦</span> Adobe Audition</div>
+            <div class="ticker-badge-pill"><span class="ticker-bullet">✦</span> Photoshop &amp; Lightroom</div>
+            <div class="ticker-badge-pill"><span class="ticker-bullet">✦</span> CapCut Pro</div>
+            <div class="ticker-badge-pill"><span class="ticker-bullet">✦</span> Final Cut Pro</div>
+            <!-- Set 2 (for continuous loop) -->
+            <div class="ticker-badge-pill"><span class="ticker-bullet">✦</span> DaVinci Resolve Studio</div>
+            <div class="ticker-badge-pill"><span class="ticker-bullet">✦</span> Adobe Premiere Pro</div>
+            <div class="ticker-badge-pill"><span class="ticker-bullet">✦</span> Adobe After Effects</div>
+            <div class="ticker-badge-pill"><span class="ticker-bullet">✦</span> Adobe Audition</div>
+            <div class="ticker-badge-pill"><span class="ticker-bullet">✦</span> Photoshop &amp; Lightroom</div>
+            <div class="ticker-badge-pill"><span class="ticker-bullet">✦</span> CapCut Pro</div>
+            <div class="ticker-badge-pill"><span class="ticker-bullet">✦</span> Final Cut Pro</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         13. FINAL CALL TO ACTION (CTA)
+         ======================================================================= -->
+    <section class="cta-section" id="contact">
+      <div class="container">
+        <div class="cta-box reveal">
+          <h2 class="cta-title">
+            Ready to turn your content into real growth?
+          </h2>
+          <p class="cta-desc">
+            Stop guessing what works. Let’s turn your videos into consistent views, engagement, and results that actually matter.
+          </p>
+
+          <div class="cta-buttons-row">
+            <a class="btn-primary" href="mailto:iamharinders@gmail.com">Start Growing Today ↗</a>
+            <button class="btn-secondary interactive-email-pill" id="copyEmailBtn" data-copy-text="iamharinders@gmail.com" type="button">
+              <span>iamharinders@gmail.com</span>
+              <span class="mono" style="font-size:11px; opacity:0.8;">[COPY]</span>
+            </button>
+          </div>
+
+          <div class="cta-guarantee-row">
+            No contracts. Fast delivery. Results-focused.
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =======================================================================
+       14. FOOTER
+       ======================================================================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-row">
+        <a class="nav-brand" href="#home">
+          <span class="nav-brand-dot" aria-hidden="true"></span>
+          <span>Harinder.mp4</span>
+        </a>
+
+        <div class="footer-nav-links">
+          <a href="#services">Services</a>
+          <a href="#results">Works</a>
+          <a href="#process">Process</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#faq">FAQ</a>
+          <a href="https://www.instagram.com/harinder.mp4/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom-row">
+        <div>&copy; 2026 Harinder Singh. All rights reserved.</div>
+        <div>Created with precision · Cinematic Post-Production</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =======================================================================
+       15. REUSABLE CINEMA MODAL
+       ======================================================================= -->
+  <div class="cinema-modal" id="cinemaModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="cinema-backdrop" id="cinemaBackdrop"></div>
+    <div class="cinema-dialog" id="cinemaDialog">
+      <div class="cinema-header">
+        <div class="cinema-meta">
+          <span class="cinema-badge mono" id="cinemaModalBadge">01 / CINEMA VIEW</span>
+          <h3 class="cinema-title" id="cinemaModalTitle">VIDEO TITLE</h3>
+        </div>
+        <button class="cinema-close-btn" id="cinemaCloseBtn" aria-label="Close modal">✕</button>
+      </div>
+      <div class="cinema-stage" id="cinemaStage">
+        <video id="cinemaVideo" controls playsinline></video>
+      </div>
+      <div class="cinema-footer">
+        <div>
+          <span class="cinema-tag" id="cinemaModalRole">Lead Editor &amp; Colorist</span>
+        </div>
+        <div class="cinema-instruction">
+          Press <kbd>ESC</kbd> or click outside to exit
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Email Copied Toast Notification -->
+  <div class="email-copy-toast" id="emailCopyToast" role="status" aria-live="polite">
+    ✓ Email copied to clipboard (iamharinders@gmail.com)
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/portfolio-data.js"></script>
+  <script src="js/video-player.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

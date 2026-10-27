@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Harinder's Portfolio — Video Editor</title>
+  <meta name="description" content="Video editor focused on cinematic editing, motion, colour and social-first content.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232146FF'/><polygon points='38,30 72,50 38,70' fill='%23C8FF18'/></svg>">
+
+  <!-- Typography: Anton (Display), Bodoni Moda (Editorial), Manrope (UI), DM Mono (Technical) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,600;1,6..96,400;1,6..96,500;1,6..96,600&family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- =======================================================================
+       NAVIGATION BAR
+       ======================================================================= -->
+  <header class="site-nav">
+    <a class="nav-brand" href="#home" id="nav-brand">Harinder's Portfolio</a>
+    <nav class="nav-center" aria-label="Main Navigation">
+      <a class="nav-link" href="#work">Work</a>
+      <a class="nav-link" href="#casestudy">Case Study</a>
+      <a class="nav-link" href="#about">About</a>
+      <a class="nav-link" href="#reels">Reels</a>
+      <a class="nav-link" href="#reviews">Reviews</a>
+      <a class="nav-link" href="#contact">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <a class="nav-cta" href="mailto:iamharinders@gmail.com">Hire Me <span class="nav-dot" aria-hidden="true"></span></a>
+    </div>
+    <button class="menu-btn" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile Navigation">
+    <a href="#work" class="mobile-nav-item">Work</a>
+    <a href="#casestudy" class="mobile-nav-item">Case Study</a>
+    <a href="#about" class="mobile-nav-item">About</a>
+    <a href="#reels" class="mobile-nav-item">Reels</a>
+    <a href="#reviews" class="mobile-nav-item">Reviews</a>
+    <a href="#contact" class="mobile-nav-item">Contact</a>
+    <a href="mailto:iamharinders@gmail.com" class="mobile-nav-item" style="color:var(--blue);">Hire Me (iamharinders@gmail.com)</a>
+  </div>
+
+  <main>
+
+    <!-- =======================================================================
+         01 — HERO SECTION
+         ======================================================================= -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+
+        <!-- Left Intro -->
+        <div class="hero-intro reveal">
+          <div class="mono hero-kicker">VIDEO EDITOR</div>
+          <h1 class="display hero-title">
+            HI, I'M<br>
+            HARINDER.<br>
+            <span class="editorial" style="color:var(--blue);font-size:0.5em;display:block;line-height:1;margin:6px 0;">I edit for the moment</span>
+            <span class="blue">PEOPLE DECIDE TO WATCH.</span>
+          </h1>
+          <p class="hero-copy">
+            From fast social cuts to cinematic brand films, I care about pacing, sound and the details that make a frame feel right.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#work">Watch Work</a>
+            <a class="btn btn-dark" href="#contact">Get In Touch</a>
+          </div>
+        </div>
+
+        <!-- Center Character Visual Identity -->
+        <div class="hero-character reveal" aria-label="Harinder character portrait">
+          <img src="assets/images/harinder_character.png" alt="Harinder illustrated character wearing black turban and headphones">
+          <div class="character-scribble" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="hero-character-tag">
+            <span class="name">HARINDER</span>
+            <span class="role">VIDEO EDITOR</span>
+          </div>
+        </div>
+
+        <!-- Right Side Editorial & Status -->
+        <aside class="hero-side reveal">
+          <div class="mono">/01 — APPROACH</div>
+          <div class="editorial-line editorial">Cut with rhythm. Finished with intention.</div>
+          <p>
+            Raw footage needs direction. I shape cadence, acoustics and color into edits that feel deliberate and hold attention.
+          </p>
+          <div class="availability">
+            <span class="mono">STATUS</span>
+            <span><span class="availability-dot"></span> AVAILABLE FOR PROJECTS</span>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SOFTWARE BAR (SUBTLE, TECHNICAL, NO FAKE PERCENTAGES)
+         ======================================================================= -->
+    <div class="software-bar">
+      <div class="container software-inner">
+        <span class="mono software-label">TOOLS &amp; WORKFLOW</span>
+        <div class="software-tags">
+          <span class="software-pill">DaVinci Resolve</span>
+          <span class="software-pill">Premiere Pro</span>
+          <span class="software-pill">After Effects</span>
+          <span class="software-pill">Photoshop</span>
+          <span class="software-pill">Lightroom</span>
+          <span class="software-pill">Final Cut Pro</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- =======================================================================
+         02 — FEATURED WORK (SHORT, 1-VIEWPORT COMPACT SCROLL ZOOM)
+         ======================================================================= -->
+    <section class="featured-section" id="work">
+      <div class="container">
+        <div class="featured-head reveal">
+          <div>
+            <div class="mono">01 / FEATURED EDIT</div>
+            <h2 class="display featured-title">ORANGE<br>FILM.</h2>
+          </div>
+          <div>
+            <p class="featured-desc">
+              A visual-led edit built around rhythm, atmosphere and colour.
+            </p>
+            <div class="mono" style="color:var(--lime);margin-top:12px;letter-spacing:0.1em;">
+              EDIT • COLOUR • SOUND • MOTION
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Compact 1-viewport scroll interaction -->
+      <div class="featured-zoom" id="featuredZoomContainer">
+        <div class="featured-sticky">
+          <div class="featured-card" id="featuredCard" role="button" tabindex="0" aria-label="Open Orange Film in player">
+            <video class="featured-video" autoplay muted loop playsinline preload="metadata" poster="assets/images/featured_orange_film.jpg">
+              <source src="assets/videos/showcase_preview.mp4" type="video/mp4">
+            </video>
+
+            <div class="featured-overlay">
+              <div>
+                <div class="mono">ORANGE FILM / FEATURED CUT</div>
+                <h3 class="display">ORANGE FILM</h3>
+                <div class="featured-play-badge">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                  <span>Play Film</span>
+                </div>
+              </div>
+              <p>Anamorphic Narrative Exploration<br><span style="opacity:0.75;font-size:11px;">Click anywhere to expand</span></p>
+            </div>
+          </div>
+          <div class="featured-cue mono">SCROLL TO EXPAND</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         03 — SELECTED CUTS (DISTINCT HUMAN PROJECT COPY)
+         ======================================================================= -->
+    <section class="work">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="mono">02 / SELECTED WORK</div>
+            <h2 class="display section-title">SELECTED<br>CUTS.</h2>
+          </div>
+          <p class="section-intro">
+            A few pieces shaped for creators, brands and editorial projects. Each project cut with a different rhythm and purpose.
+          </p>
+        </div>
+
+        <div class="work-grid" id="selectedWorksGrid">
+          <!-- Project 01 -->
+          <article class="project reveal" data-project-id="01" tabindex="0" role="button" aria-label="Watch Creator Reel">
+            <div class="project-media">
+              <img src="assets/images/project_creator_reel.jpg" alt="Creator Reel Project Poster">
+            </div>
+            <div class="project-info">
+              <span class="project-number">01</span>
+              <h3 class="display">CREATOR REEL</h3>
+              <p>Fast cuts, clean sound design and a tighter rhythm built for vertical viewing.</p>
+              <div class="project-watch-hint">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                <span>WATCH CUT</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 02 -->
+          <article class="project reveal" data-project-id="02" tabindex="0" role="button" aria-label="Watch Brand Film">
+            <div class="project-media">
+              <img src="assets/images/project_brand_film.jpg" alt="Brand Film Project Poster">
+            </div>
+            <div class="project-info">
+              <span class="project-number">02</span>
+              <h3 class="display">BRAND FILM</h3>
+              <p>A slower, more deliberate cut focused on product detail, atmosphere and colour.</p>
+              <div class="project-watch-hint">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                <span>WATCH CUT</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 03 -->
+          <article class="project reveal" data-project-id="03" tabindex="0" role="button" aria-label="Watch Fashion Film">
+            <div class="project-media">
+              <img src="assets/images/project_fashion_film.jpg" alt="Fashion Film Project Poster">
+            </div>
+            <div class="project-info">
+              <span class="project-number">03</span>
+              <h3 class="display">FASHION FILM</h3>
+              <p>Music-led pacing with an editorial finish and controlled movement.</p>
+              <div class="project-watch-hint">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                <span>WATCH CUT</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 04 -->
+          <article class="project reveal" data-project-id="04" tabindex="0" role="button" aria-label="Watch Motion Reel">
+            <div class="project-media">
+              <img src="assets/images/project_motion_reel.jpg" alt="Motion Reel Project Poster">
+            </div>
+            <div class="project-info">
+              <span class="project-number">04</span>
+              <h3 class="display">MOTION REEL</h3>
+              <p>Type, transitions and visual effects designed to hit with the soundtrack.</p>
+              <div class="project-watch-hint">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                <span>WATCH CUT</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 05 -->
+          <article class="project reveal" data-project-id="05" tabindex="0" role="button" aria-label="Watch Social Campaign">
+            <div class="project-media">
+              <img src="assets/images/casestudy_grade_split.jpg" alt="Social Campaign Visual Frame">
+            </div>
+            <div class="project-info">
+              <span class="project-number">05</span>
+              <h3 class="display">SOCIAL CAMPAIGN</h3>
+              <p>Multiple aspect ratios built around hooks, pacing and platform behaviour.</p>
+              <div class="project-watch-hint">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                <span>WATCH CUT</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 06 -->
+          <article class="project reveal" data-project-id="06" tabindex="0" role="button" aria-label="Watch Visual Essay">
+            <div class="project-media">
+              <img src="assets/images/essay_anamorphic.jpg" alt="Visual Essay Film Poster">
+            </div>
+            <div class="project-info">
+              <span class="project-number">06</span>
+              <h3 class="display">VISUAL ESSAY</h3>
+              <p>Atmosphere, composition and cinematic colour built around a visual idea.</p>
+              <div class="project-watch-hint">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                <span>WATCH CUT</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         04 — MUGEN STUDIO CASE STUDY (VISUAL EDITORIAL BREAKDOWN)
+         ======================================================================= -->
+    <section class="case-study" id="casestudy">
+      <div class="container">
+        <div class="case-study-head reveal">
+          <div>
+            <div class="mono" style="color:var(--lime);">03 / CASE STUDY</div>
+            <h2 class="display case-study-title">MUGEN<br>STUDIO.</h2>
+          </div>
+          <p class="case-study-intro">
+            A project breakdown examining how multi-camera footage was shaped into a rhythm-led visual film with acoustic weight.
+          </p>
+        </div>
+
+        <div class="case-study-grid">
+          <!-- Video Card -->
+          <div class="case-study-media reveal" id="caseStudyTrigger" role="button" tabindex="0" aria-label="Play Mugen Studio Case Study">
+            <img src="assets/images/casestudy_grade_split.jpg" alt="Mugen Studio Case Study Footage">
+            <span class="case-study-badge">ACES GRADE &amp; SOUND CUT</span>
+            <div class="case-study-play-overlay">
+              <div class="case-study-play-btn">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                <span>WATCH CASE STUDY</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Structured 4-Part Breakdown -->
+          <div class="case-breakdown-card reveal">
+            <div>
+              <div class="case-block-label">ABOUT THE EDIT</div>
+              <div class="case-block-value">
+                A visual breakdown focused on pacing, frame composition and sonic weight. Taking raw multi-camera takes and shaping them into a focused, rhythm-driven edit.
+              </div>
+            </div>
+            <div class="case-divider"></div>
+            <div>
+              <div class="case-block-label">MY ROLE</div>
+              <div class="case-block-value">
+                Lead Editor, Sound Design &amp; Color Finishing
+              </div>
+            </div>
+            <div class="case-divider"></div>
+            <div>
+              <div class="case-block-label">WHAT I CHANGED</div>
+              <div class="case-block-value">
+                Re-timed transitions to acoustic transients, trimmed loose footage between narrative beats, and applied custom highlight rolloff.
+              </div>
+            </div>
+            <div class="case-divider"></div>
+            <div>
+              <div class="case-block-label">FINAL RESULT</div>
+              <div class="case-block-value">
+                A tight, intentional edit with zero visual filler, designed to hold attention across the full duration.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         05 — ABOUT ME (PERSONAL PERSPECTIVE, ELECTRIC BLUE)
+         ======================================================================= -->
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div class="reveal">
+          <div class="mono">04 / ABOUT ME</div>
+          <h2 class="display about-title">HI,<br>I'M <span class="lime">HARINDER.</span></h2>
+        </div>
+
+        <div class="reveal">
+          <p class="about-copy">
+            I'm an editor who likes the space between a good idea and a finished film. I work with footage, rhythm, sound and colour until the piece feels like it knows exactly where it wants to go.
+          </p>
+
+          <div class="about-meta">
+            <div><span>FOCUS</span><strong>Editing</strong></div>
+            <div><span>FOCUS</span><strong>Motion</strong></div>
+            <div><span>FOCUS</span><strong>Colour</strong></div>
+            <div><span>FOCUS</span><strong>Sound</strong></div>
+            <div><span>TOOLS</span><strong>DaVinci / Premiere / AE</strong></div>
+            <div><span>FORMAT</span><strong>Social / Commercial / Narrative</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         06 — CUSTOMER REVIEWS / TESTIMONIALS (3 EDITABLE SLOTS — NO FAKE INFO)
+         ======================================================================= -->
+    <section class="testimonials" id="reviews">
+      <div class="container">
+        <div class="testimonials-head reveal">
+          <div>
+            <div class="mono">05 / REVIEWS</div>
+            <h2 class="display testimonials-title">WHAT PEOPLE<br>SAY.</h2>
+          </div>
+          <p class="testimonials-intro">
+            Words from directors, creators and brands who have trusted my cuts with their footage and timelines.
+          </p>
+        </div>
+
+        <div class="testimonials-grid">
+          <!-- Slot 1 -->
+          <div class="testimonial-card reveal">
+            <div>
+              <div class="testimonial-quote-icon">“</div>
+              <p class="testimonial-quote">[Real client quote goes here.]</p>
+            </div>
+            <div class="testimonial-author">
+              <div class="testimonial-name">Client Name</div>
+              <div class="testimonial-role">ROLE / COMPANY</div>
+            </div>
+          </div>
+
+          <!-- Slot 2 -->
+          <div class="testimonial-card reveal">
+            <div>
+              <div class="testimonial-quote-icon">“</div>
+              <p class="testimonial-quote">[Real client quote goes here.]</p>
+            </div>
+            <div class="testimonial-author">
+              <div class="testimonial-name">Client Name</div>
+              <div class="testimonial-role">ROLE / COMPANY</div>
+            </div>
+          </div>
+
+          <!-- Slot 3 -->
+          <div class="testimonial-card reveal">
+            <div>
+              <div class="testimonial-quote-icon">“</div>
+              <p class="testimonial-quote">[Real client quote goes here.]</p>
+            </div>
+            <div class="testimonial-author">
+              <div class="testimonial-name">Client Name</div>
+              <div class="testimonial-role">ROLE / COMPANY</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         07 — CONTENT / REELS (SPECIFIC TO VERTICAL SHORT-FORM)
+         ======================================================================= -->
+    <section class="content-strip" id="reels">
+      <div class="container content-layout">
+        <div class="content-label reveal">
+          <div>
+            <div class="mono">06 / SHORT-FORM</div>
+            <h2 class="display">SHORT-FORM,<br>WITHOUT THE<br>SHORTCUTS.</h2>
+          </div>
+          <p>
+            Hooks, pacing, captions, sound design and movement — built for people who scroll fast.
+          </p>
+        </div>
+
+        <div>
+          <!-- 3 Vertical 9:16 Reels Showcase -->
+          <div class="content-video-showcase" style="margin-top:0;">
+            <div class="reels-preview-card reveal" data-reel-id="reel_01" tabindex="0" role="button" aria-label="Play Reel 01">
+              <span class="reels-card-tag">REEL / 01</span>
+              <video muted loop playsinline preload="metadata" poster="assets/images/vimeo_1224390608.jpg" onmouseover="this.play()" onmouseout="this.pause()">
+                <source src="assets/videos/reel_01.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="reels-preview-card reveal" data-reel-id="reel_02" tabindex="0" role="button" aria-label="Play Reel 02">
+              <span class="reels-card-tag">REEL / 02</span>
+              <video muted loop playsinline preload="metadata" onmouseover="this.play()" onmouseout="this.pause()">
+                <source src="assets/videos/reel_02.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="reels-preview-card reveal" data-reel-id="reel_03" tabindex="0" role="button" aria-label="Play Reel 03">
+              <span class="reels-card-tag">REEL / 03</span>
+              <video muted loop playsinline preload="metadata" onmouseover="this.play()" onmouseout="this.pause()">
+                <source src="assets/videos/reel_03.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         08 — CONTACT (LIME BLOCK WITH CONCLUSION CTA)
+         ======================================================================= -->
+    <section class="contact" id="contact">
+      <div class="container contact-grid">
+        <div class="reveal">
+          <div class="mono">07 / LET'S WORK</div>
+          <h2 class="display contact-title">
+            LET'S MAKE<br>
+            SOMETHING<br>
+            <span class="blue">WORTH WATCHING.</span>
+          </h2>
+        </div>
+        <div class="reveal">
+          <p class="contact-copy">
+            Got a project in mind? Send me the footage, the idea or even just a rough reference. We can figure out the rest.
+          </p>
+          <div class="contact-links">
+            <a class="btn btn-dark" href="mailto:iamharinders@gmail.com">Email Me</a>
+            <a class="btn btn-primary" href="https://www.instagram.com/harinder.mp4/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          </div>
+          <div style="margin-top:16px;">
+            <button class="contact-copy-pill" id="copyEmailBtn" aria-label="Copy Email to Clipboard">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span>iamharinders@gmail.com</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =======================================================================
+       FOOTER
+       ======================================================================= -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© 2026 Harinder — Video Editor</span>
+      <span>India / Available for remote projects worldwide</span>
+      <span>iamharinders@gmail.com</span>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div class="toast-notification" id="toastNotification" role="alert" aria-live="polite">
+    Copied iamharinders@gmail.com to clipboard!
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/portfolio-data.js"></script>
+  <script src="js/video-player.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

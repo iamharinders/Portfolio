@@ -155,6 +155,24 @@ export default function RealVideosScrollGallery({
     return () => window.removeEventListener("scroll", handleScroll)
   }, [isMobile])
 
+  // Ensure all videos play on mount and on interaction
+  useEffect(() => {
+    const playAllReels = () => {
+      Object.values(videoRefs.current).forEach((vid) => {
+        if (vid) {
+          vid.play().catch(() => {})
+        }
+      })
+    }
+    playAllReels()
+    window.addEventListener("click", playAllReels, { passive: true })
+    window.addEventListener("touchstart", playAllReels, { passive: true })
+    return () => {
+      window.removeEventListener("click", playAllReels)
+      window.removeEventListener("touchstart", playAllReels)
+    }
+  }, [])
+
   // Play video on hover/focus
   const handleMouseEnter = (id: string) => {
     setActiveVideoId(id)
@@ -167,11 +185,6 @@ export default function RealVideosScrollGallery({
   const handleMouseLeave = (id: string) => {
     if (activeVideoId === id) {
       setActiveVideoId(null)
-      const vid = videoRefs.current[id]
-      if (vid) {
-        vid.pause()
-        vid.currentTime = 0
-      }
     }
   }
 
@@ -332,7 +345,13 @@ export default function RealVideosScrollGallery({
               return (
                 <div
                   key={reel.id}
-                  onClick={() =>
+                  onClick={() => {
+                    // Trigger all videos on the page to play
+                    document.querySelectorAll<HTMLVideoElement>("video").forEach((v) => {
+                      if (v.muted || !v.hasAttribute("controls")) {
+                        v.play().catch(() => {})
+                      }
+                    })
                     onSelectVideo({
                       id: reel.id,
                       title: reel.title,
@@ -344,7 +363,7 @@ export default function RealVideosScrollGallery({
                       posterUrl: reel.poster,
                       description: `${reel.growthMetric} • ${reel.description}`,
                     })
-                  }
+                  }}
                   onMouseEnter={() => handleMouseEnter(reel.id)}
                   onMouseLeave={() => handleMouseLeave(reel.id)}
                   style={{
@@ -378,10 +397,11 @@ export default function RealVideosScrollGallery({
                     }}
                     src={reel.videoSrc}
                     poster={reel.poster}
+                    autoPlay
                     muted
                     loop
                     playsInline
-                    preload="metadata"
+                    preload="auto"
                     style={{
                       position: "absolute",
                       inset: 0,

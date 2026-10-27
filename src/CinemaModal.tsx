@@ -40,6 +40,21 @@ export default function CinemaModal({ video, onClose }: CinemaModalProps) {
     }
   }, [video, onClose])
 
+  // Explicitly trigger playback when video opens
+  useEffect(() => {
+    if (video && videoRef.current) {
+      const vid = videoRef.current
+      const playPromise = vid.play()
+      if (playPromise !== undefined) {
+        playPromise.catch((err) => {
+          console.warn("Autoplay restricted, attempting fallback play:", err)
+          vid.muted = true
+          vid.play().catch((e) => console.error("Playback failed:", e))
+        })
+      }
+    }
+  }, [video])
+
   if (!video) return null
 
   const isVertical = video.isVertical ?? true

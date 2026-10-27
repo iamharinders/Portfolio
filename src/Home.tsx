@@ -94,6 +94,28 @@ export default function Home({ slots = [] }: { slots?: string[] }) {
     }
   }, [])
 
+  // Ensure all videos play when user clicks or interacts with the page
+  useEffect(() => {
+    const playAllVideos = () => {
+      const videos = document.querySelectorAll<HTMLVideoElement>("video")
+      videos.forEach((vid) => {
+        if (vid.muted || !vid.hasAttribute("controls")) {
+          vid.muted = true
+          vid.play().catch(() => {})
+        }
+      })
+    }
+
+    window.addEventListener("click", playAllVideos, { passive: true })
+    window.addEventListener("touchstart", playAllVideos, { passive: true })
+    playAllVideos()
+
+    return () => {
+      window.removeEventListener("click", playAllVideos)
+      window.removeEventListener("touchstart", playAllVideos)
+    }
+  }, [])
+
   return (
     <>
       <RevealWatcher />

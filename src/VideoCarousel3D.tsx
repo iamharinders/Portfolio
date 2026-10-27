@@ -254,6 +254,24 @@ export default function VideoCarousel3D({ onSelectVideo }: VideoCarousel3DProps)
     return () => cancelAnimationFrame(animFrameIdRef.current)
   }, [])
 
+  // Ensure all carousel videos play on mount and when user interacts
+  useEffect(() => {
+    const playAllCarouselVideos = () => {
+      if (trackRef.current) {
+        trackRef.current.querySelectorAll("video").forEach((v) => {
+          v.play().catch(() => {})
+        })
+      }
+    }
+    playAllCarouselVideos()
+    window.addEventListener("click", playAllCarouselVideos, { passive: true })
+    window.addEventListener("touchstart", playAllCarouselVideos, { passive: true })
+    return () => {
+      window.removeEventListener("click", playAllCarouselVideos)
+      window.removeEventListener("touchstart", playAllCarouselVideos)
+    }
+  }, [])
+
   // Pointer Drag Handlers (supports Mouse & Touch seamlessly)
   const handlePointerDown = (e: React.PointerEvent) => {
     if (e.button !== 0 && e.pointerType === "mouse") return
@@ -373,6 +391,12 @@ export default function VideoCarousel3D({ onSelectVideo }: VideoCarousel3DProps)
                     e.stopPropagation()
                     return
                   }
+                  // Start playing all videos across the page
+                  document.querySelectorAll<HTMLVideoElement>("video").forEach((v) => {
+                    if (v.muted || !v.hasAttribute("controls")) {
+                      v.play().catch(() => {})
+                    }
+                  })
                   onSelectVideo({
                     id: item.id,
                     title: item.title,

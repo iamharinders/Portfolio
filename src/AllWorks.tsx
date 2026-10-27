@@ -136,6 +136,28 @@ export default function AllWorks() {
     window.scrollTo({ top: 0, left: 0, behavior: "instant" })
   }, [])
 
+  // Ensure all videos play when user clicks or interacts with the page
+  useEffect(() => {
+    const playAllVideos = () => {
+      const videos = document.querySelectorAll<HTMLVideoElement>("video")
+      videos.forEach((vid) => {
+        if (vid.muted || !vid.hasAttribute("controls")) {
+          vid.muted = true
+          vid.play().catch(() => {})
+        }
+      })
+    }
+
+    window.addEventListener("click", playAllVideos, { passive: true })
+    window.addEventListener("touchstart", playAllVideos, { passive: true })
+    playAllVideos()
+
+    return () => {
+      window.removeEventListener("click", playAllVideos)
+      window.removeEventListener("touchstart", playAllVideos)
+    }
+  }, [])
+
   const filteredProjects =
     selectedFilter === "All Edits"
       ? PROJECTS

@@ -89,38 +89,66 @@ ul, ol { padding: 0; list-style: none; }
   font-display: swap;
 }
 
+:root {
+  --color-bg-primary: #F5F4F0;
+  --color-charcoal: #111111;
+  --color-muted-sage: #5F5F5F;
+  --color-secondary-light: #F5F4F0;
+  --color-dark-contrast: #111111;
+
+  --color-pitch-black: #111111;
+  --color-deep-teal: #222222;
+  --color-amber-orange: #E55812;
+  --color-warm-orange: #E55812;
+  --color-pale-yellow: #FAF2A0;
+  --color-warm-cream: #F5F4F0;
+  --color-dark-charcoal: #111111;
+  --color-muted-grey: #5F5F5F;
+
+  --font-display: 'Syne', sans-serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'Chivo Mono', monospace;
+}
+
 html, body {
   margin: 0;
   padding: 0;
   width: 100%;
   min-height: 100%;
-  background-color: #090401 !important;
-  color: #f8f5f2;
-  overflow-x: hidden !important;
+  background-color: #F5F4F0 !important;
+  color: #111111;
+  overflow-x: clip !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: "PP Neue Montreal Book", "Bricolage Grotesque", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 #root {
   width: 100%;
   min-height: 100%;
-  background-color: #090401 !important;
+  background-color: #FFFFFF !important;
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow-x: hidden !important;
+  overflow-x: clip !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display), sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #111111 !important;
 }
 
 /* Master Layout & Overflow Guard */
 [class*="div-143"], [class*="div-144"], [class*="div-221"], [class*="div-222"], [class*="div-230"], [class*="div-231"] {
   width: 100% !important;
   max-width: 100vw !important;
-  overflow-x: hidden !important;
+  overflow-x: clip !important;
   box-sizing: border-box !important;
   margin-left: auto !important;
   margin-right: auto !important;
-  background-color: #090401 !important;
+  background-color: #FFFFFF !important;
 }
 
 [class*="hero-section"], [class*="work-section"], [class*="contact-section"], [class*="sarvices-section"], [class*="pricing-section"], [class*="desktop-9"] {
@@ -130,6 +158,88 @@ html, body {
   box-sizing: border-box !important;
   margin-left: auto !important;
   margin-right: auto !important;
+  background-color: #FFFFFF !important;
+}
+
+/* Tighten sections and remove huge empty blank space before/after Pricing */
+[class*="how-we-fix-section"],
+[class*="testimonial-cards"],
+[class*="pricing-section"],
+[class*="faq-section"],
+[class*="tools-used-section"],
+[class*="div-196"],
+[class*="containar-8"],
+[class*="containar-9"],
+[class*="containar-10"],
+[class*="content-14"],
+[class*="div-202"],
+[class*="content-13"] {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  box-sizing: border-box !important;
+}
+
+[class*="testimonial-cards"] {
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+[class*="pricing-section"] {
+  padding-top: 30px !important;
+  padding-bottom: 30px !important;
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+[class*="containar-8"] {
+  height: auto !important;
+  min-height: 0 !important;
+  gap: 32px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  width: 100% !important;
+}
+
+[class*="faq-section"] {
+  padding-top: 30px !important;
+  padding-bottom: 30px !important;
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+[class*="containar-9"] {
+  height: auto !important;
+  min-height: 0 !important;
+  gap: 36px !important;
+  width: 100% !important;
+}
+
+[class*="tools-used-section"] {
+  padding-top: 28px !important;
+  padding-bottom: 32px !important;
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+[class*="containar-10"] {
+  height: auto !important;
+  min-height: 0 !important;
+  gap: 24px !important;
+  width: 100% !important;
+}
+
+/* Eliminate empty spacer containers */
+[class*="div-215"],
+[class*="div-216"],
+[class*="div-124"] {
+  display: none !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 [class*="containar"] {
@@ -343,31 +453,61 @@ button {
   color: transparent !important;
 }
 
-/* Form inputs & textareas */
-input[class*="input"],
-textarea[class*="textarea"] {
-  width: 100% !important;
-  background: rgba(255, 255, 255, 0.04) !important;
-  border: 1px solid rgba(255, 255, 255, 0.12) !important;
-  border-radius: 8px !important;
-  color: #fff !important;
-  font-family: inherit !important;
-  font-size: 15px !important;
-  padding: 12px 16px !important;
-  height: auto !important;
-  outline: none !important;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+/* Form inputs & textareas — Contextual Text Contrast (Requirement 14) */
+.glass-input,
+input.glass-input,
+textarea.glass-input,
+select.glass-input,
+form:not(.dark-form) input,
+form:not(.dark-form) textarea,
+form:not(.dark-form) select {
+  color: #111111 !important;
+  -webkit-text-fill-color: #111111 !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
 }
 
-input[class*="input"]:focus,
-textarea[class*="textarea"]:focus {
-  border-color: #ff6e26 !important;
-  box-shadow: 0 0 0 2px rgba(255, 110, 38, 0.2) !important;
+.glass-input::placeholder,
+input.glass-input::placeholder,
+textarea.glass-input::placeholder,
+select.glass-input::placeholder,
+form:not(.dark-form) input::placeholder,
+form:not(.dark-form) textarea::placeholder {
+  color: #777777 !important;
+  -webkit-text-fill-color: #777777 !important;
+  opacity: 1 !important;
 }
 
-textarea[class*="textarea"] {
-  min-height: 120px !important;
-  resize: vertical !important;
+/* Autofill styling for light inputs */
+.glass-input:-webkit-autofill,
+.glass-input:-webkit-autofill:hover,
+.glass-input:-webkit-autofill:focus,
+form:not(.dark-form) input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #FFFFFF inset !important;
+  -webkit-text-fill-color: #111111 !important;
+  color: #111111 !important;
+}
+
+/* Dark form inputs */
+.dark-form input,
+.dark-form textarea,
+.dark-form select,
+[style*="#0A0A0A"] input,
+[style*="#0A0A0A"] textarea,
+[style*="#080808"] input,
+[style*="#080808"] textarea {
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+}
+
+.dark-form input::placeholder,
+.dark-form textarea::placeholder,
+[style*="#0A0A0A"] input::placeholder,
+[style*="#0A0A0A"] textarea::placeholder,
+[style*="#080808"] input::placeholder,
+[style*="#080808"] textarea::placeholder {
+  color: #AFAFAF !important;
+  -webkit-text-fill-color: #AFAFAF !important;
+  opacity: 1 !important;
 }
 
 /* Prevent horizontal overflow from hardcoded 1440px Framer desktop frames */
@@ -544,8 +684,6 @@ footer,
   transform: none !important;
   display: flex !important;
   justify-content: flex-start !important;
-  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent) !important;
-  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent) !important;
   padding: 20px 0 !important;
 }
 
@@ -561,9 +699,6 @@ footer,
   margin: 0 !important;
 }
 
-[class*="editing-tools-ticker"] ul:hover {
-  animation-play-state: paused !important;
-}
 
 /* 2. Audio Waveform Bar Animation */
 @keyframes audioWaveBounce {
@@ -642,6 +777,360 @@ button[class*="primary"] {
   transform: translateY(0px) scale(0.98) !important;
 }
 
+/* 6. Continuous Marquee Ticker Keyframes */
+@keyframes marquee-slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.3333%);
+  }
+}
 
+/* 7. Live Indicator Ping Animation */
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
 
+/* 8. Cinematic Glassmorphic Interactive Utilities */
+.nav-link-glass {
+  position: relative;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.nav-link-glass:hover {
+  background: rgba(32, 38, 34, 0.05) !important;
+  color: #657A68 !important;
+  transform: translateY(-1px);
+}
+
+.hire-me-btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.hire-me-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.25) 50%,
+    transparent 70%
+  );
+  transform: rotate(30deg) translateX(-120%);
+  transition: transform 0.65s ease;
+  pointer-events: none;
+}
+.hire-me-btn:hover::after {
+  transform: rotate(30deg) translateX(120%);
+}
+.hire-me-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 28px rgba(101, 122, 104, 0.35) !important;
+}
+
+.tool-card-glass {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.tool-card-glass:hover {
+  border-color: rgba(101, 122, 104, 0.45) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12), 0 0 20px rgba(101, 122, 104, 0.15) !important;
+}
+
+.problem-card-glass {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.problem-card-glass:hover {
+  transform: translateY(-4px);
+  border-color: rgba(101, 122, 104, 0.4) !important;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.1), 0 0 24px rgba(101, 122, 104, 0.2) !important;
+}
+
+/* 9. Status Indicator & Pulse Keyframes */
+@keyframes gentle-status-pulse {
+  0%, 100% {
+    opacity: 0.85;
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(143, 175, 145, 0.45);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+    box-shadow: 0 0 0 6px rgba(143, 175, 145, 0);
+  }
+}
+
+/* 10. Horizontal Marquee Keyframes */
+@keyframes marquee-right-to-left {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+@keyframes marquee-left-to-right {
+  0% { transform: translate3d(-50%, 0, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+.tool-card-editorial {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.tool-card-editorial:hover {
+  border-color: #657A68 !important;
+  transform: translateY(-4px) !important;
+  box-shadow: 0 20px 45px rgba(0,0,0,0.12), 0 0 20px rgba(101, 122, 104, 0.2) !important;
+}
+
+.metric-number-card-glass {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.metric-number-card-glass:hover {
+  border-color: rgba(101, 122, 104, 0.4) !important;
+  transform: translateY(-4px) !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12), 0 0 25px rgba(101, 122, 104, 0.2) !important;
+}
+
+.platform-card-glass {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.platform-card-glass:hover {
+  border-color: #657A68 !important;
+  transform: translateY(-4px) !important;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12), 0 0 25px rgba(101, 122, 104, 0.2) !important;
+}
+
+/* 11. Primary Action Buttons — Near-Black #111111 with White Text */
+[class*="primary"], button[class*="primary"], a[class*="primary"], .primary {
+  background-image: none !important;
+  background-color: #111111 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.14) !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+[class*="primary"]:hover, button[class*="primary"]:hover, a[class*="primary"]:hover, .primary:hover {
+  background-color: #2a2a2a !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2) !important;
+  transform: translateY(-2px) !important;
+}
+[class*="primary"] span, [class*="primary"] p, .primary span, .primary p {
+  color: #FFFFFF !important;
+}
+
+/* 12. Strict Typography Contrast — Contextual Color Hierarchy */
+h1:not([style*="color: #fff"]):not([style*="color: #FFF"]):not([style*="color: rgb(255"]):not([style*="color:#fff"]):not([style*="color:#FFF"]),
+h2:not([style*="color: #fff"]):not([style*="color: #FFF"]):not([style*="color: rgb(255"]):not([style*="color:#fff"]):not([style*="color:#FFF"]),
+h3:not([style*="color: #fff"]):not([style*="color: #FFF"]):not([style*="color: rgb(255"]):not([style*="color:#fff"]):not([style*="color:#FFF"]),
+h4:not([style*="color: #fff"]):not([style*="color: #FFF"]):not([style*="color: rgb(255"]):not([style*="color:#fff"]):not([style*="color:#FFF"]),
+h5:not([style*="color: #fff"]):not([style*="color: #FFF"]):not([style*="color: rgb(255"]):not([style*="color:#fff"]):not([style*="color:#FFF"]),
+h6:not([style*="color: #fff"]):not([style*="color: #FFF"]):not([style*="color: rgb(255"]):not([style*="color:#fff"]):not([style*="color:#FFF"]) {
+  color: #111111;
+}
+
+[class*="span-181"], [class*="span-182"], [class*="span-183"], [class*="span-184"],
+[class*="span-185"], [class*="span-186"], [class*="span-187"] {
+  color: #111111 !important;
+}
+
+/* 12b. Dark Section Contrast Exceptions — Black Editorial Boxes, Work Page, Video Reels */
+[style*="#0A0A0A"] h1, [style*="#0A0A0A"] h2, [style*="#0A0A0A"] h3, [style*="#0A0A0A"] h4,
+[style*="#080808"] h1, [style*="#080808"] h2, [style*="#080808"] h3, [style*="#080808"] h4,
+[style*="#141414"] h1, [style*="#141414"] h2, [style*="#141414"] h3, [style*="#141414"] h4,
+[style*="background: #0A0A0A"] h1, [style*="background: #0A0A0A"] h2,
+[style*="background-color: #0A0A0A"] h1, [style*="background-color: #0A0A0A"] h2,
+[style*="background-color: rgb(10, 10, 10)"] h1, [style*="background-color: rgb(10, 10, 10)"] h2,
+.dark-box h1, .dark-box h2, .dark-box h3, .dark-box h4,
+[class*="work-section"] h1,
+[class*="work-section"] h2,
+[class*="work-section"] h3,
+[class*="work-section"] [class*="h2-12"],
+[class*="work-section"] h2 span,
+#contact [style*="#0A0A0A"] h2,
+#contact [style*="background-color: rgb(10, 10, 10)"] h2,
+#contact [style*="#0A0A0A"] h3 {
+  color: #FFFFFF !important;
+}
+
+[style*="#0A0A0A"] p,
+[style*="#080808"] p,
+[style*="#141414"] p,
+[style*="background: #0A0A0A"] p,
+[style*="background-color: #0A0A0A"] p,
+[style*="background-color: rgb(10, 10, 10)"] p,
+[class*="work-section"] [class*="p-123"],
+[class*="work-section"] [class*="reviews-text-59"] p,
+[class*="work-section"] p,
+#contact [style*="#0A0A0A"] p,
+#contact [style*="background-color: rgb(10, 10, 10)"] p {
+  color: #B8B8B8 !important;
+}
+
+[style*="#0A0A0A"] span[style*="color: #FFFFFF"],
+[style*="#0A0A0A"] span[style*="color:#FFFFFF"],
+[style*="background-color: rgb(10, 10, 10)"] span[style*="color: #FFFFFF"] {
+  color: #FFFFFF !important;
+}
+
+/* SocialMedia2 card text over video */
+[class*="variant-1-16"] [class*="p-49"],
+[class*="variant-1-16"] [class*="p-96"],
+[class*="variant-1-16"] [class*="p-97"],
+[class*="variant-1-16"] [class*="p-52"],
+[class*="variant-1-16"] p,
+[class*="variant-1-16"] [class*="reviews-text-"] p {
+  color: #FFFFFF !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8) !important;
+}
+
+[class*="variant-1-16"] [class*="p-97"] {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* 13. Eliminate Orange Decorative Blur Elements */
+[class*="orange-shade"], [class*="orange-shade-2"] {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* 13. Hero & Content Below Reels Height Fix */
+header[class*="hero-section"], [class*="hero-section"], .hero-section {
+  height: auto !important;
+  min-height: auto !important;
+  overflow: visible !important;
+  overflow-x: clip !important;
+  padding-bottom: 72px !important;
+}
+
+div[class*="containar"], [class*="containar"], .containar {
+  height: auto !important;
+  min-height: auto !important;
+  overflow: visible !important;
+}
+
+/* 14. Prefers Reduced Motion Guard */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 15. Problem Cards & Pricing Responsive Guard */
+[class*="desktop-2"], [class*="desktop-3"], [class*="variant-1-3"] {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+[class*="pricing-cards"], .pricing-cards {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr)) !important;
+  gap: clamp(20px, 2.5vw, 32px) !important;
+  height: auto !important;
+  width: 100% !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  overflow: visible !important;
+  align-items: stretch !important;
+}
+
+[class*="div-198"], [class*="div-199"], [class*="div-200"] {
+  height: auto !important;
+  width: 100% !important;
+  overflow: visible !important;
+  display: flex !important;
+}
+
+/* 16. Total Elimination of Template-Level Height Blowouts & Trailing Whitespace */
+[class*="div-143"], .div-143,
+[class*="div-144"], .div-144,
+[class*="div-221"], .div-221,
+[class*="div-222"], .div-222,
+[class*="div-147"], .div-147,
+[class*="div-217"], .div-217,
+[class*="div-132"], .div-132,
+[class*="div-124"], .div-124,
+[class*="div-216"], .div-216,
+[class*="how-we-fix-section"], .how-we-fix-section,
+[class*="containar-3"], .containar-3,
+[class*="pricing-section"], .pricing-section,
+[class*="containar-8"], .containar-8,
+[class*="content-13"], .content-13,
+[class*="text-box"], .text-box,
+[class*="title-text-28"], .title-text-28,
+[class*="tools-used-section"], .tools-used-section,
+[class*="containar-10"], .containar-10,
+[class*="div-214"], .div-214 {
+  height: auto !important;
+  min-height: auto !important;
+  max-height: none !important;
+  width: 100% !important;
+  max-width: 100vw !important;
+}
+
+/* 17. Hero Editorial CTA Buttons */
+.hero-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: 100px;
+  background-color: rgba(17, 17, 17, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #FFFFFF !important;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14.5px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+.hero-btn-primary:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+  color: #FFFFFF !important;
+  background-color: #000000;
+}
+
+.hero-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 100px;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  color: #111111 !important;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14.5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+.hero-btn-secondary:hover {
+  transform: translateY(-2px);
+  background-color: #FFFFFF;
+  border-color: rgba(0, 0, 0, 0.25);
+  color: #111111 !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
 

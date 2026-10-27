@@ -1,229 +1,331 @@
-import styles from "./styles.module.css"
-import { SvgGraphic } from "./RichText"
+import React, { useState } from "react"
+import { Link } from "react-router-dom"
 
-export default function CTAFooter({ slots = [] }: { slots?: string[] }) {
+export default function CTAFooter({ slots }: { slots?: any[] } = {}) {
+  const [copiedEmail, setCopiedEmail] = useState(false)
+
+  const handleCopyEmail = (e: React.MouseEvent) => {
+    e.preventDefault()
+    navigator.clipboard.writeText("iamharinders@gmail.com")
+    setCopiedEmail(true)
+    setTimeout(() => setCopiedEmail(false), 2400)
+  }
+
   return (
-      <footer className={styles["desktop-9"]}>
-        <div className={styles["div-125"]}>
-          <img className={styles["img-28"]} src={slots[0] ?? "https://framerusercontent.com/images/xLLObKPmdqqcuWcYJSGc1cAvQuE.png?scale-down-to=2048&width=4320&height=4722"} alt="" />
-        </div>
-        <div className={styles["content-11"]}>
-          <section className={styles["cta"]}>
-            <div className={styles["div-126"]}>
-              <img className={styles["img-29"]} src={slots[1] ?? "https://framerusercontent.com/images/cwI1cddQjDGs7ktEQo3mfuyYM.png?scale-down-to=2048&width=5248&height=1984"} alt="" />
-            </div>
-            <div className={styles["project"]}>
-              <div className={styles["text-14"]}>
-                <div className={styles["title-text-18"]}>
-                  <h2 className={styles["h2-3"]}>
-                    <span className={styles["span-138"] + " " + styles["rv-24"]} data-reveal>{slots[2] ?? "Ready"}</span>
-                    {" "}
-                    <span className={styles["span-139"] + " " + styles["rv-24"]} data-reveal style={{ transitionDelay: "61ms" }}>{slots[3] ?? "to"}</span>
-                    {" "}
-                    <span className={styles["span-140"] + " " + styles["rv-24"]} data-reveal style={{ transitionDelay: "61ms" }}>{slots[4] ?? "turn"}</span>
-                    {" "}
-                    <span className={styles["span-141"] + " " + styles["rv-24"]} data-reveal style={{ transitionDelay: "116ms" }}>{slots[5] ?? "your"}</span>
-                    {" "}
-                    <div className={styles["span-142"] + " " + styles["rv-24"]} data-reveal />
-                  </h2>
-                  <h2 className={styles["h2-3"]}>
-                    <span className={styles["span-143"] + " " + styles["rv-24"]} data-reveal style={{ transitionDelay: "232ms" }}>{slots[6] ?? "content"}</span>
-                    {" "}
-                    <span className={styles["span-144"] + " " + styles["rv-24"]} data-reveal style={{ transitionDelay: "292ms" }}>{slots[7] ?? "into"}</span>
-                    {" "}
-                    <span className={styles["span-144"] + " " + styles["rv-24"]} data-reveal style={{ transitionDelay: "334ms" }}>{slots[8] ?? "real"}</span>
-                    {" "}
-                    <span className={styles["span-145"] + " " + styles["rv-24"]} data-reveal style={{ transitionDelay: "401ms" }}>{slots[9] ?? "growth?"}</span>
-                  </h2>
-                </div>
-                <div className={styles["reviews-text-36"]}>
-                  <div className={styles["p-84"]}>
-                    <span className={styles["span-146"] + " " + styles["rv-24"]} data-reveal style={{ transitionDelay: "171ms" }}>{slots[10] ?? "Stop"}</span>
-                    {" "}
-                    <span className={styles["span-147"] + " " + styles["rv-24"]} data-reveal style={{ transitionDelay: "232ms" }}>{slots[11] ?? "guessing"}</span>
-                    {" "}
-                    <span className={styles["span-148"] + " " + styles["rv-24"]} data-reveal style={{ transitionDelay: "292ms" }}>{slots[12] ?? "what"}</span>
-                    {" "}
-                    <span className={styles["span-149"] + " " + styles["rv-24"]} data-reveal style={{ transitionDelay: "334ms" }}>{slots[13] ?? "works."}</span>
-                    {" "}
-                    <span className={styles["span-150"] + " " + styles["rv-24"]} data-reveal style={{ transitionDelay: "401ms" }}>{slots[14] ?? "Let’s"}</span>
-                    {" "}
-                    <span className={styles["span-151"] + " " + styles["rv-24"]} data-reveal style={{ transitionDelay: "461ms" }}>{slots[15] ?? "turn"}</span>
-                    {" "}
-                    <span className={styles["span-152"] + " " + styles["rv-24"]} data-reveal style={{ transitionDelay: "461ms" }}>{slots[16] ?? "your"}</span>
-                    {" "}
-                    <span className={styles["span-153"] + " " + styles["rv-24"]} data-reveal style={{ transitionDelay: "525ms" }}>{slots[17] ?? "videos"}</span>
-                    {" "}
-                    <span className={styles["span-154"] + " " + styles["rv-24"]} data-reveal style={{ transitionDelay: "586ms" }}>{slots[18] ?? "into"}</span>
-                    {" "}
-                    <span className={styles["span-155"] + " " + styles["rv-24"]} data-reveal style={{ transitionDelay: "632ms" }}>{slots[19] ?? "consistent"}</span>
-                    {" "}
-                    <span className={styles["span-156"] + " " + styles["rv-24"]} data-reveal style={{ transitionDelay: "693ms" }}>{slots[20] ?? "views,"}</span>
-                    {" "}
-                    <span className={styles["span-157"] + " " + styles["rv-24"]} data-reveal style={{ transitionDelay: "736ms" }}>{slots[21] ?? "engagement,"}</span>
-                    {" "}
-                    <span className={styles["span-158"] + " " + styles["rv-24"]} data-reveal style={{ transitionDelay: "806ms" }}>{slots[22] ?? "and"}</span>
-                    {" "}
-                    <span className={styles["span-159"] + " " + styles["rv-24"]} data-reveal style={{ transitionDelay: "806ms" }}>{slots[23] ?? "results"}</span>
-                    {" "}
-                    <span className={styles["span-160"] + " " + styles["rv-24"]} data-reveal style={{ transitionDelay: "974ms" }}>{slots[24] ?? "that"}</span>
-                    {" "}
-                    <span className={styles["span-161"] + " " + styles["rv-24"]} data-reveal style={{ transitionDelay: "974ms" }}>{slots[25] ?? "actually"}</span>
-                    {" "}
-                    <span className={styles["span-162"] + " " + styles["rv-24"]} data-reveal style={{ transitionDelay: "1033ms" }}>{slots[26] ?? "matter."}</span>
-                  </div>
-                </div>
-              </div>
-              <div className={styles["button-group"]}>
-                <div className={styles["secondary-action-buttons"]}>
-                  <div className={styles["main-action-buttons"]}>
-                    <div className={styles["div-127"]}>
-                      <a className={styles["primary-4"]} href="./contact">
-                        <div className={styles["content-3"]}>
-                          <div className={styles["text-5"]}>
-                            <div className={styles["1-promo-button-label-2"]}>
-                              <p className={styles["p-45"]}>{slots[27] ?? "Start Growing Today"}</p>
-                            </div>
-                            <div className={styles["promo-button-label-6"]}>
-                              <p className={styles["p-46"]}>{slots[28] ?? "Start Growing Today"}</p>
-                            </div>
-                          </div>
-                          <div className={styles["arrow-4"]}>
-                            <div className={styles["logo"]}>
-                              <div className={styles["div"]}>
-                                <SvgGraphic className={styles["svg"]} html={"<svg style=\"width:100%;height:100%;\" viewBox=\"0 0 24 24\" preserveAspectRatio=\"none\" width=\"100%\" height=\"100%\" data-f2c-idx=\"2660\"><use href=\"#svg-1609222690_369\" data-f2c-idx=\"2661\"></use></svg>"} />
-                              </div>
-                            </div>
-                            <div className={styles["arrow-5"]}>
-                              <div className={styles["div"]}>
-                                <SvgGraphic className={styles["svg"]} html={"<svg style=\"width:100%;height:100%;\" viewBox=\"0 0 24 24\" preserveAspectRatio=\"none\" width=\"100%\" height=\"100%\" data-f2c-idx=\"2664\"><use href=\"#svg-1609222690_369\" data-f2c-idx=\"2665\"></use></svg>"} />
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div className={styles["reviews-text-37"]}>
-                  <div className={styles["p-85"]}>
-                    <span className={styles["span-163"] + " " + styles["rv-24"]} data-reveal>{slots[29] ?? "No"}</span>
-                    {" "}
-                    <span className={styles["span-164"] + " " + styles["rv-24"]} data-reveal style={{ transitionDelay: "53ms" }}>{slots[30] ?? "contracts."}</span>
-                    {" "}
-                    <span className={styles["span-165"] + " " + styles["rv-24"]} data-reveal style={{ transitionDelay: "99ms" }}>{slots[31] ?? "Fast"}</span>
-                    {" "}
-                    <span className={styles["span-166"] + " " + styles["rv-24"]} data-reveal style={{ transitionDelay: "155ms" }}>{slots[32] ?? "delivery."}</span>
-                    {" "}
-                    <span className={styles["span-167"] + " " + styles["rv-24"]} data-reveal style={{ transitionDelay: "215ms" }}>{slots[33] ?? "Results-focused."}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-          <div className={styles["footer"]}>
-            <div className={styles["info-logo"]}>
-              <div className={styles["logo-2"]}>
-                <a className={styles["a-2"]} href="./">
-                  <div className={styles["div-128"]}>
-                    <img className={styles["img-30"]} src={slots[34] ?? "https://framerusercontent.com/images/brpBRmmmugGykxrrMiISrtXFeI.png?scale-down-to=512&width=744&height=166"} alt="" />
-                  </div>
-                </a>
-              </div>
-              <div className={styles["infos"]}>
-                <div className={styles["link"]}>
-                  <div className={styles["menu"]}>
-                    <div className={styles["reviews-text-38"]}>
-                      <p className={styles["p-86"]}>{slots[35] ?? "Quick Links"}</p>
-                    </div>
-                    <div className={styles["quick-links"]}>
-                      <div className={styles["reviews-text-39"]}>
-                        <div className={styles["p-87"]}>
-                          <a className={styles["a-3"]} href="/#services">{slots[36] ?? "Services"}</a>
-                        </div>
-                      </div>
-                      <div className={styles["reviews-text-40"]}>
-                        <div className={styles["p-88"]}>
-                          <a className={styles["a-3"]} href="/all-works">{slots[37] ?? "Works"}</a>
-                        </div>
-                      </div>
-                      <div className={styles["reviews-text-41"]}>
-                        <div className={styles["p-89"]}>
-                          <a className={styles["a-3"]} href="/#pricing">{slots[38] ?? "Pricing"}</a>
-                        </div>
-                      </div>
-                      <div className={styles["reviews-text-42"]}>
-                        <div className={styles["p-90"]}>
-                          <a className={styles["a-3"]} href="/contact">{slots[39] ?? "Contact"}</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className={styles["link-2"]}>
-                  <div className={styles["menu-2"]}>
-                    <div className={styles["reviews-text-43"]}>
-                      <p className={styles["p-91"]}>{slots[40] ?? "Socials"}</p>
-                    </div>
-                    <div className={styles["socials"]}>
-                      <div className={styles["reviews-text-44"]}>
-                        <div className={styles["p-92"]}>
-                          <a className={styles["a-4"]} href="https://www.instagram.com/harinder.mp4/" target="_blank" rel="noopener noreferrer">{slots[42] ?? "Instagram"}</a>
-                        </div>
-                      </div>
-                      <div className={styles["reviews-text-44"]}>
-                        <div className={styles["p-92"]}>
-                          <a className={styles["a-4"]} href="mailto:iamharinders@gmail.com">{slots[41] ?? "Email Me"}</a>
-                        </div>
-                      </div>
-                      <div className={styles["reviews-text-44"]}>
-                        <div className={styles["p-92"]}>
-                          <a className={styles["a-4"]} href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">{slots[43] ?? "Youtube"}</a>
-                        </div>
-                      </div>
-                      <div className={styles["reviews-text-44"]}>
-                        <div className={styles["p-92"]}>
-                          <a className={styles["a-4"]} href="https://x.com/" target="_blank" rel="noopener noreferrer">{slots[44] ?? "X"}</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className={styles["links-line"]}>
-              <div className={styles["line-108-2"]}>
-                <div className={styles["div-129"]}>
-                  <SvgGraphic className={styles["svg-27"]} html={"<svg style=\"width:100%;height:100%;\" viewBox=\"0 0 1314 3\" preserveAspectRatio=\"none\" width=\"100%\" height=\"100%\" data-f2c-idx=\"2717\"><use href=\"#svg1609844329_503\" data-f2c-idx=\"2718\"></use></svg>"} />
-                </div>
-              </div>
-              <div className={styles["links"]}>
-                <div className={styles["reviews-text-45"]}>
-                  <p className={styles["p-93"]}>{slots[45] ?? "© 2026 Harinder.mp4 · Harinder Singh. All rights reserved"}</p>
-                </div>
-                <div className={styles["created"]}>
-                  <div className={styles["reviews-text-46"]}>
-                    <div className={styles["p-94"]}>
-                      {"Created by "}
-                      <a className={styles["a"]} href="https://x.com/sabbir_h_dm">{slots[46] ?? "Sabbir Hossien"}</a>
-                    </div>
-                  </div>
-                  <div className={styles["reviews-text-47"]}>
-                    <div className={styles["p-95"]}>
-                      {"Powered by "}
-                      <a className={styles["a"]} href="https://www.framer.com">{slots[47] ?? "Framer"}</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+    <footer
+      id="contact"
+      style={{
+        position: "relative",
+        width: "100%",
+        maxWidth: "100vw",
+        backgroundColor: "#F5F4F0",
+        borderTop: "1px solid rgba(0, 0, 0, 0.08)",
+        padding: "clamp(48px, 6vh, 72px) 0 32px",
+        boxSizing: "border-box",
+      }}
+    >
+      <div
+        style={{
+          maxWidth: "1280px",
+          margin: "0 auto",
+          padding: "0 clamp(18px, 4vw, 40px)",
+          boxSizing: "border-box",
+        }}
+      >
+        {/* 22. FINAL WEBSITE CTA — Dark Cinematic Presentation */}
+        <div
+          className="dark-editorial-box"
+          style={{
+            position: "relative",
+            backgroundColor: "#0A0A0A",
+            borderRadius: "32px",
+            padding: "clamp(40px, 6vw, 72px) clamp(24px, 5vw, 64px)",
+            boxShadow: "0 24px 60px rgba(0, 0, 0, 0.25)",
+            overflow: "hidden",
+            border: "1px solid rgba(255, 255, 255, 0.08)",
+            marginBottom: "clamp(48px, 6vh, 64px)",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            textAlign: "center",
+          }}
+        >
+          {/* Subtle warm cinematic background gradient */}
+          <div
+            style={{
+              position: "absolute",
+              top: "-50%",
+              left: "50%",
+              transform: "translateX(-50%)",
+              width: "600px",
+              height: "400px",
+              background: "radial-gradient(circle, rgba(229, 88, 18, 0.16) 0%, transparent 70%)",
+              filter: "blur(70px)",
+              pointerEvents: "none",
+            }}
+          />
+
+          {/* Status Indicator */}
+          <div style={{ position: "relative", zIndex: 2, marginBottom: "16px" }}>
+            <span
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "8px",
+                padding: "6px 16px",
+                borderRadius: "100px",
+                backgroundColor: "rgba(255, 255, 255, 0.06)",
+                border: "1px solid rgba(255, 255, 255, 0.12)",
+                fontFamily: "'Chivo Mono', monospace",
+                fontSize: "11px",
+                fontWeight: 700,
+                color: "#E0E0E0",
+                letterSpacing: "1.2px",
+                textTransform: "uppercase",
+              }}
+            >
+              <span
+                style={{
+                  width: "6px",
+                  height: "6px",
+                  borderRadius: "50%",
+                  backgroundColor: "#E55812",
+                }}
+              />
+              Editorial Production · Available Now
+            </span>
           </div>
-          <div className={styles["div-130"]}>
-            <div className={styles["div-131"]}>
-              <img className={styles["img-31"]} src={slots[48] ?? "https://framerusercontent.com/images/5EvfpqIZOKKQBkBuwoevBmVUrlU.png?scale-down-to=2048&width=5760&height=1916"} alt="" />
-            </div>
+
+          {/* Heading */}
+          <h2
+            style={{
+              position: "relative",
+              zIndex: 2,
+              fontFamily: "'Syne', sans-serif",
+              fontSize: "clamp(30px, 4.8vw, 56px)",
+              fontWeight: 800,
+              color: "#FFFFFF",
+              letterSpacing: "-0.025em",
+              lineHeight: 1.15,
+              maxWidth: "760px",
+              margin: "0 0 16px",
+            }}
+          >
+            <span>Have a video that deserves </span>
+            <span style={{ color: "#E55812" }}>better?</span>
+          </h2>
+
+          {/* Supporting Statement */}
+          <p
+            style={{
+              position: "relative",
+              zIndex: 2,
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontSize: "clamp(15px, 1.4vw, 18px)",
+              color: "#B8B8B8",
+              maxWidth: "600px",
+              margin: "0 0 32px",
+              lineHeight: 1.6,
+            }}
+          >
+            Let’s turn your footage into content people actually want to watch. High-retention pacing, ACES color grading, and custom sound design delivered in 24–48 hours.
+          </p>
+
+          {/* Action CTAs */}
+          <div
+            style={{
+              position: "relative",
+              zIndex: 2,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexWrap: "wrap",
+              gap: "14px",
+            }}
+          >
+            <Link
+              to="/hire-me"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "8px",
+                padding: "15px 36px",
+                borderRadius: "100px",
+                backgroundColor: "#E55812",
+                color: "#FFFFFF",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
+                fontSize: "15px",
+                fontWeight: 700,
+                textDecoration: "none",
+                boxShadow: "0 10px 30px rgba(229, 88, 18, 0.35)",
+                transition: "all 0.22s cubic-bezier(0.16, 1, 0.3, 1)",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "translateY(-2px) scale(1.02)"
+                e.currentTarget.style.boxShadow = "0 14px 38px rgba(229, 88, 18, 0.45)"
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "translateY(0) scale(1)"
+                e.currentTarget.style.boxShadow = "0 10px 30px rgba(229, 88, 18, 0.35)"
+              }}
+            >
+              <span>Hire Me</span>
+              <span style={{ fontSize: "16px", lineHeight: 1 }}>↗</span>
+            </Link>
+
+            <button
+              onClick={handleCopyEmail}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "8px",
+                padding: "14px 26px",
+                borderRadius: "100px",
+                backgroundColor: "rgba(255, 255, 255, 0.08)",
+                border: "1px solid rgba(255, 255, 255, 0.16)",
+                color: "#FFFFFF",
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
+                fontSize: "14px",
+                fontWeight: 600,
+                cursor: "pointer",
+                transition: "all 0.2s ease",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.14)"
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.08)"
+              }}
+            >
+              <span>{copiedEmail ? "✓ Email Copied!" : "iamharinders@gmail.com"}</span>
+              <span style={{ opacity: 0.6 }}>📋</span>
+            </button>
           </div>
         </div>
-      </footer>
+
+        {/* 23. COMPACT EDITORIAL FOOTER */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            flexWrap: "wrap",
+            gap: "24px",
+            paddingBottom: "24px",
+            borderBottom: "1px solid rgba(0, 0, 0, 0.08)",
+          }}
+        >
+          {/* Brand Lockup */}
+          <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+            <Link
+              to="/"
+              style={{
+                fontFamily: "'Syne', sans-serif",
+                fontSize: "20px",
+                letterSpacing: "-0.02em",
+                textDecoration: "none",
+                color: "#111111",
+                display: "inline-flex",
+                alignItems: "baseline",
+              }}
+            >
+              <span style={{ fontWeight: 800 }}>Harinder</span>
+              <span
+                style={{
+                  fontFamily: "'Chivo Mono', monospace",
+                  fontWeight: 600,
+                  fontSize: "14px",
+                  letterSpacing: "0.5px",
+                  color: "#E55812",
+                  marginLeft: "1px",
+                }}
+              >
+                .MP4
+              </span>
+            </Link>
+            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+              <img
+                src="/assets/images/hari_studio_mark_black.png"
+                alt="HARI STUDIO"
+                style={{ width: "16px", height: "16px", objectFit: "contain", opacity: 0.8 }}
+              />
+              <span
+                style={{
+                  fontFamily: "'Chivo Mono', monospace",
+                  fontSize: "11px",
+                  color: "#5F5F5F",
+                  letterSpacing: "0.5px",
+                }}
+              >
+                POWERED BY HARI STUDIO
+              </span>
+            </div>
+          </div>
+
+          {/* Social Links */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "16px",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontSize: "13px",
+              fontWeight: 600,
+            }}
+          >
+            <a
+              href="https://www.instagram.com/harinder.mp4/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: "#111111",
+                textDecoration: "none",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "4px",
+              }}
+            >
+              <span>Instagram</span>
+              <span style={{ fontSize: "11px", opacity: 0.6 }}>↗</span>
+            </a>
+            <a
+              href="mailto:iamharinders@gmail.com"
+              style={{
+                color: "#5F5F5F",
+                textDecoration: "none",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "4px",
+              }}
+            >
+              <span>Email</span>
+              <span style={{ fontSize: "11px", opacity: 0.6 }}>✉</span>
+            </a>
+          </div>
+        </div>
+
+        {/* Bottom Copyright Strip */}
+        <div
+          style={{
+            paddingTop: "20px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            flexWrap: "wrap",
+            gap: "12px",
+            fontSize: "12px",
+            color: "#888888",
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
+          }}
+        >
+          <p style={{ margin: 0 }}>
+            © 2026 Harinder.MP4. All rights reserved.
+          </p>
+          <p style={{ margin: 0, fontFamily: "'Chivo Mono', monospace", fontSize: "11px", color: "#888888" }}>
+            CREATIVE EDITORIAL // SHORT-FORM SPECIALIST
+          </p>
+        </div>
+      </div>
+    </footer>
   )
 }

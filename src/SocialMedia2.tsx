@@ -28,7 +28,7 @@ export default function SocialMedia2({ slots = [], videoSrc, onSelect }: { slots
                 </div>
               </div>
               <div className={styles["title-text-6"]}>
-                <p className={styles["p-49"]}>{slots[1] ?? "758K Views"}</p>
+                <p className={styles["p-49"]} style={{ color: "#FFFFFF", textShadow: "0 1px 4px rgba(0,0,0,0.85)" }}>{slots[1] ?? "758K Views"}</p>
               </div>
             </div>
           </div>
@@ -36,10 +36,10 @@ export default function SocialMedia2({ slots = [], videoSrc, onSelect }: { slots
             <div className={styles["title-4"]}>
               <div className={styles["text-15"]}>
                 <div className={styles["title-text-19"]}>
-                  <p className={styles["p-96"]}>{slots[2] ?? "2.3x engagement growth"}</p>
+                  <p className={styles["p-96"]} style={{ color: "#FFFFFF", textShadow: "0 1px 4px rgba(0,0,0,0.85)" }}>{slots[2] ?? "2.3x engagement growth"}</p>
                 </div>
                 <div className={styles["reviews-text-48"]}>
-                  <p className={styles["p-97"]}>{slots[3] ?? "Optimized content structure for better watch time"}</p>
+                  <p className={styles["p-97"]} style={{ color: "rgba(255, 255, 255, 0.92)", textShadow: "0 1px 4px rgba(0,0,0,0.85)" }}>{slots[3] ?? "Optimized content structure for better watch time"}</p>
                 </div>
               </div>
               <div className={styles["profile-info"]}>
@@ -50,7 +50,7 @@ export default function SocialMedia2({ slots = [], videoSrc, onSelect }: { slots
                 </div>
                 <div className={styles["name-info"]}>
                   <div className={styles["reviews-text-22"]}>
-                    <p className={styles["p-52"]}>{slots[5] ?? "wearnova"}</p>
+                    <p className={styles["p-52"]} style={{ color: "#FFFFFF", textShadow: "0 1px 4px rgba(0,0,0,0.85)" }}>{slots[5] ?? "wearnova"}</p>
                   </div>
                   <div className={styles["verification-icon"]}>
                     <div className={styles["div-60"]}>

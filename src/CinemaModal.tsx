@@ -1,13 +1,19 @@
 import { useEffect, useRef } from "react"
 
 export interface CinemaVideoData {
+  id?: string
   title: string
   subtitle?: string
+  category?: string
   client?: string
-  src: string
+  src?: string
+  videoUrl?: string
   poster?: string
+  posterUrl?: string
   isVertical?: boolean
+  aspect?: string
   specs?: string
+  description?: string
 }
 
 interface CinemaModalProps {
@@ -142,8 +148,8 @@ export default function CinemaModal({ video, onClose }: CinemaModalProps) {
         >
           <video
             ref={videoRef}
-            src={video.src}
-            poster={video.poster}
+            src={video.src || video.videoUrl}
+            poster={video.poster || video.posterUrl}
             controls
             autoPlay
             playsInline

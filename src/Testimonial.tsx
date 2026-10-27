@@ -1,200 +1,312 @@
-import styles from "./styles.module.css"
-import { SvgGraphic } from "./RichText"
+import React, { useEffect, useRef, useState } from "react"
 
-export default function Testimonial({ slots = [] }: { slots?: string[] }) {
+interface TestimonialProps {
+  slots?: string[]
+}
+
+export default function Testimonial({ slots = [] }: TestimonialProps) {
+  const rootRef = useRef<HTMLDivElement>(null)
+  const [inView, setInView] = useState(false)
+  const [multiplier, setMultiplier] = useState(0)
+  const [engagement, setEngagement] = useState(0)
+
+  useEffect(() => {
+    let animId: number
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setInView(true)
+            const startTime = performance.now()
+            const duration = 1400
+
+            const animate = (currentTime: number) => {
+              const elapsed = currentTime - startTime
+              const progress = Math.min(elapsed / duration, 1)
+              const ease = 1 - Math.pow(1 - progress, 3)
+
+              setMultiplier(Math.round(ease * 3))
+              setEngagement(Math.round(ease * 2000000))
+
+              if (progress < 1) {
+                animId = requestAnimationFrame(animate)
+              }
+            }
+
+            animId = requestAnimationFrame(animate)
+            // Trigger once per page load to avoid repeated counter reset
+            observer.disconnect()
+          }
+        }
+      },
+      { threshold: 0.2 }
+    )
+
+    if (rootRef.current) observer.observe(rootRef.current)
+    return () => {
+      observer.disconnect()
+      if (animId) cancelAnimationFrame(animId)
+    }
+  }, [])
+
+  const reviewQuote =
+    "Before working with Harinder, our retention was completely stagnant. He completely transformed the rhythm and pacing of our short-form content. Our average watch time jumped significantly and viewers actually stay to the end now."
+
+  const reviewerName = "Rahul"
+  const reviewerRole = "Creator & Founder"
+  const reviewerPhoto = "/assets/images/rahul_testimonial.jpg"
+
   return (
-      <div className={styles["desktop-7"]}>
-        <div className={styles["content-6"]}>
-          <div className={styles["info-section"]}>
-            <div className={styles["title-2"]}>
-              <div className={styles["div-107"] + " " + styles["rv-23"]} data-reveal>
-                <div className={styles["variant-1-12"]}>
-                  <div className={styles["content-7"]}>
-                    <div className={styles["div-6"]}>
-                      <div className={styles["div-7"]}>
-                        <SvgGraphic className={styles["svg-4"]} html={"<svg style=\"width:100%;height:100%;\" viewBox=\"0 0 14 4\" preserveAspectRatio=\"none\" width=\"100%\" height=\"100%\" data-f2c-idx=\"2035\"><use href=\"#svg1509122608_205\" data-f2c-idx=\"2036\"></use></svg>"} />
-                      </div>
-                    </div>
-                    <div className={styles["problem-title-4"]}>
-                      <p className={styles["p-70"]}>{slots[0] ?? "Testimonials"}</p>
-                    </div>
-                    <div className={styles["div-6"]}>
-                      <div className={styles["div-7"]}>
-                        <SvgGraphic className={styles["svg-4"]} html={"<svg style=\"width:100%;height:100%;\" viewBox=\"0 0 14 4\" preserveAspectRatio=\"none\" width=\"100%\" height=\"100%\" data-f2c-idx=\"2041\"><use href=\"#svg1509122608_205\" data-f2c-idx=\"2042\"></use></svg>"} />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className={styles["text-9"]}>
-                <div className={styles["title-text-12"]}>
-                  <h2 className={styles["h2"]}>
-                    <span className={styles["span-114"] + " " + styles["rv-24"]} data-reveal>{slots[1] ?? "What"}</span>
-                    {" "}
-                    <span className={styles["span-115"] + " " + styles["rv-24"]} data-reveal>{slots[2] ?? "creators"}</span>
-                    {" "}
-                    <span className={styles["span-116"] + " " + styles["rv-24"]} data-reveal style={{ transitionDelay: "58ms" }}>{slots[3] ?? "say"}</span>
-                    {" "}
-                    <div className={styles["span-117"] + " " + styles["rv-24"]} data-reveal />
-                  </h2>
-                  <h2 className={styles["h2"]}>
-                    <span className={styles["span-118"] + " " + styles["rv-24"]} data-reveal style={{ transitionDelay: "131ms" }}>{slots[4] ?? "after"}</span>
-                    {" "}
-                    <span className={styles["span-119"] + " " + styles["rv-24"]} data-reveal style={{ transitionDelay: "186ms" }}>{slots[5] ?? "working"}</span>
-                    {" "}
-                    <span className={styles["span-120"] + " " + styles["rv-24"]} data-reveal>{slots[6] ?? "with"}</span>
-                    {" "}
-                    <span className={styles["span-121"] + " " + styles["rv-24"]} data-reveal>{slots[7] ?? "us"}</span>
-                  </h2>
-                </div>
-                <div className={styles["reviews-text-29"]}>
-                  <div className={styles["p-71"]}>
-                    <span className={styles["span-122"] + " " + styles["rv-24"]} data-reveal style={{ transitionDelay: "131ms" }}>{slots[8] ?? "Real"}</span>
-                    {" "}
-                    <span className={styles["span-123"] + " " + styles["rv-24"]} data-reveal style={{ transitionDelay: "186ms" }}>{slots[9] ?? "results"}</span>
-                    {" "}
-                    <span className={styles["span-124"] + " " + styles["rv-24"]} data-reveal>{slots[10] ?? "from"}</span>
-                    {" "}
-                    <span className={styles["span-125"] + " " + styles["rv-24"]} data-reveal>{slots[11] ?? "real"}</span>
-                    {" "}
-                    <span className={styles["span-126"] + " " + styles["rv-24"]} data-reveal>{slots[12] ?? "clients."}</span>
-                    {" "}
-                    <span className={styles["span-127"] + " " + styles["rv-24"]} data-reveal>{slots[13] ?? "Here's"}</span>
-                    {" "}
-                    <span className={styles["span-128"] + " " + styles["rv-24"]} data-reveal>{slots[14] ?? "what"}</span>
-                    {" "}
-                    <span className={styles["span-129"] + " " + styles["rv-24"]} data-reveal>{slots[15] ?? "they"}</span>
-                    {" "}
-                    <span className={styles["span-130"] + " " + styles["rv-24"]} data-reveal>{slots[16] ?? "said"}</span>
-                    {" "}
-                    <span className={styles["span-131"] + " " + styles["rv-24"]} data-reveal>{slots[17] ?? "after"}</span>
-                    {" "}
-                    <span className={styles["span-132"] + " " + styles["rv-24"]} data-reveal>{slots[18] ?? "working"}</span>
-                    {" "}
-                    <span className={styles["span-122"] + " " + styles["rv-24"]} data-reveal>{slots[19] ?? "with"}</span>
-                    {" "}
-                    <span className={styles["span-133"] + " " + styles["rv-24"]} data-reveal>{slots[20] ?? "us."}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className={styles["images"]}>
-              <div className={styles["div-108"] + " " + styles["rv-25"]} data-reveal>
-                <div className={styles["active"]}>
-                  <div className={styles["div-109"]}>
-                    <img className={styles["img-17"]} src={slots[21] ?? "https://framerusercontent.com/images/mQZtn3nU9sPT11tH2MuJSrIPI.png?scale-down-to=1024&width=960&height=1200"} alt="" />
-                  </div>
-                </div>
-              </div>
-              <div className={styles["div-108"] + " " + styles["rv-25"]} data-reveal>
-                <div className={styles["active"]}>
-                  <div className={styles["div-109"]}>
-                    <img className={styles["img-18"]} src={slots[22] ?? "https://framerusercontent.com/images/tFCvwLTyLbnI9yS31xRvFOE.png?scale-down-to=512&width=1200&height=1200"} alt="" />
-                  </div>
-                </div>
-              </div>
-              <div className={styles["div-108"] + " " + styles["rv-25"]} data-reveal>
-                <div className={styles["active"]}>
-                  <div className={styles["div-109"]}>
-                    <img className={styles["img-19"]} src={slots[23] ?? "https://framerusercontent.com/images/Zh0QSsA0eTf6128afGQ8GkFQlcY.png?scale-down-to=1024&width=904&height=1200"} alt="" />
-                  </div>
-                </div>
-              </div>
-            </div>
+    <div
+      ref={rootRef}
+      style={{
+        width: "100%",
+        maxWidth: "1360px",
+        margin: "0 auto",
+        padding: "clamp(40px, 6vh, 64px) clamp(16px, 4vw, 40px)",
+        boxSizing: "border-box",
+        position: "relative",
+      }}
+    >
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 340px), 1fr))",
+          gap: "36px",
+          alignItems: "center",
+        }}
+      >
+        {/* Left: Headline & Creator Proof Context */}
+        <div>
+          <div style={{ marginBottom: "16px" }}>
+            <span
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "8px",
+                fontSize: "11px",
+                fontWeight: 700,
+                textTransform: "uppercase",
+                letterSpacing: "1.6px",
+                color: "#111111",
+                backgroundColor: "rgba(0, 0, 0, 0.04)",
+                border: "1px solid rgba(0, 0, 0, 0.08)",
+                padding: "6px 16px",
+                borderRadius: "100px",
+                fontFamily: "'Chivo Mono', monospace",
+              }}
+            >
+              <span
+                style={{
+                  width: "6px",
+                  height: "6px",
+                  borderRadius: "50%",
+                  backgroundColor: "#E55812",
+                }}
+              />
+              CREATOR REVIEWS & BENCHMARKS
+            </span>
           </div>
-          <div className={styles["testimonial-card"]}>
-            <div className={styles["engage"]}>
-              <div className={styles["syat-taxts"]}>
-                <div className={styles["stat-taxt"]}>
-                  <div className={styles["text-10"]}>
-                    <div className={styles["title-text-13"]}>
-                      <h3 className={styles["h3"]}>
-                        <span className={styles["span-134"]}>{slots[24] ?? "3x"}</span>
-                      </h3>
-                    </div>
-                    <div className={styles["reviews-text-30"]}>
-                      <p className={styles["p-72"]}>{slots[25] ?? "Engagement growth"}</p>
-                    </div>
-                  </div>
-                  <div className={styles["div-56"]}>
-                    <div className={styles["div-57"]}>
-                      <img className={styles["img-6"]} src={slots[26] ?? "https://framerusercontent.com/images/2AD1CeSlqFALLgb5WzWKmBD3lFw.png?width=192&height=192"} alt="" />
-                    </div>
-                  </div>
-                </div>
-                <div className={styles["line-108"]}>
-                  <div className={styles["div-110"]}>
-                    <SvgGraphic className={styles["svg-24"]} html={"<svg style=\"width:100%;height:100%;\" viewBox=\"0 0 375 3\" preserveAspectRatio=\"none\" width=\"100%\" height=\"100%\" data-f2c-idx=\"2098\"><use href=\"#svg1093834543_518\" data-f2c-idx=\"2099\"></use></svg>"} />
-                  </div>
-                </div>
-                <div className={styles["stat-taxt"]}>
-                  <div className={styles["text-10"]}>
-                    <div className={styles["title-text-13"]}>
-                      <h3 className={styles["h3"]}>
-                        <span className={styles["span-135"]}>{slots[27] ?? "2M+"}</span>
-                      </h3>
-                    </div>
-                    <div className={styles["reviews-text-30"]}>
-                      <p className={styles["p-72"]}>{slots[28] ?? "Engagement growth"}</p>
-                    </div>
-                  </div>
-                  <div className={styles["div-56"]}>
-                    <div className={styles["div-57"]}>
-                      <img className={styles["img-6"]} src={slots[29] ?? "https://framerusercontent.com/images/dR7T3HjJRXDWmYqL8Q0lpWqF3Os.png?width=192&height=192"} alt="" />
-                    </div>
-                  </div>
-                </div>
-              </div>
+
+          <h2
+            style={{
+              fontFamily: "'Syne', sans-serif",
+              fontSize: "clamp(32px, 4.2vw, 54px)",
+              fontWeight: 800,
+              lineHeight: 1.15,
+              letterSpacing: "-0.03em",
+              color: "#111111",
+              margin: "0 0 18px",
+            }}
+          >
+            What creators say after working together.
+          </h2>
+
+          <p
+            style={{
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontSize: "15.5px",
+              color: "#555555",
+              lineHeight: 1.6,
+              margin: "0 0 32px",
+              maxWidth: "520px",
+            }}
+          >
+            Genuine performance results and verified feedback from creators scaling short-form presence with Harinder.MP4.
+          </p>
+
+          {/* Authentic Testimonial Quote Card */}
+          <div
+            style={{
+              backgroundColor: "#FFFFFF",
+              border: "1px solid rgba(0, 0, 0, 0.08)",
+              borderRadius: "24px",
+              padding: "clamp(24px, 3.5vw, 32px)",
+              boxShadow: "0 14px 40px rgba(0, 0, 0, 0.04)",
+              transition: "transform 0.3s ease, box-shadow 0.3s ease",
+            }}
+          >
+            {/* Five Gold Stars */}
+            <div
+              style={{
+                display: "flex",
+                gap: "6px",
+                color: "#D4A72C",
+                marginBottom: "16px",
+                fontSize: "18px",
+                letterSpacing: "2px",
+              }}
+              aria-label="5 out of 5 stars rating"
+            >
+              {"★★★★★"}
             </div>
-            <div className={styles["profile"]}>
-              <div className={styles["div-111"]}>
-                <img className={styles["img-20"]} src={slots[30] ?? "https://framerusercontent.com/images/mQZtn3nU9sPT11tH2MuJSrIPI.png?scale-down-to=1024&width=960&height=1200"} alt="" />
-              </div>
-              <div className={styles["profile-container"]}>
-                <div className={styles["profile-info-6"]}>
-                  <div className={styles["ellipse-194"]}>
-                    <div className={styles["div-59"]}>
-                      <img className={styles["img-7"]} src={slots[31] ?? "https://framerusercontent.com/images/ik99JHM0iRogYcwROk6KaId1b0.png?width=400&height=300"} alt="" />
-                    </div>
-                  </div>
-                  <div className={styles["name-info-6"]}>
-                    <div className={styles["reviews-text-31"]}>
-                      <p className={styles["p-73"]}>{slots[32] ?? "atlas.supply"}</p>
-                    </div>
-                    <div className={styles["verification-icon"]}>
-                      <div className={styles["div-60"]}>
-                        <img className={styles["img-8"]} src={slots[33] ?? "https://framerusercontent.com/images/mH9AO6fIaF2UQcO2TXV19Fuk.png?width=350&height=350"} alt="" />
-                      </div>
-                    </div>
-                  </div>
+
+            <p
+              style={{
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
+                fontSize: "15px",
+                color: "#111111",
+                lineHeight: 1.65,
+                margin: "0 0 22px",
+                fontStyle: "italic",
+              }}
+            >
+              "{reviewQuote}"
+            </p>
+
+            <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
+              <img
+                src={reviewerPhoto}
+                alt={reviewerName}
+                style={{
+                  width: "48px",
+                  height: "48px",
+                  borderRadius: "50%",
+                  objectFit: "cover",
+                  border: "2px solid #FFFFFF",
+                  boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
+                }}
+              />
+              <div>
+                <div
+                  style={{
+                    fontFamily: "'Syne', sans-serif",
+                    fontSize: "16px",
+                    fontWeight: 800,
+                    color: "#111111",
+                    letterSpacing: "-0.01em",
+                  }}
+                >
+                  {reviewerName}
+                </div>
+                <div
+                  style={{
+                    fontFamily: "'Chivo Mono', monospace",
+                    fontSize: "11px",
+                    fontWeight: 600,
+                    color: "#666666",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.6px",
+                  }}
+                >
+                  {reviewerRole}
                 </div>
               </div>
-            </div>
-            <div className={styles["profile-card"]}>
-              <div className={styles["text-11"]}>
-                <div className={styles["stars"]}>
-                  <div className={styles["div-112"]}>
-                    <SvgGraphic className={styles["svg-25"]} html={"<svg style=\"width:100%;height:100%;\" viewBox=\"0 0 96 16\" preserveAspectRatio=\"none\" width=\"100%\" height=\"100%\" data-f2c-idx=\"2128\"><use href=\"#svg-1812803144_5486\" data-f2c-idx=\"2129\"></use></svg>"} />
-                  </div>
-                </div>
-                <div className={styles["reviews-text-32"]}>
-                  <p className={styles["p-74"]}>{slots[34] ?? "“Before this, we were just posting randomly. Now every video has a purpose. Our reels started getting real reach, engagement went up, and we finally saw consistent growth.”"}</p>
-                </div>
-              </div>
-              <div className={styles["title-3"]}>
-                <div className={styles["title-text-14"]}>
-                  <h6 className={styles["h6-4"]}>
-                    <span className={styles["span-136"]}>{slots[35] ?? "Emma Watson"}</span>
-                  </h6>
-                </div>
-                <div className={styles["reviews-text-33"]}>
-                  <p className={styles["p-75"]}>{slots[36] ?? "Content Creator"}</p>
-                </div>
-              </div>
-              <div className={styles["purple-shade-4"]} />
             </div>
           </div>
         </div>
+
+        {/* Right: Scroll-Triggered Animated Metric Cards (3X & 2M+) */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+          {/* Card 1: 3X Engagement Multiplier */}
+          <div
+            style={{
+              backgroundColor: "#FFFFFF",
+              border: inView ? "1px solid rgba(0, 0, 0, 0.12)" : "1px solid rgba(0, 0, 0, 0.06)",
+              borderRadius: "28px",
+              padding: "clamp(28px, 4vw, 36px)",
+              boxShadow: "0 14px 40px rgba(0, 0, 0, 0.04)",
+              transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
+              transform: inView ? "translateY(0)" : "translateY(24px)",
+              opacity: inView ? 1 : 0,
+            }}
+          >
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
+              <span style={{ fontFamily: "'Chivo Mono', monospace", fontSize: "11.5px", color: "#666666", letterSpacing: "1px", textTransform: "uppercase" }}>
+                BENCHMARK METRIC // 01
+              </span>
+              <span style={{ fontFamily: "'Chivo Mono', monospace", fontSize: "10px", fontWeight: 700, color: "#111111", backgroundColor: "rgba(0, 0, 0, 0.05)", padding: "3px 8px", borderRadius: "6px" }}>
+                VERIFIED CASE
+              </span>
+            </div>
+
+            <div
+              style={{
+                fontFamily: "'Syne', sans-serif",
+                fontSize: "clamp(48px, 5.5vw, 72px)",
+                fontWeight: 800,
+                color: "#111111",
+                lineHeight: 1.1,
+                letterSpacing: "-0.03em",
+                margin: "10px 0 8px",
+              }}
+            >
+              <span>{inView ? `${multiplier}X` : "0X"}</span>
+            </div>
+
+            <div style={{ fontFamily: "'Syne', sans-serif", fontSize: "17.5px", fontWeight: 700, color: "#111111", marginBottom: "6px" }}>
+              Engagement Growth Multiplier
+            </div>
+            <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: "14px", color: "#555555", margin: 0, lineHeight: 1.55 }}>
+              Average comment, share, and completion lift recorded within 60 days of transitioning to our hook & pacing system.
+            </p>
+          </div>
+
+          {/* Card 2: 2,000,000+ Total Organic Impressions */}
+          <div
+            style={{
+              backgroundColor: "#FFFFFF",
+              border: inView ? "1px solid rgba(0, 0, 0, 0.12)" : "1px solid rgba(0, 0, 0, 0.06)",
+              borderRadius: "28px",
+              padding: "clamp(28px, 4vw, 36px)",
+              boxShadow: "0 14px 40px rgba(0, 0, 0, 0.04)",
+              transition: "all 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.15s",
+              transform: inView ? "translateY(0)" : "translateY(24px)",
+              opacity: inView ? 1 : 0,
+            }}
+          >
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
+              <span style={{ fontFamily: "'Chivo Mono', monospace", fontSize: "11.5px", color: "#666666", letterSpacing: "1px", textTransform: "uppercase" }}>
+                BENCHMARK METRIC // 02
+              </span>
+              <span style={{ fontFamily: "'Chivo Mono', monospace", fontSize: "10px", fontWeight: 700, color: "#111111", backgroundColor: "rgba(0, 0, 0, 0.05)", padding: "3px 8px", borderRadius: "6px" }}>
+                ORGANIC REACH
+              </span>
+            </div>
+
+            <div
+              style={{
+                fontFamily: "'Syne', sans-serif",
+                fontSize: "clamp(40px, 4.5vw, 60px)",
+                fontWeight: 800,
+                color: "#111111",
+                lineHeight: 1.15,
+                letterSpacing: "-0.03em",
+                margin: "10px 0 8px",
+              }}
+            >
+              <span>{inView ? `${engagement.toLocaleString()}+` : "0+"}</span>
+            </div>
+
+            <div style={{ fontFamily: "'Syne', sans-serif", fontSize: "17.5px", fontWeight: 700, color: "#111111", marginBottom: "6px" }}>
+              Total Organic Video Views Generated
+            </div>
+            <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: "14px", color: "#555555", margin: 0, lineHeight: 1.55 }}>
+              Calculated across client TikTok, Reels, and Shorts campaigns delivered through Harinder.MP4 post-production pipelines.
+            </p>
+          </div>
+        </div>
       </div>
+    </div>
   )
 }

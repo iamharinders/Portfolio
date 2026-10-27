@@ -1,7 +1,7 @@
 import styles from "./styles.module.css"
 import { SvgGraphic } from "./RichText"
 
-export default function PrimaryButton3({ slots = [], href = "/contact" }: { slots?: string[]; href?: string }) {
+export default function PrimaryButton3({ slots = [], href = "/hire-me" }: { slots?: string[]; href?: string }) {
   return (
       <a className={styles["primary-3"]} href={href}>
         <div className={styles["content-8"]}>

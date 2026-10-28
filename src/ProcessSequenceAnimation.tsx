@@ -79,7 +79,7 @@ export default function ProcessSequenceAnimation() {
         width: "100%",
         maxWidth: "100vw",
         overflow: "hidden",
-        padding: "110px 0 100px",
+        padding: "clamp(60px, 8vh, 110px) 0 clamp(50px, 7vh, 100px)",
         backgroundColor: "#FFFFFF",
         borderTop: "1px solid rgba(0, 0, 0, 0.08)",
         boxSizing: "border-box",
@@ -168,7 +168,7 @@ export default function ProcessSequenceAnimation() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))",
             gap: "28px",
             alignItems: "stretch",
           }}
@@ -182,7 +182,7 @@ export default function ProcessSequenceAnimation() {
                   backgroundColor: "#FAFAFA",
                   border: isVisible ? "1px solid rgba(0, 0, 0, 0.12)" : "1px solid rgba(0, 0, 0, 0.06)",
                   borderRadius: "26px",
-                  padding: "36px 30px",
+                  padding: "clamp(26px, 4vw, 36px) clamp(20px, 3.5vw, 30px)",
                   boxShadow: "0 12px 35px rgba(0, 0, 0, 0.04)",
                   display: "flex",
                   flexDirection: "column",

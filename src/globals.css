@@ -1134,3 +1134,110 @@ div[class*="containar"], [class*="containar"], .containar {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
 }
 
+/* 18. Navbar Desktop & Mobile Responsiveness */
+.navbar-desktop-links {
+  display: flex;
+}
+.mobile-nav-burger {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .navbar-desktop-links {
+    display: none !important;
+  }
+  .mobile-nav-burger {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    min-width: 38px;
+    min-height: 38px;
+    touch-action: manipulation;
+  }
+  .floating-glass-navbar {
+    padding: 6px 10px 6px 14px !important;
+    width: calc(100vw - 24px) !important;
+    max-width: calc(100vw - 24px) !important;
+  }
+  .hire-me-btn {
+    padding: 7px 14px !important;
+    font-size: 13px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .floating-glass-navbar {
+    padding: 5px 8px 5px 12px !important;
+    width: calc(100vw - 16px) !important;
+    max-width: calc(100vw - 16px) !important;
+  }
+  .hire-me-btn {
+    padding: 6px 12px !important;
+    font-size: 12px !important;
+  }
+}
+
+/* 19. Responsive Metric Number Cards Grid */
+[class*="number-cards"], .number-cards {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  width: 100% !important;
+  max-width: 1360px !important;
+  height: auto !important;
+  gap: 20px !important;
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
+}
+
+@media (max-width: 1100px) {
+  [class*="number-cards"], .number-cards {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  [class*="number-cards"], .number-cards {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+}
+
+[class*="number-cards"] [class*="div-145"],
+[class*="number-cards"] [class*="div-171"] {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  box-sizing: border-box !important;
+}
+
+/* 20. Hero Action Buttons Responsive Sizing */
+@media (max-width: 520px) {
+  .hero-buttons-container {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+  .hero-btn-primary, .hero-btn-secondary {
+    width: 100% !important;
+    justify-content: center !important;
+    min-height: 48px !important;
+    padding: 13px 20px !important;
+    font-size: 14px !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* 21. Touch Friendly Interaction Standards */
+a, button, input, textarea, select {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Horizontal scroll overflow guard on small viewports */
+html, body, #root {
+  overflow-x: clip !important;
+  max-width: 100vw !important;
+}
+

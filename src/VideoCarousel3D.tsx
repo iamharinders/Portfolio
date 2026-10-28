@@ -412,7 +412,7 @@ export default function VideoCarousel3D({ onSelectVideo }: VideoCarousel3DProps)
                 style={{
                   position: "relative",
                   flex: "0 0 auto",
-                  width: "clamp(230px, 19.8vw, 290px)",
+                  width: "clamp(210px, 21vw, 290px)",
                   aspectRatio: "9 / 16",
                   borderRadius: "24px",
                   overflow: "hidden",

@@ -356,7 +356,7 @@ export default function Blueprint() {
             </h1>
           </div>
 
-          <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap" }}>
             <Link
               to="/"
               style={{
@@ -364,7 +364,7 @@ export default function Blueprint() {
                 border: "1px solid rgba(255, 255, 255, 0.15)",
                 color: "#F2E8D5",
                 textDecoration: "none",
-                padding: "10px 20px",
+                padding: "10px 18px",
                 borderRadius: "100px",
                 fontSize: "13px",
                 fontWeight: 600,
@@ -378,10 +378,14 @@ export default function Blueprint() {
             <div
               style={{
                 display: "inline-flex",
+                flexWrap: "wrap",
+                gap: "4px",
                 backgroundColor: "rgba(10, 16, 16, 0.8)",
                 border: "1px solid rgba(255, 255, 255, 0.12)",
                 borderRadius: "100px",
                 padding: "4px",
+                maxWidth: "100%",
+                boxSizing: "border-box",
               }}
             >
               {(["storyboard", "specs", "palette"] as const).map((tab) => (
@@ -393,12 +397,12 @@ export default function Blueprint() {
                     color: activeTab === tab ? "#F7A23B" : "#C5B8A5",
                     border: activeTab === tab ? "1px solid rgba(247, 162, 59, 0.3)" : "none",
                     borderRadius: "100px",
-                    padding: "8px 18px",
-                    fontSize: "12px",
+                    padding: "8px 14px",
+                    fontSize: "11.5px",
                     fontWeight: 600,
                     cursor: "pointer",
                     textTransform: "uppercase",
-                    letterSpacing: "1px",
+                    letterSpacing: "0.8px",
                     fontFamily: "'Chivo Mono', monospace",
                     transition: "all 0.2s ease",
                   }}

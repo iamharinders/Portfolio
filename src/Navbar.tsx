@@ -248,7 +248,6 @@ export default function Navbar({ slots = [] }: NavbarProps) {
         <div
           className="navbar-desktop-links"
           style={{
-            display: "flex",
             alignItems: "center",
             gap: "4px",
           }}
@@ -287,7 +286,7 @@ export default function Navbar({ slots = [] }: NavbarProps) {
         </div>
 
         {/* 3. Right CTA / Hire Me Button with Active Orange State */}
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
           <Link
             to="/hire-me"
             className="hire-me-btn"
@@ -332,13 +331,12 @@ export default function Navbar({ slots = [] }: NavbarProps) {
             onClick={() => setMobileMenuOpen((v) => !v)}
             aria-label="Toggle navigation menu"
             style={{
-              display: "none",
               background: isDarkPage ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.04)",
               border: isDarkPage ? "1px solid rgba(255, 255, 255, 0.15)" : "1px solid rgba(0, 0, 0, 0.08)",
               borderRadius: "100px",
               color: isDarkPage ? "#FFFFFF" : "#111111",
               padding: "7px 13px",
-              fontSize: "13px",
+              fontSize: "14px",
               cursor: "pointer",
             }}
           >
@@ -350,6 +348,7 @@ export default function Navbar({ slots = [] }: NavbarProps) {
       {/* Mobile Drawer (No Home Link) */}
       {mobileMenuOpen && (
         <div
+          className="mobile-nav-drawer"
           style={{
             position: "absolute",
             top: "calc(100% + 10px)",

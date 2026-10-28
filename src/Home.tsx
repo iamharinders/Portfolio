@@ -137,8 +137,8 @@ export default function Home({ slots = [] }: { slots?: string[] }) {
                 overflow: "visible",
                 width: "100%",
                 maxWidth: "100vw",
-                paddingBottom: "64px",
-                paddingTop: "150px",
+                paddingBottom: "clamp(40px, 6vh, 64px)",
+                paddingTop: "clamp(96px, 14vh, 150px)",
               }}
             >
               <div
@@ -160,7 +160,7 @@ export default function Home({ slots = [] }: { slots?: string[] }) {
                     flexDirection: "column",
                     alignItems: "center",
                     textAlign: "center",
-                    paddingTop: "clamp(16px, 3vh, 32px)",
+                    paddingTop: "clamp(12px, 2.5vh, 28px)",
                   }}
                 >
                   {/* Subtle Top Editorial Markers (Fashion / Luxury Studio Style) */}
@@ -169,17 +169,20 @@ export default function Home({ slots = [] }: { slots?: string[] }) {
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "space-between",
+                      flexWrap: "wrap",
+                      gap: "8px",
                       width: "100%",
                       maxWidth: "1080px",
                       marginBottom: "16px",
                       padding: "0 8px",
                       opacity: 0.65,
+                      boxSizing: "border-box",
                     }}
                   >
                     <span
                       style={{
                         fontFamily: "'Chivo Mono', monospace",
-                        fontSize: "11px",
+                        fontSize: "clamp(10px, 2.8vw, 11px)",
                         letterSpacing: "1.4px",
                         color: "#666666",
                         textTransform: "uppercase",
@@ -190,7 +193,7 @@ export default function Home({ slots = [] }: { slots?: string[] }) {
                     <span
                       style={{
                         fontFamily: "'Chivo Mono', monospace",
-                        fontSize: "11px",
+                        fontSize: "clamp(10px, 2.8vw, 11px)",
                         letterSpacing: "1.4px",
                         color: "#666666",
                         textTransform: "uppercase",
@@ -241,10 +244,10 @@ export default function Home({ slots = [] }: { slots?: string[] }) {
                   <h1
                     style={{
                       fontFamily: "'Syne', sans-serif",
-                      fontSize: "clamp(42px, 6.8vw, 84px)",
+                      fontSize: "clamp(30px, 6.8vw, 84px)",
                       fontWeight: 800,
                       letterSpacing: "-0.035em",
-                      lineHeight: 1.05,
+                      lineHeight: 1.08,
                       color: "#111111",
                       maxWidth: "1040px",
                       margin: "0 auto 18px",
@@ -267,12 +270,13 @@ export default function Home({ slots = [] }: { slots?: string[] }) {
                   <p
                     style={{
                       fontFamily: "'Plus Jakarta Sans', sans-serif",
-                      fontSize: "clamp(15px, 1.35vw, 18px)",
+                      fontSize: "clamp(14px, 1.35vw, 18px)",
                       color: "#555555",
                       maxWidth: "640px",
                       margin: "0 auto 28px",
                       lineHeight: 1.6,
                       fontWeight: 500,
+                      padding: "0 8px",
                     }}
                   >
                     High-retention edits for creators, brands and businesses across Instagram,
@@ -281,6 +285,7 @@ export default function Home({ slots = [] }: { slots?: string[] }) {
 
                   {/* CTA Action Buttons with Consistent Glass Design */}
                   <div
+                    className="hero-buttons-container"
                     style={{
                       display: "flex",
                       alignItems: "center",
@@ -288,6 +293,7 @@ export default function Home({ slots = [] }: { slots?: string[] }) {
                       gap: "14px",
                       flexWrap: "wrap",
                       marginBottom: "10px",
+                      width: "100%",
                     }}
                   >
                     <Link
@@ -310,11 +316,10 @@ export default function Home({ slots = [] }: { slots?: string[] }) {
                 <div
                   style={{
                     position: "relative",
-                    width: "100vw",
-                    marginLeft: "calc(-50vw + 50%)",
-                    marginRight: "calc(-50vw + 50%)",
+                    width: "100%",
+                    maxWidth: "100vw",
                     zIndex: 5,
-                    overflow: "visible",
+                    overflow: "hidden",
                   }}
                 >
                   <VideoCarousel3D onSelectVideo={setActiveVideo} />
@@ -326,6 +331,8 @@ export default function Home({ slots = [] }: { slots?: string[] }) {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "space-between",
+                    flexWrap: "wrap",
+                    gap: "8px",
                     width: "100%",
                     maxWidth: "1280px",
                     margin: "12px auto 0",

@@ -323,6 +323,8 @@ export default function RealVideosScrollGallery({
             overflow: isMobile ? "auto" : "visible",
             scrollSnapType: isMobile ? "x mandatory" : "none",
             WebkitOverflowScrolling: "touch",
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
             padding: isMobile ? "10px 16px 20px" : "10px 0",
             boxSizing: "border-box",
           }}
@@ -369,7 +371,7 @@ export default function RealVideosScrollGallery({
                   style={{
                     position: "relative",
                     flex: "0 0 auto",
-                    width: isMobile ? "280px" : "clamp(280px, 22vw, 340px)",
+                    width: isMobile ? "clamp(240px, 76vw, 300px)" : "clamp(280px, 22vw, 340px)",
                     aspectRatio: "9 / 16",
                     borderRadius: "26px",
                     overflow: "hidden",

@@ -75,13 +75,36 @@ export const EDITING_TOOLS: ToolItem[] = [
   },
 ]
 
-// Base set doubled so track width is generous and loop from -50% to 0% is mathematically seamless
-const TOOL_SET = [...EDITING_TOOLS, ...EDITING_TOOLS]
+// Base set for seamless infinite -50% to 0% marquee
+const TOOL_SET = EDITING_TOOLS
 
 export default function LightTickerForToolsWeUse({ slots }: { slots?: string[] } = {}) {
+  const sectionRef = React.useRef<HTMLElement>(null)
+  const trackRef = React.useRef<HTMLDivElement>(null)
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (trackRef.current) {
+            trackRef.current.style.animationPlayState = entry.isIntersecting ? "running" : "paused"
+          }
+        }
+      },
+      { threshold: 0.05, rootMargin: "100px 0px 100px 0px" }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <section
       id="tools"
+      ref={sectionRef}
       style={{
         position: "relative",
         width: "100%",
@@ -115,7 +138,7 @@ export default function LightTickerForToolsWeUse({ slots }: { slots?: string[] }
           display: flex;
           gap: 22px;
           width: max-content;
-          animation: toolsMarqueeL2R 22s linear infinite;
+          animation: toolsMarqueeL2R 28s linear infinite;
           will-change: transform;
           backface-visibility: hidden;
           transform: translate3d(-50%, 0, 0);
@@ -132,8 +155,8 @@ export default function LightTickerForToolsWeUse({ slots }: { slots?: string[] }
         .software-tool-card {
           position: relative;
           flex: 0 0 auto;
-          width: 224px;
-          min-height: 224px;
+          width: 220px;
+          min-height: 220px;
           background-color: #FAFAFA;
           border: 1px solid rgba(0, 0, 0, 0.08);
           border-radius: 20px;
@@ -152,6 +175,25 @@ export default function LightTickerForToolsWeUse({ slots }: { slots?: string[] }
           cursor: pointer;
           box-sizing: border-box;
           backface-visibility: hidden;
+        }
+
+        @media (max-width: 600px) {
+          .software-tool-card {
+            width: 175px !important;
+            min-height: 185px !important;
+            padding: 16px 12px 14px !important;
+            border-radius: 16px !important;
+          }
+          .software-tool-card .software-tool-icon-img {
+            width: 44px !important;
+            height: 44px !important;
+            max-width: 44px !important;
+            max-height: 44px !important;
+          }
+          .tools-marquee-track {
+            gap: 14px !important;
+            animation: toolsMarqueeL2R 24s linear infinite !important;
+          }
         }
 
         .software-tool-card:hover {
@@ -261,7 +303,7 @@ export default function LightTickerForToolsWeUse({ slots }: { slots?: string[] }
       {/* Marquee Viewport — Edge-to-Edge Without Blurred Fades */}
       <div className="tools-marquee-viewport">
         {/* Continuous Left-to-Right Marquee Track — Never pauses on hover */}
-        <div className="tools-marquee-track">
+        <div ref={trackRef} className="tools-marquee-track">
           {/* First Half (Original) */}
           <div style={{ display: "flex", gap: "22px" }}>
             {TOOL_SET.map((tool, index) => (

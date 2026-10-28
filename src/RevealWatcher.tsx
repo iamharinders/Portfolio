@@ -31,28 +31,17 @@ export default function RevealWatcher() {
           }
         }
       },
-      { rootMargin: "300px 0px 300px 0px", threshold: 0 }
+      { rootMargin: "450px 0px 450px 0px", threshold: 0 }
     )
 
     const observeAll = () => {
       const els = document.querySelectorAll("[data-reveal]:not([data-in]), [class*='rv-']:not([data-in])")
       els.forEach(el => {
-        const rect = el.getBoundingClientRect()
-        // If element is in, above, or close to viewport, reveal immediately
-        if (rect.top <= window.innerHeight + 300 && rect.bottom >= -300) {
-          revealElement(el)
-        } else {
-          observer.observe(el)
-        }
+        observer.observe(el)
       })
     }
 
     observeAll()
-
-    const handleScroll = () => {
-      observeAll()
-    }
-    window.addEventListener("scroll", handleScroll, { passive: true })
 
     // Mutation observer for dynamically rendered components & route switches
     const mutObs = new MutationObserver(() => {
@@ -64,16 +53,15 @@ export default function RevealWatcher() {
     // Progressive safety fallbacks: ensure content is never trapped at opacity 0
     const fallbackTimer1 = setTimeout(() => {
       observeAll()
-    }, 400)
+    }, 300)
 
     const fallbackTimer2 = setTimeout(() => {
       document.querySelectorAll("[data-reveal]:not([data-in]), [class*='rv-']:not([data-in])").forEach(revealElement)
-    }, 1200)
+    }, 900)
 
     return () => {
       observer.disconnect()
       mutObs.disconnect()
-      window.removeEventListener("scroll", handleScroll)
       clearTimeout(fallbackTimer1)
       clearTimeout(fallbackTimer2)
     }

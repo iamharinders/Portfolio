@@ -322,7 +322,20 @@ export default function Navbar({ slots = [] }: NavbarProps) {
             }}
           >
             <span>Hire Me</span>
-            <span style={{ fontSize: "14px", lineHeight: 1 }}>↗</span>
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 12 12"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+              style={{ display: "inline-block", flexShrink: 0 }}
+            >
+              <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" />
+            </svg>
           </Link>
 
           {/* Mobile hamburger menu toggle */}
@@ -335,12 +348,20 @@ export default function Navbar({ slots = [] }: NavbarProps) {
               border: isDarkPage ? "1px solid rgba(255, 255, 255, 0.15)" : "1px solid rgba(0, 0, 0, 0.08)",
               borderRadius: "100px",
               color: isDarkPage ? "#FFFFFF" : "#111111",
-              padding: "7px 13px",
+              padding: "7px 11px",
               fontSize: "14px",
               cursor: "pointer",
             }}
           >
-            {mobileMenuOpen ? "✕" : "☰"}
+            {mobileMenuOpen ? (
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+                <path d="M2 2L12 12M12 2L2 12" />
+              </svg>
+            ) : (
+              <svg width="15" height="12" viewBox="0 0 15 12" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
+                <path d="M1 2.5H14M1 9.5H14" />
+              </svg>
+            )}
           </button>
         </div>
       </nav>
@@ -435,7 +456,20 @@ export default function Navbar({ slots = [] }: NavbarProps) {
             onClick={() => setMobileMenuOpen(false)}
           >
             <span>Hire Me</span>
-            <span>↗</span>
+            <svg
+              width="13"
+              height="13"
+              viewBox="0 0 12 12"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+              style={{ display: "inline-block", flexShrink: 0 }}
+            >
+              <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" />
+            </svg>
           </Link>
         </div>
       )}

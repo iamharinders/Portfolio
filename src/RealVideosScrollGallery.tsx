@@ -155,22 +155,34 @@ export default function RealVideosScrollGallery({
     return () => window.removeEventListener("scroll", handleScroll)
   }, [isMobile])
 
-  // Ensure all videos play on mount and on interaction
+  // Visibility-managed video playback (pauses offscreen to prevent phone overheating)
   useEffect(() => {
-    const playAllReels = () => {
-      Object.values(videoRefs.current).forEach((vid) => {
-        if (vid) {
-          vid.play().catch(() => {})
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            Object.values(videoRefs.current).forEach((vid) => {
+              if (vid && vid.paused) {
+                vid.play().catch(() => {})
+              }
+            })
+          } else {
+            Object.values(videoRefs.current).forEach((vid) => {
+              if (vid && !vid.paused) {
+                vid.pause()
+              }
+            })
+          }
         }
-      })
+      },
+      { threshold: 0.05, rootMargin: "100px 0px 100px 0px" }
+    )
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current)
     }
-    playAllReels()
-    window.addEventListener("click", playAllReels, { passive: true })
-    window.addEventListener("touchstart", playAllReels, { passive: true })
-    return () => {
-      window.removeEventListener("click", playAllReels)
-      window.removeEventListener("touchstart", playAllReels)
-    }
+
+    return () => observer.disconnect()
   }, [])
 
   // Play video on hover/focus
@@ -403,7 +415,7 @@ export default function RealVideosScrollGallery({
                     muted
                     loop
                     playsInline
-                    preload="auto"
+                    preload="metadata"
                     style={{
                       position: "absolute",
                       inset: 0,

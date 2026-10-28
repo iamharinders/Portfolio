@@ -12,6 +12,14 @@ export default function Testimonial({ slots = [] }: TestimonialProps) {
 
   useEffect(() => {
     let animId: number
+    const prefersReducedMotion = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    if (prefersReducedMotion) {
+      setInView(true)
+      setMultiplier(3)
+      setEngagement(2000000)
+      return
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
@@ -39,12 +47,21 @@ export default function Testimonial({ slots = [] }: TestimonialProps) {
           }
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.05, rootMargin: "80px 0px 80px 0px" }
     )
 
     if (rootRef.current) observer.observe(rootRef.current)
+
+    // Safety fallback: ensure metrics and text never remain invisible on mobile
+    const safetyTimer = setTimeout(() => {
+      setInView(true)
+      setMultiplier(3)
+      setEngagement(2000000)
+    }, 1200)
+
     return () => {
       observer.disconnect()
+      clearTimeout(safetyTimer)
       if (animId) cancelAnimationFrame(animId)
     }
   }, [])
@@ -77,7 +94,7 @@ export default function Testimonial({ slots = [] }: TestimonialProps) {
         }}
       >
         {/* Left: Headline & Creator Proof Context */}
-        <div>
+        <div className="collaboration-header-block">
           <div style={{ marginBottom: "16px" }}>
             <span
               style={{

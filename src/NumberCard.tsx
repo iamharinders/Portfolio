@@ -26,6 +26,13 @@ export default function NumberCard({ slots = [] }: NumberCardProps) {
 
   useEffect(() => {
     let animId: number
+    const prefersReducedMotion = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    if (prefersReducedMotion) {
+      setInView(true)
+      setDisplayValue(targetNum)
+      return
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
@@ -56,12 +63,20 @@ export default function NumberCard({ slots = [] }: NumberCardProps) {
           }
         }
       },
-      { threshold: 0.25 }
+      { threshold: 0.1, rootMargin: "60px 0px 60px 0px" }
     )
 
     if (cardRef.current) observer.observe(cardRef.current)
+
+    // Safety fallback: ensure stat number is never stuck at 0
+    const safetyTimer = setTimeout(() => {
+      setInView(true)
+      setDisplayValue(targetNum)
+    }, 1500)
+
     return () => {
       observer.disconnect()
+      clearTimeout(safetyTimer)
       if (animId) cancelAnimationFrame(animId)
     }
   }, [targetNum])

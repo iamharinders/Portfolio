@@ -170,11 +170,46 @@ export default function VideoCarousel3D({ onSelectVideo }: VideoCarousel3DProps)
     return () => window.removeEventListener("resize", measureTrack)
   }, [measureTrack])
 
+  const isSectionVisibleRef = useRef<boolean>(true)
+  const frameCounterRef = useRef<number>(0)
+
+  // Visibility-based playback & RAF loop management (Prevents overheating & eliminates black screen by managing decoders)
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          isSectionVisibleRef.current = entry.isIntersecting
+          if (!entry.isIntersecting && trackRef.current) {
+            // Pause all carousel videos when section is off-screen
+            trackRef.current.querySelectorAll("video").forEach((v) => {
+              v.pause()
+            })
+          }
+        }
+      },
+      { threshold: 0.05, rootMargin: "100px 0px 100px 0px" }
+    )
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [])
+
   // Continuous animation loop (RIGHT -> LEFT auto scroll + 3D concave arc positioning)
   useEffect(() => {
     let lastStamp = performance.now()
 
     const animate = (timestamp: number) => {
+      frameCounterRef.current++
+
+      // If the section is offscreen, skip calculation and let the loop pause
+      if (!isSectionVisibleRef.current) {
+        animFrameIdRef.current = requestAnimationFrame(animate)
+        return
+      }
+
       const dt = Math.min((timestamp - lastStamp) / 1000, 0.1)
       lastStamp = timestamp
 
@@ -244,6 +279,24 @@ export default function VideoCarousel3D({ onSelectVideo }: VideoCarousel3DProps)
             card.style.transform = `translate3d(0, ${curveY}px, ${transZ}px) rotateY(${rotY}deg) scale(${scale})`
             card.style.zIndex = `${Math.round(50 - Math.abs(clampedNorm) * 20)}`
           }
+
+          // Selective Video Playback Management: only decode/play cards currently in or near viewport.
+          // This eliminates mobile hardware decoder saturation, prevents thermal throttling and fixes black screens.
+          if (frameCounterRef.current % 18 === 0) {
+            const video = card.querySelector("video")
+            if (video) {
+              const isCardInView = Math.abs(clampedNorm) < 1.35
+              if (isCardInView) {
+                if (video.paused) {
+                  video.play().catch(() => {})
+                }
+              } else {
+                if (!video.paused) {
+                  video.pause()
+                }
+              }
+            }
+          }
         }
       }
 
@@ -252,24 +305,6 @@ export default function VideoCarousel3D({ onSelectVideo }: VideoCarousel3DProps)
 
     animFrameIdRef.current = requestAnimationFrame(animate)
     return () => cancelAnimationFrame(animFrameIdRef.current)
-  }, [])
-
-  // Ensure all carousel videos play on mount and when user interacts
-  useEffect(() => {
-    const playAllCarouselVideos = () => {
-      if (trackRef.current) {
-        trackRef.current.querySelectorAll("video").forEach((v) => {
-          v.play().catch(() => {})
-        })
-      }
-    }
-    playAllCarouselVideos()
-    window.addEventListener("click", playAllCarouselVideos, { passive: true })
-    window.addEventListener("touchstart", playAllCarouselVideos, { passive: true })
-    return () => {
-      window.removeEventListener("click", playAllCarouselVideos)
-      window.removeEventListener("touchstart", playAllCarouselVideos)
-    }
   }, [])
 
   // Pointer Drag Handlers (supports Mouse & Touch seamlessly)
@@ -391,12 +426,6 @@ export default function VideoCarousel3D({ onSelectVideo }: VideoCarousel3DProps)
                     e.stopPropagation()
                     return
                   }
-                  // Start playing all videos across the page
-                  document.querySelectorAll<HTMLVideoElement>("video").forEach((v) => {
-                    if (v.muted || !v.hasAttribute("controls")) {
-                      v.play().catch(() => {})
-                    }
-                  })
                   onSelectVideo({
                     id: item.id,
                     title: item.title,

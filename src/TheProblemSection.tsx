@@ -10,6 +10,17 @@ export default function TheProblemSection() {
   const [dropProgress, setDropProgress] = useState(0) // 0 to 1 for top-to-bottom drop curve
 
   useEffect(() => {
+    const prefersReducedMotion = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    if (prefersReducedMotion) {
+      setHasEntered(true)
+      setViewsCount(120)
+      setRetentionPct(37)
+      setTargetPct(84)
+      setDeliveryCount(84)
+      setDropProgress(1)
+      return
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
@@ -49,14 +60,27 @@ export default function TheProblemSection() {
           }
         }
       },
-      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.05, rootMargin: "80px 0px 80px 0px" }
     )
 
     if (sectionRef.current) {
       observer.observe(sectionRef.current)
     }
 
-    return () => observer.disconnect()
+    // Safety fallback: ensure text and stats never remain trapped at opacity 0 on mobile
+    const safetyTimer = setTimeout(() => {
+      setHasEntered(true)
+      setViewsCount(120)
+      setRetentionPct(37)
+      setTargetPct(84)
+      setDeliveryCount(84)
+      setDropProgress(1)
+    }, 1200)
+
+    return () => {
+      observer.disconnect()
+      clearTimeout(safetyTimer)
+    }
   }, [])
 
   return (

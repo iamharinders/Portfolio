@@ -45,29 +45,50 @@ export default function ProcessSequenceAnimation() {
   const [activeStep, setActiveStep] = useState(0)
   const [inView, setInView] = useState(false)
 
+  const timersRef = useRef<number[]>([])
+
   useEffect(() => {
+    const prefersReducedMotion = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    if (prefersReducedMotion) {
+      setInView(true)
+      setActiveStep(3)
+      return
+    }
+
+    const clearAllTimers = () => {
+      timersRef.current.forEach((t) => clearTimeout(t))
+      timersRef.current = []
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
           if (entry.isIntersecting) {
             setInView(true)
+            clearAllTimers()
             // Trigger automatic staged reveals sequentially as user scrolls in
-            const t1 = setTimeout(() => setActiveStep(1), 150)
-            const t2 = setTimeout(() => setActiveStep(2), 500)
-            const t3 = setTimeout(() => setActiveStep(3), 850)
-            return () => {
-              clearTimeout(t1)
-              clearTimeout(t2)
-              clearTimeout(t3)
-            }
+            timersRef.current.push(window.setTimeout(() => setActiveStep(1), 150))
+            timersRef.current.push(window.setTimeout(() => setActiveStep(2), 500))
+            timersRef.current.push(window.setTimeout(() => setActiveStep(3), 850))
           }
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.05, rootMargin: "60px 0px 60px 0px" }
     )
 
     if (containerRef.current) observer.observe(containerRef.current)
-    return () => observer.disconnect()
+
+    // Safety fallback: ensure steps become active even if observer fires late
+    const safetyTimer = window.setTimeout(() => {
+      setInView(true)
+      setActiveStep(3)
+    }, 1500)
+
+    return () => {
+      observer.disconnect()
+      clearAllTimers()
+      clearTimeout(safetyTimer)
+    }
   }, [])
 
   return (

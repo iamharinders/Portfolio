@@ -6,6 +6,12 @@ export default function EditingWorkflowAndPlatforms() {
 
   // Observer for Platform Section Scroll Entrance
   useEffect(() => {
+    const prefersReducedMotion = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    if (prefersReducedMotion) {
+      setPlatformsEntered(true)
+      return
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
@@ -14,14 +20,22 @@ export default function EditingWorkflowAndPlatforms() {
           }
         }
       },
-      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.05, rootMargin: "80px 0px 80px 0px" }
     )
 
     if (platformsRef.current) {
       observer.observe(platformsRef.current)
     }
 
-    return () => observer.disconnect()
+    // Safety fallback: ensure platforms section is never stuck invisible on mobile
+    const safetyTimer = setTimeout(() => {
+      setPlatformsEntered(true)
+    }, 1000)
+
+    return () => {
+      observer.disconnect()
+      clearTimeout(safetyTimer)
+    }
   }, [])
 
   return (

@@ -31,13 +31,19 @@ export default function RevealWatcher() {
           }
         }
       },
-      { rootMargin: "450px 0px 450px 0px", threshold: 0 }
+      { rootMargin: "150px 0px 150px 0px", threshold: 0.05 }
     )
 
     const observeAll = () => {
       const els = document.querySelectorAll("[data-reveal]:not([data-in]), [class*='rv-']:not([data-in])")
       els.forEach(el => {
-        observer.observe(el)
+        // If element is already in initial viewport on mount, reveal it
+        const rect = el.getBoundingClientRect()
+        if (rect.top < window.innerHeight + 100 && rect.bottom > -100) {
+          revealElement(el)
+        } else {
+          observer.observe(el)
+        }
       })
     }
 
@@ -50,20 +56,9 @@ export default function RevealWatcher() {
 
     mutObs.observe(document.body, { childList: true, subtree: true })
 
-    // Progressive safety fallbacks: ensure content is never trapped at opacity 0
-    const fallbackTimer1 = setTimeout(() => {
-      observeAll()
-    }, 300)
-
-    const fallbackTimer2 = setTimeout(() => {
-      document.querySelectorAll("[data-reveal]:not([data-in]), [class*='rv-']:not([data-in])").forEach(revealElement)
-    }, 900)
-
     return () => {
       observer.disconnect()
       mutObs.disconnect()
-      clearTimeout(fallbackTimer1)
-      clearTimeout(fallbackTimer2)
     }
   }, [])
 

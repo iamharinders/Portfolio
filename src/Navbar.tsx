@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import { Link, useLocation, useNavigate } from "react-router-dom"
 
 interface NavbarProps {
@@ -12,14 +12,36 @@ export default function Navbar({ slots = [] }: NavbarProps) {
   const location = useLocation()
   const navigate = useNavigate()
 
+  const [navVisible, setNavVisible] = useState(true)
+  const lastScrollYRef = useRef(0)
+
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 30)
+      const currentScrollY = window.scrollY
+      setScrolled(currentScrollY > 30)
+
+      // Mobile smart auto-hide on scroll down to prevent obscuring headings and text
+      if (window.innerWidth < 768) {
+        if (currentScrollY <= 60) {
+          setNavVisible(true)
+        } else if (currentScrollY > lastScrollYRef.current + 12) {
+          // Scrolling down: hide floating navbar so page content remains completely visible
+          if (!mobileMenuOpen) {
+            setNavVisible(false)
+          }
+        } else if (currentScrollY < lastScrollYRef.current - 10) {
+          // Scrolling up: reveal navbar immediately
+          setNavVisible(true)
+        }
+      } else {
+        setNavVisible(true)
+      }
+      lastScrollYRef.current = currentScrollY
     }
     window.addEventListener("scroll", handleScroll, { passive: true })
     handleScroll()
     return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+  }, [mobileMenuOpen])
 
   // Section-aware IntersectionObserver for active orange glass indicator
   useEffect(() => {
@@ -159,7 +181,7 @@ export default function Navbar({ slots = [] }: NavbarProps) {
     <header
       style={{
         position: "fixed",
-        top: "16px",
+        top: "max(12px, env(safe-area-inset-top, 12px))",
         left: 0,
         right: 0,
         display: "flex",
@@ -168,6 +190,8 @@ export default function Navbar({ slots = [] }: NavbarProps) {
         padding: "0 16px",
         pointerEvents: "none",
         boxSizing: "border-box",
+        transform: navVisible ? "translateY(0)" : "translateY(-130%)",
+        transition: "transform 0.32s cubic-bezier(0.16, 1, 0.3, 1)",
       }}
     >
       <nav

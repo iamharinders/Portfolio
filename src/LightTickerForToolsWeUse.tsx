@@ -132,6 +132,7 @@ export default function LightTickerForToolsWeUse({ slots }: { slots?: string[] }
           width: 100%;
           overflow: hidden;
           padding: 12px 0 28px;
+          touch-action: pan-y;
         }
 
         .tools-marquee-track {
@@ -142,6 +143,12 @@ export default function LightTickerForToolsWeUse({ slots }: { slots?: string[] }
           will-change: transform;
           backface-visibility: hidden;
           transform: translate3d(-50%, 0, 0);
+          touch-action: pan-y;
+        }
+
+        .tools-marquee-half {
+          display: flex;
+          gap: 22px;
         }
 
         /* The marquee track NEVER pauses on hover, focus, or click */
@@ -175,6 +182,7 @@ export default function LightTickerForToolsWeUse({ slots }: { slots?: string[] }
           cursor: pointer;
           box-sizing: border-box;
           backface-visibility: hidden;
+          touch-action: pan-y;
         }
 
         @media (max-width: 600px) {
@@ -193,6 +201,9 @@ export default function LightTickerForToolsWeUse({ slots }: { slots?: string[] }
           .tools-marquee-track {
             gap: 14px !important;
             animation: toolsMarqueeL2R 24s linear infinite !important;
+          }
+          .tools-marquee-half {
+            gap: 14px !important;
           }
         }
 
@@ -305,7 +316,7 @@ export default function LightTickerForToolsWeUse({ slots }: { slots?: string[] }
         {/* Continuous Left-to-Right Marquee Track — Never pauses on hover */}
         <div ref={trackRef} className="tools-marquee-track">
           {/* First Half (Original) */}
-          <div style={{ display: "flex", gap: "22px" }}>
+          <div className="tools-marquee-half">
             {TOOL_SET.map((tool, index) => (
               <div
                 key={`orig-${tool.id}-${index}`}
@@ -393,7 +404,7 @@ export default function LightTickerForToolsWeUse({ slots }: { slots?: string[] }
           </div>
 
           {/* Second Half (Duplicate for seamless infinite -50% -> 0% loop) */}
-          <div className="tools-duplicate-half" style={{ display: "flex", gap: "22px" }} aria-hidden="true">
+          <div className="tools-marquee-half tools-duplicate-half" aria-hidden="true">
             {TOOL_SET.map((tool, index) => (
               <div
                 key={`dup-${tool.id}-${index}`}

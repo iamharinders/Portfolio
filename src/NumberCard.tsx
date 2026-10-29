@@ -26,6 +26,8 @@ export default function NumberCard({ slots = [] }: NumberCardProps) {
 
   useEffect(() => {
     let animId: number
+    let safetyTimer: number
+
     const prefersReducedMotion = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches
     if (prefersReducedMotion) {
       setInView(true)
@@ -38,6 +40,9 @@ export default function NumberCard({ slots = [] }: NumberCardProps) {
         for (const entry of entries) {
           if (entry.isIntersecting) {
             setInView(true)
+            if (safetyTimer) clearTimeout(safetyTimer)
+            if (animId) cancelAnimationFrame(animId)
+
             // Animate counter from 0 to targetNum smoothly
             const startTime = performance.now()
             const duration = 1200 // 1.2s smooth interpolation
@@ -56,10 +61,17 @@ export default function NumberCard({ slots = [] }: NumberCardProps) {
             }
 
             animId = requestAnimationFrame(animate)
+
+            // Safety fallback: ensure final value is exact after animation duration
+            safetyTimer = window.setTimeout(() => {
+              setDisplayValue(targetNum)
+            }, duration + 300)
           } else {
             // Replay when scrolling back into view
             setInView(false)
             setDisplayValue(0)
+            if (animId) cancelAnimationFrame(animId)
+            if (safetyTimer) clearTimeout(safetyTimer)
           }
         }
       },
@@ -68,15 +80,9 @@ export default function NumberCard({ slots = [] }: NumberCardProps) {
 
     if (cardRef.current) observer.observe(cardRef.current)
 
-    // Safety fallback: ensure stat number is never stuck at 0
-    const safetyTimer = setTimeout(() => {
-      setInView(true)
-      setDisplayValue(targetNum)
-    }, 1500)
-
     return () => {
       observer.disconnect()
-      clearTimeout(safetyTimer)
+      if (safetyTimer) clearTimeout(safetyTimer)
       if (animId) cancelAnimationFrame(animId)
     }
   }, [targetNum])

@@ -323,7 +323,20 @@ export default function RealVideosScrollGallery({
             }}
           >
             <span>See All Works</span>
-            <span style={{ color: "#FFFFFF" }}>↗</span>
+            <svg
+              width="13"
+              height="13"
+              viewBox="0 0 12 12"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+              style={{ display: "inline-block", flexShrink: 0 }}
+            >
+              <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" />
+            </svg>
           </a>
         </div>
 
@@ -404,18 +417,11 @@ export default function RealVideosScrollGallery({
                     justifyContent: "space-between",
                   }}
                 >
-                  {/* Video Element */}
-                  <video
-                    ref={(el) => {
-                      videoRefs.current[reel.id] = el
-                    }}
-                    src={reel.videoSrc}
-                    poster={reel.poster}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
+                  {/* Poster Image Fallback (Guarantees card is never a black rectangle) */}
+                  <img
+                    src={reel.poster}
+                    alt={reel.title}
+                    loading="lazy"
                     style={{
                       position: "absolute",
                       inset: 0,
@@ -423,6 +429,32 @@ export default function RealVideosScrollGallery({
                       height: "100%",
                       objectFit: "cover",
                       zIndex: 1,
+                    }}
+                  />
+
+                  {/* Video Element */}
+                  <video
+                    ref={(el) => {
+                      videoRefs.current[reel.id] = el
+                    }}
+                    src={reel.videoSrc}
+                    poster={reel.poster}
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                    onLoadedData={(e) => {
+                      e.currentTarget.style.opacity = "1"
+                    }}
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      zIndex: 2,
+                      opacity: 0,
+                      transition: "opacity 0.3s ease",
                     }}
                   />
 

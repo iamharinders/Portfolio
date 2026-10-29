@@ -282,13 +282,18 @@ export default function VideoCarousel3D({ onSelectVideo }: VideoCarousel3DProps)
 
           // Selective Video Playback Management: only decode/play cards currently in or near viewport.
           // This eliminates mobile hardware decoder saturation, prevents thermal throttling and fixes black screens.
-          if (frameCounterRef.current % 18 === 0) {
+          if (frameCounterRef.current % 15 === 0) {
             const video = card.querySelector("video")
             if (video) {
-              const isCardInView = Math.abs(clampedNorm) < 1.35
+              const maxArc = containerWidth < 768 ? 1.05 : 1.35
+              const isCardInView = Math.abs(clampedNorm) < maxArc
               if (isCardInView) {
                 if (video.paused) {
-                  video.play().catch(() => {})
+                  video.muted = true
+                  const p = video.play()
+                  if (p !== undefined) {
+                    p.catch(() => {})
+                  }
                 }
               } else {
                 if (!video.paused) {
@@ -459,20 +464,47 @@ export default function VideoCarousel3D({ onSelectVideo }: VideoCarousel3DProps)
                   boxSizing: "border-box",
                 }}
               >
+                {/* Visual Poster Layer: Guarantees card never renders as a black box */}
+                <img
+                  src={item.poster}
+                  alt={item.title}
+                  loading="lazy"
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    zIndex: 1,
+                  }}
+                />
+
                 {/* Continuous Autoplaying Loop Video */}
                 <video
                   src={item.src}
                   poster={item.poster}
-                  autoPlay
                   muted
                   loop
                   playsInline
                   preload="metadata"
+                  onLoadedData={(e) => {
+                    e.currentTarget.style.opacity = "1"
+                  }}
+                  onPlaying={(e) => {
+                    e.currentTarget.style.opacity = "1"
+                  }}
+                  onError={(e) => {
+                    e.currentTarget.style.opacity = "0"
+                  }}
                   style={{
+                    position: "absolute",
+                    inset: 0,
                     width: "100%",
                     height: "100%",
                     objectFit: "cover",
-                    display: "block",
+                    zIndex: 2,
+                    opacity: 0,
+                    transition: "opacity 0.35s ease",
                     pointerEvents: "none",
                   }}
                 />

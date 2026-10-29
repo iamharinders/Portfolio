@@ -70,6 +70,11 @@ export default function ProcessSequenceAnimation() {
             timersRef.current.push(window.setTimeout(() => setActiveStep(1), 150))
             timersRef.current.push(window.setTimeout(() => setActiveStep(2), 500))
             timersRef.current.push(window.setTimeout(() => setActiveStep(3), 850))
+
+            // Safety fallback: ensure final step is active after all steps complete
+            timersRef.current.push(window.setTimeout(() => {
+              setActiveStep(3)
+            }, 1200))
           }
         }
       },
@@ -78,16 +83,9 @@ export default function ProcessSequenceAnimation() {
 
     if (containerRef.current) observer.observe(containerRef.current)
 
-    // Safety fallback: ensure steps become active even if observer fires late
-    const safetyTimer = window.setTimeout(() => {
-      setInView(true)
-      setActiveStep(3)
-    }, 1500)
-
     return () => {
       observer.disconnect()
       clearAllTimers()
-      clearTimeout(safetyTimer)
     }
   }, [])
 

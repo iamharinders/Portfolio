@@ -595,7 +595,20 @@ export default function AllWorks() {
                   }}
                 >
                   <span>Watch in 4K Cinema Mode</span>
-                  <span style={{ fontSize: "16px" }}>↗</span>
+                  <svg
+                    width="13"
+                    height="13"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                    style={{ display: "inline-block", flexShrink: 0 }}
+                  >
+                    <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" />
+                  </svg>
                 </div>
               </div>
             </div>

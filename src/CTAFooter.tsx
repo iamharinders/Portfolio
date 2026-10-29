@@ -170,7 +170,20 @@ export default function CTAFooter({ slots }: { slots?: any[] } = {}) {
               }}
             >
               <span>Hire Me</span>
-              <span style={{ fontSize: "16px", lineHeight: 1 }}>↗</span>
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 12 12"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+                style={{ display: "inline-block", flexShrink: 0 }}
+              >
+                <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" />
+              </svg>
             </Link>
 
             <button
@@ -286,7 +299,20 @@ export default function CTAFooter({ slots }: { slots?: any[] } = {}) {
               }}
             >
               <span>Instagram</span>
-              <span style={{ fontSize: "11px", opacity: 0.6 }}>↗</span>
+              <svg
+                width="10"
+                height="10"
+                viewBox="0 0 12 12"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+                style={{ display: "inline-block", flexShrink: 0, opacity: 0.7 }}
+              >
+                <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" />
+              </svg>
             </a>
             <a
               href="mailto:iamharinders@gmail.com"

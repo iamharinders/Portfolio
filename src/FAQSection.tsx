@@ -143,7 +143,20 @@ export default function FAQSection() {
             onMouseLeave={(e) => (e.currentTarget.style.transform = "translateY(0)")}
           >
             <span>Have More Questions? Let's Talk</span>
-            <span style={{ fontSize: "15px" }}>↗</span>
+            <svg
+              width="13"
+              height="13"
+              viewBox="0 0 12 12"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+              style={{ display: "inline-block", flexShrink: 0 }}
+            >
+              <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" />
+            </svg>
           </a>
         </div>
 

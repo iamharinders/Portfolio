@@ -1273,6 +1273,15 @@ a, button, input, textarea, select {
   }
 }
 
+/* Scroll target spacing so floating navbar never obscures anchor targets */
+html {
+  scroll-padding-top: 96px;
+}
+
+section, [id], h1, h2 {
+  scroll-margin-top: 96px;
+}
+
 /* Horizontal scroll overflow guard on small viewports */
 html, body, #root {
   overflow-x: clip !important;

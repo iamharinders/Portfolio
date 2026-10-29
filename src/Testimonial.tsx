@@ -42,6 +42,13 @@ export default function Testimonial({ slots = [] }: TestimonialProps) {
             }
 
             animId = requestAnimationFrame(animate)
+
+            // Safety fallback: ensure final values are reached after animation duration
+            setTimeout(() => {
+              setMultiplier(3)
+              setEngagement(2000000)
+            }, 1500)
+
             // Trigger once per page load to avoid repeated counter reset
             observer.disconnect()
           }
@@ -52,16 +59,8 @@ export default function Testimonial({ slots = [] }: TestimonialProps) {
 
     if (rootRef.current) observer.observe(rootRef.current)
 
-    // Safety fallback: ensure metrics and text never remain invisible on mobile
-    const safetyTimer = setTimeout(() => {
-      setInView(true)
-      setMultiplier(3)
-      setEngagement(2000000)
-    }, 1200)
-
     return () => {
       observer.disconnect()
-      clearTimeout(safetyTimer)
       if (animId) cancelAnimationFrame(animId)
     }
   }, [])

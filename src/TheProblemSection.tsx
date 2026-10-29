@@ -57,6 +57,15 @@ export default function TheProblemSection() {
               }
             }
             requestAnimationFrame(step)
+
+            // Safety fallback: ensure all stats reach target after animation completes
+            setTimeout(() => {
+              setViewsCount(120)
+              setRetentionPct(37)
+              setTargetPct(84)
+              setDeliveryCount(84)
+              setDropProgress(1)
+            }, 1500)
           }
         }
       },
@@ -67,19 +76,8 @@ export default function TheProblemSection() {
       observer.observe(sectionRef.current)
     }
 
-    // Safety fallback: ensure text and stats never remain trapped at opacity 0 on mobile
-    const safetyTimer = setTimeout(() => {
-      setHasEntered(true)
-      setViewsCount(120)
-      setRetentionPct(37)
-      setTargetPct(84)
-      setDeliveryCount(84)
-      setDropProgress(1)
-    }, 1200)
-
     return () => {
       observer.disconnect()
-      clearTimeout(safetyTimer)
     }
   }, [])
 
